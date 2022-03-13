@@ -1,0 +1,4 @@
+﻿{
+    "bucket": "stringValue",
+    "urls": "http://upyun1.com/test/dir/file.jpg\nhttp://upyun2.com/test/dir/file.jpg"
+}

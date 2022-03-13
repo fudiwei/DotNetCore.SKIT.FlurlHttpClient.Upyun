@@ -1,0 +1,8 @@
+﻿{
+    "bucket_name": "example-bucket",
+    "type": "file",
+    "business_type": "file",
+    "websocket": true,
+    "bucket_remark": "stringValue",
+    "infrequent_access": true
+}

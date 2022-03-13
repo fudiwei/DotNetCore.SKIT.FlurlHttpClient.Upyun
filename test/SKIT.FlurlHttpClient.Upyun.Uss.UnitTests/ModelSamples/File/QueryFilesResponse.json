@@ -1,0 +1,17 @@
+﻿{
+    "files": [
+        {
+            "type": "image/jpeg",
+            "length": 4237,
+            "name": "foo.jpg",
+            "last_modified": 1415096225
+        },
+        {
+            "type": "folder",
+            "length": 0,
+            "name": "bar",
+            "last_modified": 1415096260
+        }
+    ],
+    "iter": "c2Rmc2Rsamdvc2pnb3dlam9pd2Vmd2Z3Zg=="
+}

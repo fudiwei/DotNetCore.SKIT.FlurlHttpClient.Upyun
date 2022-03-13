@@ -1,0 +1,11 @@
+﻿{
+    "bucket_name": "uplog",
+    "domain": "uplog.b0.upaiyun.com",
+    "data": [
+        {
+            "file": "269f5a230e6759c02da9a9b07257eacc.gz",
+            "size": 746662265,
+            "url": "http://xxxx/download.gz"
+        }
+    ]
+}

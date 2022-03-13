@@ -1,0 +1,8 @@
+﻿{
+    "result": true,
+    "data": {
+        "bucket_name": "example-bucket",
+        "args_follow": "enable",
+        "args_restore": "disable"
+    }
+}

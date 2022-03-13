@@ -1,0 +1,29 @@
+﻿{
+    "result": true,
+    "data": {
+        "bucket_name": "bucket",
+        "domain": "http:www.example.com",
+        "source_type": "https",
+        "domain_follow": "enable",
+        "redirect_follow": "enable",
+        "redirect_follow_num": 1,
+        "cdn": {
+            "servers": [
+                {
+                    "host": "122.255.10.11",
+                    "port": 80,
+                    "weight": 2,
+                    "max_fails": 3,
+                    "fail_timeout": 30
+                },
+                {
+                    "host": "122.255.10.12",
+                    "port": 81,
+                    "weight": 2,
+                    "max_fails": 3,
+                    "fail_timeout": 30
+                }
+            ]
+        }
+    }
+}

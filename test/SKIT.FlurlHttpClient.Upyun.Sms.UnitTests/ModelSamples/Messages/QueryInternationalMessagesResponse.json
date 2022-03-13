@@ -1,0 +1,53 @@
+﻿{
+    "messages": [
+        {
+            "id": "2020072816073510000001",
+            "template_id": 3,
+            "report_type": "vip",
+            "title": "测试测试",
+            "type": "industry",
+            "content": "hello，hello",
+            "temp_sign": "落子時",
+            "mobile": "12345678912",
+            "sent_at": null,
+            "created_at": "2020-07-28T16:07:35.000Z",
+            "status": "processing",
+            "quantity": 1,
+            "owner": {
+                "id": 1,
+                "name": "taevas",
+                "industry": 4,
+                "marketing": 0,
+                "intl": 2,
+                "idn": 0,
+                "jpn": 0,
+                "sgp": 0
+            }
+        },
+        {
+            "id": "2020080101020310000001",
+            "template_id": 3,
+            "report_type": "vip",
+            "title": "测试测试",
+            "type": "industry",
+            "content": "[落子時]hello，hello",
+            "temp_sign": "落子時",
+            "mobile": "12345678912",
+            "sent_at": "2020-08-01T01:02:03.000Z",
+            "created_at": "2020-08-01T01:02:03.000Z",
+            "status": "success",
+            "quantity": 1,
+            "owner": {
+                "id": 1,
+                "name": "taevas",
+                "industry": 4,
+                "marketing": 0,
+                "intl": 2,
+                "idn": 0,
+                "jpn": 0,
+                "sgp": 0
+            }
+        }
+    ],
+    "total": 2
+}

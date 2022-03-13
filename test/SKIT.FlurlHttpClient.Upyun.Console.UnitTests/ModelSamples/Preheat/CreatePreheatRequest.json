@@ -1,0 +1,5 @@
+﻿{
+    "bucket": "stringValue",
+    "url": "http://upyun1.com/test/dir/file.jpg\nhttp://upyun1.com/test/dir/file.jpg",
+    "range_bytes": "stringValue"
+}

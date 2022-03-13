@@ -1,0 +1,10 @@
+﻿{
+    "result": [
+        {
+            "url": "testmycdn.b0.upaiyun.com/aaa.jpg",
+            "status": "URL 格式错误",
+            "code": 4,
+            "task_id": "e10adc3949ba59abbe56e057f20f883e"
+        }
+    ]
+}

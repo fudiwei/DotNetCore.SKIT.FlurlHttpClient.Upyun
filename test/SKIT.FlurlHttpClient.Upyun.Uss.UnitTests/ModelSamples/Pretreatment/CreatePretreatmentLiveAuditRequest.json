@@ -1,0 +1,6 @@
+﻿{
+    "service": "<service>",
+    "source": "<source>",
+    "save_as": "<save_as>",
+    "notify_url": "<notify_url>"
+}

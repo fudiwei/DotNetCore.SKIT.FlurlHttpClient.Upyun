@@ -1,0 +1,33 @@
+﻿{
+    "bucket_name": "bucketdemo",
+    "type": "file",
+    "business_type": "vod",
+    "status": "enabled",
+    "separator": "!,-,_,",
+    "visible": true,
+    "form_api_secret": "secret",
+    "created_at": "2012-03-23 16:22:00",
+    "bucket_remark": "bucket_remark",
+    "approval_domains": [
+        "bucketdemo.b0.upaiyun.com"
+    ],
+    "disapproval_domains": [],
+    "approvaling_domains": [],
+    "default_domain": {
+        "https": true,
+        "force_https": true,
+        "domain": "bucket_name.b0.upaiyun.com"
+    },
+    "approval_domains_https": {
+        "abc.b.com": true
+    },
+    "operators": [
+        "stash",
+        "spalsh",
+        "demouser"
+    ],
+    "fusion_cdn": false,
+    "security_cdn": false,
+    "websocket": false,
+    "infrequent_access": false
+}

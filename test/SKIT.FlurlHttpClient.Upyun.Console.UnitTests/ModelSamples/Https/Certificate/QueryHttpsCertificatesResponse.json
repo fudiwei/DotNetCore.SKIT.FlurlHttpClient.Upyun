@@ -1,0 +1,33 @@
+﻿{
+    "status": 0,
+    "result": {
+        "13da881cc3a91d36ccaf3bde66f81802": {
+            "commonName": "www.upyun.com",
+            "organization": "www.upyun.com",
+            "organizationUnit": "杭州某网络公司",
+            "validity": {
+                "start": 1396915200000,
+                "end": 1460462400000
+            },
+            "config_domain": 20,
+            "crt_type": "custom",
+            "created_at": 1514736000
+        },
+        "465af8787caf5b89b4263d22af62c0c7": {
+            "organization": "*.baidu.com",
+            "organizationUnit": "BeiJing Baidu Netcom Science Technology Co., Ltd",
+            "validity": {
+                "start": 1396915200000,
+                "end": 1460462400000
+            },
+            "config_domain": 0,
+            "crt_type": "trustasia",
+            "payment_type": "free",
+            "crt_type_pay": "ov",
+            "brand": "trustasia",
+            "pro": true,
+            "domain_type": "single",
+            "created_at": 1514736000
+        }
+    }
+}

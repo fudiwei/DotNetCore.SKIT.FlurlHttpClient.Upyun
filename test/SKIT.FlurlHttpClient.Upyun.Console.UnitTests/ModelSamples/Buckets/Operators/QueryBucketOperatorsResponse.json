@@ -1,0 +1,16 @@
+﻿{
+    "operators": [
+        {
+            "operator_name": "caozuoyuan",
+            "realname": "又拍云",
+            "status": "enabled",
+            "created_at": 1454232300,
+            "bind_at": 1454232300,
+            "operator_auth": {
+                "read": true,
+                "write": true,
+                "delete": false
+            }
+        }
+    ]
+}

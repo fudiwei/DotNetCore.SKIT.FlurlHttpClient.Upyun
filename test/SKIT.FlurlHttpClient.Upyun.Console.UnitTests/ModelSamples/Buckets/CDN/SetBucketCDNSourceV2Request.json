@@ -1,0 +1,23 @@
+﻿{
+    "bucket_name": "example-bucket",
+    "domain": "www.example.com",
+    "source_type": "https",
+    "cdn": {
+        "servers": [
+            {
+                "host": "1.1.1.1",
+                "port": 80,
+                "weight": 1,
+                "max_fails": 3,
+                "fail_timeout": 30
+            },
+            {
+                "host": "2.2.2.2",
+                "port": 80,
+                "weight": 1,
+                "max_fails": 3,
+                "fail_timeout": 30
+            }
+        ]
+    }
+}

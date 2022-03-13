@@ -1,0 +1,26 @@
+﻿{
+    "pager": {
+        "since": null,
+        "max": 123456,
+        "limit": 25
+    },
+    "buckets": [
+        {
+            "bucket_name": "upyun",
+            "type": "file",
+            "visible": true,
+            "form_api_status": true,
+            "quota": 0,
+            "https": "enabled",
+            "business_type": "live",
+            "domains": [
+                {
+                    "domain": "www.upyun.com",
+                    "status": "NORMAL"
+                }
+            ],
+            "status": "NORMAL",
+            "created_at": "2012-03-23 16:22:00"
+        }
+    ]
+}

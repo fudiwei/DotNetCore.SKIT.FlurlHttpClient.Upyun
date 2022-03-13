@@ -1,0 +1,9 @@
+﻿{
+    "main_domain": "example.com",
+    "other_domains": [],
+    "brand_name": "Other",
+    "cert_type": "DV",
+    "end_date": "2018-09-28 09:03:52",
+    "cert_domain_type": "多域名证书",
+    "free": false
+}

@@ -1,0 +1,45 @@
+﻿{
+    "result": true,
+    "data": {
+        "bucket_name": "example-bucket",
+        "enable": true,
+        "options": [
+            {
+                "auth_url": "http://127.0.0.1:9090/authget",
+                "source_url": "www.authserver.com/abc/e/",
+                "auth_params": [
+                    "A",
+                    "B",
+                    "C"
+                ],
+                "auth_method": "GET",
+                "auth_success_type": "status_code",
+                "auth_success_value": "200",
+                "timeout": 10,
+                "when_failed": false
+            },
+            {
+                "auth_url": "http://127.0.0.1:9090/authget",
+                "source_url": "www.upyun.com/a/b/*",
+                "auth_params": [
+                    "ABC"
+                ],
+                "auth_method": "POST",
+                "auth_success_type": "response_body",
+                "auth_success_value": "200",
+                "timeout": 10,
+                "when_failed": false
+            }
+        ],
+        "failed_message": [
+            {
+                "index": 0,
+                "err_message": "authorize method 必须是 POST 或者是 GET"
+            },
+            {
+                "index": 1,
+                "err_message": "auth_success_type 是不合法的"
+            }
+        ]
+    }
+}

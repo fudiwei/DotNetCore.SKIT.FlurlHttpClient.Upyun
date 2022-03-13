@@ -1,0 +1,21 @@
+﻿{
+    "title": "hello",
+    "temp_sign": "sign",
+    "content": "content",
+    "sign_location": "top",
+    "type": "industry",
+    "status": "review",
+    "updated_at": "2017-04-10T03:31:18.000Z",
+    "id": 3,
+    "report_type": "vip",
+    "owner": {
+        "id": 1,
+        "name": "taevas",
+        "industry": 4,
+        "marketing": 0,
+        "intl": 1,
+        "idn": 0,
+        "jpn": 0,
+        "sgp": 0
+    }
+}

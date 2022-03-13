@@ -1,0 +1,47 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net461; netstandard2.0; net5.0; net6.0</TargetFrameworks>
+		<LangVersion>8.0</LangVersion>
+		<Nullable>enable</Nullable>
+		<NullableReferenceTypes>true</NullableReferenceTypes>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<PackageId>SKIT.FlurlHttpClient.Upyun.Uss</PackageId>
+		<PackageIcon>LOGO.png</PackageIcon>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/fudiwei/DotNetCore.SKIT.FlurlHttpClient.Upyun</PackageProjectUrl>
+		<PackageTags>Flurl.Http Upyun 又拍 又拍云 又拍云存储 对象存储 文件存储 USS</PackageTags>
+		<Version>0.1.0</Version>
+		<Description>基于 Flurl.Http 的又拍云云存储服务（USS）API 客户端。</Description>
+		<Authors>Fu Diwei</Authors>
+		<RepositoryType>git</RepositoryType>
+		<RepositoryUrl>https://github.com/fudiwei/DotNetCore.SKIT.FlurlHttpClient.Upyun.git</RepositoryUrl>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)' == 'Release'">
+		<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+		<Deterministic>true</Deterministic>
+		<EmbedUntrackedSources>true</EmbedUntrackedSources>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="../../LOGO.png" Pack="true" PackagePath="/" />
+		<None Include="README.md" Pack="true" PackagePath="/" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Reference Include="System.Web" Condition="'$(TargetFramework)' == 'net461'" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="SKIT.FlurlHttpClient.Common" Version="2.4.2" />
+	</ItemGroup>
+
+</Project>
+ 

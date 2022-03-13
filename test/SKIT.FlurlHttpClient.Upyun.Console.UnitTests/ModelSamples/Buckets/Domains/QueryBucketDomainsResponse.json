@@ -1,0 +1,18 @@
+﻿{
+    "pager": {
+        "pages": 10,
+        "page": 1,
+        "total": 20
+    },
+    "domains": [
+        {
+            "id": 0,
+            "account_id": 0,
+            "bucket_id": 4919,
+            "domain": "xxx.com",
+            "status": "NORMAL",
+            "updated_at": 14309923021,
+            "type": "PLAY"
+        }
+    ]
+}

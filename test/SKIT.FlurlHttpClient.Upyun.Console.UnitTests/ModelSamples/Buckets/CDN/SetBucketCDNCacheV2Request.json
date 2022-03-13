@@ -1,0 +1,35 @@
+﻿{
+    "bucket_name": "example-bucket",
+    "specific_rules": [
+        {
+            "name": "home",
+            "uri": "*.jpg",
+            "expires": 3600,
+            "status_codes": [ 200 ]
+        },
+        {
+            "uri": "/d/e/*",
+            "expires": 1200
+        },
+        {
+            "uri": "/a/b/*.zip",
+            "expires": 1234
+        },
+        {
+            "uri": "/m/n/*?foo&bar=123",
+            "expires": 555
+        }
+    ],
+    "nocache_list": [
+        {
+            "uri": "*.rar"
+        },
+        {
+            "uri": "/a/*"
+        },
+        {
+            "uri": "/j/k/*?foo&bar=123",
+            "status_codes": [ 301, 302 ]
+        }
+    ]
+}

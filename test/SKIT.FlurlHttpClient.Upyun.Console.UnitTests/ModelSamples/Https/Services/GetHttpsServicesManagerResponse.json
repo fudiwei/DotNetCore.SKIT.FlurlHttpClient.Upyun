@@ -1,0 +1,31 @@
+﻿{
+    "status": 0,
+    "result": [
+        {
+            "certificate_id": "13da881cc3a91d36ccaf3bde66f81802",
+            "organization": "杭州某网络公司",
+            "commonName": "www.upyun.com",
+            "validity": {
+                "start": 1396915200000,
+                "end": 1460462400000
+            },
+            "crt_type": "custom",
+            "https": true,
+            "force_https": true,
+            "source_https": true
+        },
+        {
+            "certificate_id": "465af8787caf5b89b4263d22af62c0c7",
+            "organization": "hdu",
+            "commonName": "hdu.edu.cn",
+            "validity": {
+                "start": 1396915200000,
+                "end": 1460462400000
+            },
+            "crt_type": "custom",
+            "https": false,
+            "force_https": false,
+            "source_https": false
+        }
+    ]
+}
