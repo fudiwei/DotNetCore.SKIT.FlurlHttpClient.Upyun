@@ -60,7 +60,7 @@
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("status_codes")]
                         [System.Text.Json.Serialization.JsonPropertyName("status_codes")]
-                        public int[] StatusCodeList { get; set; }
+                        public int[]? StatusCodeList { get; set; }
 
                         /// <summary>
                         /// 获取或设置需要缓存的响应标头列表。

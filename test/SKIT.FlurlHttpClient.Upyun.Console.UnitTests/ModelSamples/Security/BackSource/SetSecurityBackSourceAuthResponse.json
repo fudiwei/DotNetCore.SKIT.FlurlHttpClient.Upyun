@@ -7,11 +7,7 @@
             {
                 "auth_url": "http://127.0.0.1:9090/authget",
                 "source_url": "www.authserver.com/abc/e/",
-                "auth_params": [
-                    "A",
-                    "B",
-                    "C"
-                ],
+                "auth_params": ["A", "B", "C"],
                 "auth_method": "GET",
                 "auth_success_type": "status_code",
                 "auth_success_value": "200",
@@ -21,9 +17,7 @@
             {
                 "auth_url": "http://127.0.0.1:9090/authget",
                 "source_url": "www.upyun.com/a/b/*",
-                "auth_params": [
-                    "ABC"
-                ],
+                "auth_params": ["ABC"],
                 "auth_method": "POST",
                 "auth_success_type": "response_body",
                 "auth_success_value": "200",

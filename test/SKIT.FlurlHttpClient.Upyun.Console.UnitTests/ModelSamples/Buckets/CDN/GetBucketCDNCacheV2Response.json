@@ -6,9 +6,7 @@
             {
                 "uri": "*.jpg",
                 "expires": 3600,
-                "status_codes": [
-                    200
-                ]
+                "status_codes": [200]
             },
             {
                 "uri": "/d/e/*",
@@ -32,10 +30,7 @@
             },
             {
                 "uri": "/j/k/*?foo&bar=123",
-                "status_codes": [
-                    301,
-                    302
-                ]
+                "status_codes": [301, 302]
             }
         ]
     }

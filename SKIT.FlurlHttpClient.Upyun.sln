@@ -3,9 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CF75FAD6-5781-4E2A-8A00-6ABD1026AA19}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{DB7DE00F-6082-431C-A4C2-0DF5B9233672}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SKIT.FlurlHttpClient.Upyun.Uss", "src\SKIT.FlurlHttpClient.Upyun.Uss\SKIT.FlurlHttpClient.Upyun.Uss.csproj", "{6A6F02A0-B75F-4E81-A3C8-364D51F5DD50}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SKIT.FlurlHttpClient.Upyun.Uss", "src\SKIT.FlurlHttpClient.Upyun.Uss\SKIT.FlurlHttpClient.Upyun.Uss.csproj", "{6A6F02A0-B75F-4E81-A3C8-364D51F5DD50}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SKIT.FlurlHttpClient.Upyun.Sms", "src\SKIT.FlurlHttpClient.Upyun.Sms\SKIT.FlurlHttpClient.Upyun.Sms.csproj", "{3D1F370E-0E6A-4E55-BEF7-A8D3AA8C346C}"
 EndProject
@@ -15,7 +20,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SKIT.FlurlHttpClient.Upyun.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{100799A6-2DD0-4552-A6FE-C5C01BF09C1D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SKIT.FlurlHttpClient.Upyun.Uss.UnitTests", "test\SKIT.FlurlHttpClient.Upyun.Uss.UnitTests\SKIT.FlurlHttpClient.Upyun.Uss.UnitTests.csproj", "{8272C37F-ED7A-4E24-961B-0B2AAF2F9846}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SKIT.FlurlHttpClient.Upyun.Uss.UnitTests", "test\SKIT.FlurlHttpClient.Upyun.Uss.UnitTests\SKIT.FlurlHttpClient.Upyun.Uss.UnitTests.csproj", "{8272C37F-ED7A-4E24-961B-0B2AAF2F9846}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SKIT.FlurlHttpClient.Upyun.Sms.UnitTests", "test\SKIT.FlurlHttpClient.Upyun.Sms.UnitTests\SKIT.FlurlHttpClient.Upyun.Sms.UnitTests.csproj", "{06F372FE-7B46-4F1A-A08B-42EFDB8C01FF}"
 EndProject
@@ -29,6 +34,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6A6F02A0-B75F-4E81-A3C8-364D51F5DD50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A6F02A0-B75F-4E81-A3C8-364D51F5DD50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A6F02A0-B75F-4E81-A3C8-364D51F5DD50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A6F02A0-B75F-4E81-A3C8-364D51F5DD50}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3D1F370E-0E6A-4E55-BEF7-A8D3AA8C346C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3D1F370E-0E6A-4E55-BEF7-A8D3AA8C346C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D1F370E-0E6A-4E55-BEF7-A8D3AA8C346C}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -41,6 +50,10 @@ Global
 		{0B6E623D-341D-4B32-80C2-6D81731B7D26}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B6E623D-341D-4B32-80C2-6D81731B7D26}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B6E623D-341D-4B32-80C2-6D81731B7D26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8272C37F-ED7A-4E24-961B-0B2AAF2F9846}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8272C37F-ED7A-4E24-961B-0B2AAF2F9846}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8272C37F-ED7A-4E24-961B-0B2AAF2F9846}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8272C37F-ED7A-4E24-961B-0B2AAF2F9846}.Release|Any CPU.Build.0 = Release|Any CPU
 		{06F372FE-7B46-4F1A-A08B-42EFDB8C01FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{06F372FE-7B46-4F1A-A08B-42EFDB8C01FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06F372FE-7B46-4F1A-A08B-42EFDB8C01FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -53,27 +66,19 @@ Global
 		{7A15BF32-0112-4341-9C13-E570BF1E0FF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A15BF32-0112-4341-9C13-E570BF1E0FF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A15BF32-0112-4341-9C13-E570BF1E0FF5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6A6F02A0-B75F-4E81-A3C8-364D51F5DD50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6A6F02A0-B75F-4E81-A3C8-364D51F5DD50}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6A6F02A0-B75F-4E81-A3C8-364D51F5DD50}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6A6F02A0-B75F-4E81-A3C8-364D51F5DD50}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8272C37F-ED7A-4E24-961B-0B2AAF2F9846}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8272C37F-ED7A-4E24-961B-0B2AAF2F9846}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8272C37F-ED7A-4E24-961B-0B2AAF2F9846}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8272C37F-ED7A-4E24-961B-0B2AAF2F9846}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{6A6F02A0-B75F-4E81-A3C8-364D51F5DD50} = {DB7DE00F-6082-431C-A4C2-0DF5B9233672}
 		{3D1F370E-0E6A-4E55-BEF7-A8D3AA8C346C} = {DB7DE00F-6082-431C-A4C2-0DF5B9233672}
 		{687F557B-D7B8-4F88-9DBC-71B3BCAA5BC8} = {DB7DE00F-6082-431C-A4C2-0DF5B9233672}
 		{0B6E623D-341D-4B32-80C2-6D81731B7D26} = {DB7DE00F-6082-431C-A4C2-0DF5B9233672}
+		{8272C37F-ED7A-4E24-961B-0B2AAF2F9846} = {100799A6-2DD0-4552-A6FE-C5C01BF09C1D}
 		{06F372FE-7B46-4F1A-A08B-42EFDB8C01FF} = {100799A6-2DD0-4552-A6FE-C5C01BF09C1D}
 		{BBC0A438-3646-4DCC-9833-364B4644E257} = {100799A6-2DD0-4552-A6FE-C5C01BF09C1D}
 		{7A15BF32-0112-4341-9C13-E570BF1E0FF5} = {100799A6-2DD0-4552-A6FE-C5C01BF09C1D}
-		{6A6F02A0-B75F-4E81-A3C8-364D51F5DD50} = {DB7DE00F-6082-431C-A4C2-0DF5B9233672}
-		{8272C37F-ED7A-4E24-961B-0B2AAF2F9846} = {100799A6-2DD0-4552-A6FE-C5C01BF09C1D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C568CFE8-F397-49B9-8037-B3CEB76BF6F2}

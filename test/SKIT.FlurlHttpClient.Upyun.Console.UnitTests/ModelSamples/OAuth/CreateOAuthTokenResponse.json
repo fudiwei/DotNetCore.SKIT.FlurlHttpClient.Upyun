@@ -2,9 +2,7 @@
     "name": "流量查询 token",
     "access_token": "Sudnh912we8ksd",
     "scope": "log",
-    "services": [
-        "service1"
-    ],
+    "services": ["service1"],
     "created_at": 1502173458,
     "expired_at": 1502173458
 }

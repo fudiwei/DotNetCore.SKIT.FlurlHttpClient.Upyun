@@ -64,7 +64,7 @@ namespace Newtonsoft.Json.Converters
             {
                 return existingValue;
             }
-            else if (reader.TokenType == JsonToken.StartObject || 
+            else if (reader.TokenType == JsonToken.StartObject ||
                      reader.TokenType == JsonToken.StartArray)
             {
                 bool isArrayLike = reader.TokenType == JsonToken.StartArray;

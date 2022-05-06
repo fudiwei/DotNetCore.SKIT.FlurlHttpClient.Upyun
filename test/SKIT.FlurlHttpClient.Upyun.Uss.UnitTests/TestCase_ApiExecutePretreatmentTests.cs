@@ -17,7 +17,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.UnitTests
                 TaskList = new List<Models.CreatePretreatmentSpidermanRequest.Types.Task>()
                 {
                     new Models.CreatePretreatmentSpidermanRequest.Types.Task()
-                    { 
+                    {
                         Url = "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png",
                         SaveAs = "test_folder/baidu_logo.png",
                         EnableOverwrite = true

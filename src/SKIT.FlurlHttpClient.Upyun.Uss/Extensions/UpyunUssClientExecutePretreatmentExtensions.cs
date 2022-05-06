@@ -69,7 +69,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss
 #pragma warning restore CS8620
             return await client.SendRequestAsync<Models.CreatePretreatmentThumbnailResponse>(flurlReq, httpContent: httpContent, cancellationToken: cancellationToken);
         }
-        
+
         /// <summary>
         /// <para>异步调用 [POST] /pretreatment/ 接口。</para>
         /// </summary>
