@@ -32,7 +32,7 @@
 
 <summary>[展开查看]</summary>
 
--   Release 0.1.0
+-   Release 2.0.0
 
     -   首次发布。
 
@@ -46,7 +46,7 @@
 
 <summary>[展开查看]</summary>
 
--   Release 0.1.0
+-   Release 2.0.0
 
     -   首次发布。
 
@@ -60,7 +60,7 @@
 
 <summary>[展开查看]</summary>
 
--   Release 0.1.0
+-   Release 2.0.0
 
     -   首次发布。
 
@@ -74,7 +74,7 @@
 
 <summary>[展开查看]</summary>
 
--   Release 0.1.0
+-   Release 2.0.0
 
     -   首次发布。
 
