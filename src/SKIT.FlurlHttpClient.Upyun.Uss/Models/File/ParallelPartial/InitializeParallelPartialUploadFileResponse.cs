@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 
 namespace SKIT.FlurlHttpClient.Upyun.Uss.Models
@@ -15,7 +15,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.Models
         [System.Text.Json.Serialization.JsonIgnore]
         public string PartialUUID
         {
-            get { return RawHeaders.SingleOrDefault(h => string.Equals(h.Key, "X-Upyun-Multi-Uuid", StringComparison.OrdinalIgnoreCase)).Value ?? default!; }
+            get { return RawHeaders.TryGetValue("x-upyun-multi-uuid", out string value) ? value : string.Empty; }
         }
     }
 }

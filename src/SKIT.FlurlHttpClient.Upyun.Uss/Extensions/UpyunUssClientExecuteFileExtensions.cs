@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Net.Http;
 using System.Text.RegularExpressions;
@@ -28,24 +28,24 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss
 
             if (request.FileMd5 != null)
             {
-                flurlReq.WithHeader("Content-MD5", request.FileMd5);
+                flurlReq.WithHeader("content-md5", request.FileMd5);
             }
 
             if (request.FileContentType != null)
             {
-                flurlReq.WithHeader("Content-Type", request.FileContentType);
+                flurlReq.WithHeader("content-type", request.FileContentType);
             }
 
             if (request.FileSecret != null)
             {
-                flurlReq.WithHeader("Content-Secret", request.FileSecret);
+                flurlReq.WithHeader("content-secret", request.FileSecret);
             }
 
             if (request.Metadata != null)
             {
                 flurlReq.WithHeaders(
                     request.Metadata.ToDictionary(
-                        k => $"X-Upyun-Meta-{Regex.Replace(k.Key, "^X-Upyun-Meta-", "", RegexOptions.IgnoreCase)}",
+                        k => $"x-upyun-meta-{Regex.Replace(k.Key, "^x-upyun-meta-", "", RegexOptions.IgnoreCase)}",
                         v => v.Value
                     ),
                     replaceUnderscoreWithHyphen: false
@@ -77,10 +77,10 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss
 
             IFlurlRequest flurlReq = client
                 .CreateRequest(request, HttpMethod.Put, request.BucketName, request.TargetFileKey)
-                .WithHeader("X-Upyun-Copy-Source", $"{request.BucketName}/{request.SourceFileKey}");
+                .WithHeader("x-upyun-copy-source", $"{request.BucketName}/{request.SourceFileKey}");
 
             if (request.FileMd5 != null)
-                flurlReq.WithHeader("Content-MD5", request.FileMd5);
+                flurlReq.WithHeader("content-md5", request.FileMd5);
 
             return await client.SendRequestAsync<Models.CopyFileResponse>(flurlReq, cancellationToken: cancellationToken);
         }
@@ -100,10 +100,10 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss
 
             IFlurlRequest flurlReq = client
                 .CreateRequest(request, HttpMethod.Put, request.BucketName, request.TargetFileKey)
-                .WithHeader("X-Upyun-Move-Source", $"{request.BucketName}/{request.SourceFileKey}");
+                .WithHeader("x-upyun-move-source", $"{request.BucketName}/{request.SourceFileKey}");
 
             if (request.FileMd5 != null)
-                flurlReq.WithHeader("Content-MD5", request.FileMd5);
+                flurlReq.WithHeader("content-md5", request.FileMd5);
 
             return await client.SendRequestAsync<Models.MoveFileResponse>(flurlReq, cancellationToken: cancellationToken);
         }
@@ -216,7 +216,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss
             {
                 flurlReq.WithHeaders(
                     request.Metadata.ToDictionary(
-                        k => $"X-Upyun-Meta-{Regex.Replace(k.Key, "^X-Upyun-Meta-", "", RegexOptions.IgnoreCase)}",
+                        k => $"x-upyun-meta-{Regex.Replace(k.Key, "^x-upyun-meta-", "", RegexOptions.IgnoreCase)}",
                         v => v.Value
                     ),
                     replaceUnderscoreWithHyphen: false
@@ -243,26 +243,26 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss
 
             IFlurlRequest flurlReq = client
                 .CreateRequest(request, HttpMethod.Put, request.BucketName, request.FileKey)
-                .WithHeader("X-Upyun-Multi-Disorder", "true")
-                .WithHeader("X-Upyun-Multi-Stage", "initiate")
-                .WithHeader("X-Upyun-Multi-Length", request.FileSize)
-                .WithHeader("X-Upyun-Multi-Part-Size", request.ChunkSize);
+                .WithHeader("x-upyun-multi-disorder", "true")
+                .WithHeader("x-upyun-multi-stage", "initiate")
+                .WithHeader("x-upyun-multi-length", request.FileSize)
+                .WithHeader("x-upyun-multi-part-size", request.ChunkSize);
 
             if (request.FileMd5 != null)
             {
-                flurlReq.WithHeader("Content-MD5", request.FileMd5);
+                flurlReq.WithHeader("content-md5", request.FileMd5);
             }
 
             if (request.FileContentType != null)
             {
-                flurlReq.WithHeader("X-Upyun-Multi-Type", request.FileContentType);
+                flurlReq.WithHeader("x-upyun-multi-type", request.FileContentType);
             }
 
             if (request.Metadata != null)
             {
                 flurlReq.WithHeaders(
                     request.Metadata.ToDictionary(
-                        k => $"X-Upyun-Meta-{Regex.Replace(k.Key, "^X-Upyun-Meta-", "", RegexOptions.IgnoreCase)}",
+                        k => $"x-upyun-meta-{Regex.Replace(k.Key, "^x-upyun-meta-", "", RegexOptions.IgnoreCase)}",
                         v => v.Value
                     ),
                     replaceUnderscoreWithHyphen: false
@@ -287,13 +287,13 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss
 
             IFlurlRequest flurlReq = client
                 .CreateRequest(request, HttpMethod.Put, request.BucketName, request.FileKey)
-                .WithHeader("X-Upyun-Multi-Stage", "upload")
-                .WithHeader("X-Upyun-Multi-Uuid", request.PartialUUID)
-                .WithHeader("X-Upyun-Part-Id", request.ChunkId);
+                .WithHeader("x-upyun-multi-stage", "upload")
+                .WithHeader("x-upyun-multi-uuid", request.PartialUUID)
+                .WithHeader("x-upyun-part-id", request.ChunkId);
 
             if (request.FileMd5 != null)
             {
-                flurlReq.WithHeader("Content-MD5", request.FileMd5);
+                flurlReq.WithHeader("content-md5", request.FileMd5);
             }
 
             using var httpContent = new ByteArrayContent(request.FileBytes ?? Array.Empty<byte>());
@@ -316,12 +316,12 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss
 
             IFlurlRequest flurlReq = client
                 .CreateRequest(request, HttpMethod.Put, request.BucketName, request.FileKey)
-                .WithHeader("X-Upyun-Multi-Stage", "complete")
-                .WithHeader("X-Upyun-Multi-Uuid", request.PartialUUID);
+                .WithHeader("x-upyun-multi-stage", "complete")
+                .WithHeader("x-upyun-multi-uuid", request.PartialUUID);
 
             if (request.FileMd5 != null)
             {
-                flurlReq.WithHeader("Content-MD5", request.FileMd5);
+                flurlReq.WithHeader("content-md5", request.FileMd5);
             }
 
             return await client.SendRequestAsync<Models.CompleteParallelPartialUploadFileResponse>(flurlReq, cancellationToken: cancellationToken);
@@ -344,25 +344,25 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss
 
             IFlurlRequest flurlReq = client
                 .CreateRequest(request, HttpMethod.Put, request.BucketName, request.FileKey)
-                .WithHeader("X-Upyun-Multi-Stage", "initiate")
-                .WithHeader("X-Upyun-Multi-Length", request.FileSize)
-                .WithHeader("X-Upyun-Multi-Part-Size", request.ChunkSize);
+                .WithHeader("x-upyun-multi-stage", "initiate")
+                .WithHeader("x-upyun-multi-length", request.FileSize)
+                .WithHeader("x-upyun-multi-part-size", request.ChunkSize);
 
             if (request.FileMd5 != null)
             {
-                flurlReq.WithHeader("Content-MD5", request.FileMd5);
+                flurlReq.WithHeader("content-md5", request.FileMd5);
             }
 
             if (request.FileContentType != null)
             {
-                flurlReq.WithHeader("X-Upyun-Multi-Type", request.FileContentType);
+                flurlReq.WithHeader("x-upyun-multi-type", request.FileContentType);
             }
 
             if (request.Metadata != null)
             {
                 flurlReq.WithHeaders(
                     request.Metadata.ToDictionary(
-                        k => $"X-Upyun-Meta-{Regex.Replace(k.Key, "^X-Upyun-Meta-", "", RegexOptions.IgnoreCase)}",
+                        k => $"x-upyun-meta-{Regex.Replace(k.Key, "^x-upyun-meta-", "", RegexOptions.IgnoreCase)}",
                         v => v.Value
                     ),
                     replaceUnderscoreWithHyphen: false
@@ -387,13 +387,13 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss
 
             IFlurlRequest flurlReq = client
                 .CreateRequest(request, HttpMethod.Put, request.BucketName, request.FileKey)
-                .WithHeader("X-Upyun-Multi-Stage", "upload")
-                .WithHeader("X-Upyun-Multi-Uuid", request.PartialUUID)
-                .WithHeader("X-Upyun-Part-Id", request.ChunkId);
+                .WithHeader("x-upyun-multi-stage", "upload")
+                .WithHeader("x-upyun-multi-uuid", request.PartialUUID)
+                .WithHeader("x-upyun-part-id", request.ChunkId);
 
             if (request.FileMd5 != null)
             {
-                flurlReq.WithHeader("Content-MD5", request.FileMd5);
+                flurlReq.WithHeader("content-md5", request.FileMd5);
             }
 
             using var httpContent = new ByteArrayContent(request.FileBytes ?? Array.Empty<byte>());
@@ -416,12 +416,12 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss
 
             IFlurlRequest flurlReq = client
                 .CreateRequest(request, HttpMethod.Put, request.BucketName, request.FileKey)
-                .WithHeader("X-Upyun-Multi-Stage", "complete")
-                .WithHeader("X-Upyun-Multi-Uuid", request.PartialUUID);
+                .WithHeader("x-upyun-multi-stage", "complete")
+                .WithHeader("x-upyun-multi-uuid", request.PartialUUID);
 
             if (request.FileMd5 != null)
             {
-                flurlReq.WithHeader("Content-MD5", request.FileMd5);
+                flurlReq.WithHeader("content-md5", request.FileMd5);
             }
 
             return await client.SendRequestAsync<Models.CompleteSerialPartialUploadFileResponse>(flurlReq, cancellationToken: cancellationToken);
