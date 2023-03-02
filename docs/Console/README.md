@@ -1,6 +1,6 @@
 ﻿# SKIT.FlurlHttpClient.Upyun.Console
 
-基于 `Flurl.Http` 的[又拍云服务管理后台](https://api.upyun.com/doc/) API 客户端。
+基于 `Flurl.Http` 的[又拍云服务管理后台](https://api.upyun.com/doc/) HTTP API SDK。
 
 ---
 
@@ -10,7 +10,7 @@
 
 ---
 
-## 基础用法
+## 快速入门
 
 ### 安装：
 
@@ -65,9 +65,13 @@ else
 
 ---
 
-## 高级技巧
+## 基础用法
 
--   [如何快速找到需要调用的 API 模型类名 / 方法名？](./Advanced_ModelDefinition.md)
+-   [如何快速找到需要调用的 API 模型类名 / 方法名？](./Basic_ModelDefinition.md)
+
+---
+
+## 高级技巧
 
 -   [如何在 ASP.NET Core 中与 `IHttpClientFactory` 集成？](./Advanced_IHttpClientFactory.md)
 

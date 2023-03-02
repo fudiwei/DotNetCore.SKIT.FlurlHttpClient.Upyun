@@ -2,7 +2,7 @@
 
 [![GitHub Stars](https://img.shields.io/github/stars/fudiwei/DotNetCore.SKIT.FlurlHttpClient.Upyun?logo=github&label=Stars)](https://github.com/fudiwei/DotNetCore.SKIT.FlurlHttpClient.Upyun) [![GitHub Forks](https://img.shields.io/github/forks/fudiwei/DotNetCore.SKIT.FlurlHttpClient.Upyun?logo=github&label=Forks)](https://github.com/fudiwei/DotNetCore.SKIT.FlurlHttpClient.Upyun) [![NuGet Download](https://img.shields.io/nuget/dt/SKIT.FlurlHttpClient.Upyun.Sms.svg?sanitize=true&label=Downloads)](https://www.nuget.org/packages/SKIT.FlurlHttpClient.Upyun.Sms) [![License](https://img.shields.io/github/license/fudiwei/DotNetCore.SKIT.FlurlHttpClient.Upyun?label=License)](https://mit-license.org/)
 
-基于 `Flurl.Http` 的又拍云短信服务（SMS）API 客户端。
+基于 `Flurl.Http` 的又拍云短信服务（SMS）HTTP API SDK。
 
 ---
 

@@ -1,22 +1,19 @@
 ﻿# SKIT.FlurlHttpClient.Upyun.Uss
 
-基于 `Flurl.Http` 的[又拍云云存储服务](https://www.upyun.com/products/sms/) API 客户端。
+基于 `Flurl.Http` 的[又拍云云存储服务](https://www.upyun.com/products/sms/) HTTP API SDK。
 
 ---
 
 ## 功能
 
 -   基于又拍云云存储服务 API 封装。
-
 -   支持 REST API、FORM API 两种上传模式。
-
 -   请求时自动生成认证签名，无需开发者手动干预。
-
 -   提供了又拍云云存储所需的 MD5、HMAC-SHA-1 等算法工具类。
 
 ---
 
-## 基础用法
+## 快速入门
 
 ### 安装：
 
@@ -72,9 +69,13 @@ else
 
 ---
 
-## 高级技巧
+## 基础用法
 
--   [如何快速找到需要调用的 API 模型类名 / 方法名（附完整 API 对照表）？](./Advanced_ModelDefinition.md)
+-   [如何快速找到需要调用的 API 模型类名 / 方法名（附完整 API 对照表）？](./Basic_ModelDefinition.md)
+
+---
+
+## 高级技巧
 
 -   [如何在 ASP.NET Core 中与 `IHttpClientFactory` 集成？](./Advanced_IHttpClientFactory.md)
 
