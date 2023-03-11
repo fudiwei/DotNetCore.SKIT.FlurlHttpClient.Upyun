@@ -1,4 +1,4 @@
-﻿namespace SKIT.FlurlHttpClient.Upyun.Uss
+namespace SKIT.FlurlHttpClient.Upyun.Uss
 {
     /// <summary>
     /// 一个用于构造 <see cref="UpyunUssClient"/> 时使用的配置项。
@@ -12,10 +12,10 @@
         public int Timeout { get; set; } = 30 * 1000;
 
         /// <summary>
-        /// 获取或设置又拍云云存储服务 API 域名。
+        /// 获取或设置又拍云云存储服务 API 入口点。
         /// <para>默认值：<see cref="UpyunUssEndpoints.DEFAULT"/></para>
         /// </summary>
-        public string Endpoints { get; set; } = UpyunUssEndpoints.DEFAULT;
+        public string Endpoint { get; set; } = UpyunUssEndpoints.DEFAULT;
 
         /// <summary>
         /// 获取或设置又拍云云存储服务 API 认证方式。

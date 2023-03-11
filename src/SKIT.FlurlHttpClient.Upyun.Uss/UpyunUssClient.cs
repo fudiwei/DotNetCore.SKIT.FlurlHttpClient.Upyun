@@ -27,7 +27,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss
 
             Credentials = new Settings.Credentials(options);
 
-            FlurlClient.BaseUrl = options.Endpoints ?? UpyunUssEndpoints.DEFAULT;
+            FlurlClient.BaseUrl = options.Endpoint ?? UpyunUssEndpoints.DEFAULT;
             FlurlClient.WithTimeout(TimeSpan.FromMilliseconds(options.Timeout));
 
             Interceptors.Add(new Interceptors.UpyunUssRequestSignatureInterceptor(scheme: options.AuthType, username: options.OperatorName, password: options.OperatorPassword));

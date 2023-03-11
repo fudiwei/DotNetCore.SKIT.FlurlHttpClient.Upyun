@@ -27,7 +27,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Console
 
             Credentials = new Settings.Credentials(options);
 
-            FlurlClient.BaseUrl = options.Endpoints ?? UpyunConsoleEndpoints.DEFAULT;
+            FlurlClient.BaseUrl = options.Endpoint ?? UpyunConsoleEndpoints.DEFAULT;
             FlurlClient.WithTimeout(TimeSpan.FromMilliseconds(options.Timeout));
         }
 

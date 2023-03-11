@@ -1,4 +1,4 @@
-﻿namespace SKIT.FlurlHttpClient.Upyun.Sms
+namespace SKIT.FlurlHttpClient.Upyun.Sms
 {
     /// <summary>
     /// 一个用于构造 <see cref="UpyunSmsClient"/> 时使用的配置项。
@@ -12,10 +12,10 @@
         public int Timeout { get; set; } = 30 * 1000;
 
         /// <summary>
-        /// 获取或设置又拍云短信服务 API 域名。
+        /// 获取或设置又拍云短信服务 API 入口点。
         /// <para>默认值：<see cref="UpyunSmsEndpoints.DEFAULT"/></para>
         /// </summary>
-        public string Endpoints { get; set; } = UpyunSmsEndpoints.DEFAULT;
+        public string Endpoint { get; set; } = UpyunSmsEndpoints.DEFAULT;
 
         /// <summary>
         /// 获取或设置又拍云短信服务 API Token。

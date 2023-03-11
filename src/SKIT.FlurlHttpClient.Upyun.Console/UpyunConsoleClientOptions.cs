@@ -1,4 +1,4 @@
-﻿namespace SKIT.FlurlHttpClient.Upyun.Console
+namespace SKIT.FlurlHttpClient.Upyun.Console
 {
     /// <summary>
     /// 一个用于构造 <see cref="UpyunConsoleClient"/> 时使用的配置项。
@@ -12,10 +12,10 @@
         public int Timeout { get; set; } = 30 * 1000;
 
         /// <summary>
-        /// 获取或设置又拍云服务管理后台开放 API 域名。
+        /// 获取或设置又拍云服务管理后台开放 API 入口点。
         /// <para>默认值：<see cref="UpyunConsoleEndpoints.DEFAULT"/></para>
         /// </summary>
-        public string Endpoints { get; set; } = UpyunConsoleEndpoints.DEFAULT;
+        public string Endpoint { get; set; } = UpyunConsoleEndpoints.DEFAULT;
 
         /// <summary>
         /// 获取或设置又拍云服务管理后台用户名。

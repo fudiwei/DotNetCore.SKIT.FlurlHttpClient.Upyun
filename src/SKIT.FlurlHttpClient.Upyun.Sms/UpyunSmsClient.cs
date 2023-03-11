@@ -27,7 +27,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms
 
             Credentials = new Settings.Credentials(options);
 
-            FlurlClient.BaseUrl = options.Endpoints ?? UpyunSmsEndpoints.DEFAULT;
+            FlurlClient.BaseUrl = options.Endpoint ?? UpyunSmsEndpoints.DEFAULT;
             FlurlClient.WithHeader(Constants.HttpHeaders.Authorization, options.Token);
             FlurlClient.WithTimeout(TimeSpan.FromMilliseconds(options.Timeout));
         }
