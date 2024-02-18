@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -10,7 +10,10 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms
     {
         /// <summary>
         /// <para>异步调用 [POST] /templates 接口。</para>
-        /// <para>REF: https://help.upyun.com/knowledge-base/sms-api </para>
+        /// <para>
+        /// REF: <br/>
+        /// <![CDATA[ https://help.upyun.com/knowledge-base/sms-api ]]>
+        /// </para>
         /// </summary>
         /// <param name="client"></param>
         /// <param name="request"></param>
@@ -22,14 +25,17 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             IFlurlRequest flurlReq = client
-                .CreateRequest(request, HttpMethod.Post, "templates");
+                .CreateFlurlRequest(request, HttpMethod.Post, "templates");
 
-            return await client.SendRequestWithJsonAsync<Models.CreateTemplateResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+            return await client.SendFlurlRequestAsJsonAsync<Models.CreateTemplateResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
         /// <para>异步调用 [DELETE] /templates/{template_id} 接口。</para>
-        /// <para>REF: https://help.upyun.com/knowledge-base/sms-api </para>
+        /// <para>
+        /// REF: <br/>
+        /// <![CDATA[ https://help.upyun.com/knowledge-base/sms-api ]]>
+        /// </para>
         /// </summary>
         /// <param name="client"></param>
         /// <param name="request"></param>
@@ -41,14 +47,17 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             IFlurlRequest flurlReq = client
-                .CreateRequest(request, HttpMethod.Delete, "templates", request.TemplateId);
+                .CreateFlurlRequest(request, HttpMethod.Delete, "templates", request.TemplateId);
 
-            return await client.SendRequestWithJsonAsync<Models.DeleteTemplateResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+            return await client.SendFlurlRequestAsJsonAsync<Models.DeleteTemplateResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
         /// <para>异步调用 [PATCH] /templates/{template_id} 接口。</para>
-        /// <para>REF: https://help.upyun.com/knowledge-base/sms-api </para>
+        /// <para>
+        /// REF: <br/>
+        /// <![CDATA[ https://help.upyun.com/knowledge-base/sms-api ]]>
+        /// </para>
         /// </summary>
         /// <param name="client"></param>
         /// <param name="request"></param>
@@ -60,14 +69,17 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             IFlurlRequest flurlReq = client
-                .CreateRequest(request, new HttpMethod("PATCH"), "templates", request.TemplateId);
+                .CreateFlurlRequest(request, new HttpMethod("PATCH"), "templates", request.TemplateId);
 
-            return await client.SendRequestWithJsonAsync<Models.UpdateTemplateResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+            return await client.SendFlurlRequestAsJsonAsync<Models.UpdateTemplateResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
         /// <para>异步调用 [GET] /templates 接口。</para>
-        /// <para>REF: https://help.upyun.com/knowledge-base/sms-api </para>
+        /// <para>
+        /// REF: <br/>
+        /// <![CDATA[ https://help.upyun.com/knowledge-base/sms-api ]]>
+        /// </para>
         /// </summary>
         /// <param name="client"></param>
         /// <param name="request"></param>
@@ -79,15 +91,15 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             IFlurlRequest flurlReq = client
-                .CreateRequest(request, HttpMethod.Get, "templates");
+                .CreateFlurlRequest(request, HttpMethod.Get, "templates");
 
-            if (request.Type != null)
+            if (request.Type is not null)
                 flurlReq.SetQueryParam("type", request.Type);
 
-            if (request.ReportType != null)
+            if (request.ReportType is not null)
                 flurlReq.SetQueryParam("report_type", request.ReportType);
 
-            return await client.SendRequestWithJsonAsync<Models.QueryTemplatesResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+            return await client.SendFlurlRequestAsJsonAsync<Models.QueryTemplatesResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }
 }

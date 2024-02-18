@@ -11,7 +11,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms.Settings
 
         internal Credentials(UpyunSmsClientOptions options)
         {
-            if (options == null) throw new ArgumentNullException(nameof(options));
+            if (options is null) throw new ArgumentNullException(nameof(options));
 
             Token = options.Token;
         }

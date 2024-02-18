@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
-using System.Text.Json.Serialization;
 
-namespace System.Text.Json.Converters
+namespace System.Text.Json.Serialization.Internal
 {
     internal class NumericalStringArrayReadOnlyConverter : JsonConverter<string[]?>
     {
@@ -26,12 +25,12 @@ namespace System.Text.Json.Converters
 
                         case JsonTokenType.Number:
                             {
-                                if (reader.TryGetDouble(out double d))
-                                    list.Add(d.ToString());
-                                else if (reader.TryGetInt64(out long l))
+                                if (reader.TryGetInt64(out long l))
                                     list.Add(l.ToString());
                                 else if (reader.TryGetUInt64(out ulong ul))
                                     list.Add(ul.ToString());
+                                if (reader.TryGetDouble(out double d))
+                                    list.Add(d.ToString());
                                 else
                                     list.Add(reader.GetDecimal().ToString());
                             }
@@ -57,7 +56,7 @@ namespace System.Text.Json.Converters
 
         public override void Write(Utf8JsonWriter writer, string[]? value, JsonSerializerOptions options)
         {
-            if (value != null)
+            if (value is not null)
             {
                 writer.WriteStartArray();
 

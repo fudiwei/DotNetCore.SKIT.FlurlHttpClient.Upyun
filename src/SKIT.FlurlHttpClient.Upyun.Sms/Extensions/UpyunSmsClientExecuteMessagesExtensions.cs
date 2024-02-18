@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading;
@@ -12,7 +12,10 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms
     {
         /// <summary>
         /// <para>异步调用 [POST] /messages 接口。</para>
-        /// <para>REF: https://help.upyun.com/knowledge-base/sms-api </para>
+        /// <para>
+        /// REF: <br/>
+        /// <![CDATA[ https://help.upyun.com/knowledge-base/sms-api ]]>
+        /// </para>
         /// </summary>
         /// <param name="client"></param>
         /// <param name="request"></param>
@@ -24,14 +27,17 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             IFlurlRequest flurlReq = client
-                .CreateRequest(request, HttpMethod.Post, "messages");
+                .CreateFlurlRequest(request, HttpMethod.Post, "messages");
 
-            return await client.SendRequestWithJsonAsync<Models.SendMessageResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+            return await client.SendFlurlRequestAsJsonAsync<Models.SendMessageResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
         /// <para>异步调用 [POST] /messages/file 接口。</para>
-        /// <para>REF: https://help.upyun.com/knowledge-base/sms-api </para>
+        /// <para>
+        /// REF: <br/>
+        /// <![CDATA[ https://help.upyun.com/knowledge-base/sms-api ]]>
+        /// </para>
         /// </summary>
         /// <param name="client"></param>
         /// <param name="request"></param>
@@ -42,29 +48,32 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms
             if (client is null) throw new ArgumentNullException(nameof(client));
             if (request is null) throw new ArgumentNullException(nameof(request));
 
-            if (request.FileName == null)
+            if (request.FileName is null)
                 request.FileName = Guid.NewGuid().ToString("N").ToLower() + ".csv";
 
             IFlurlRequest flurlReq = client
-                .CreateRequest(request, HttpMethod.Post, "messages", "file");
+                .CreateFlurlRequest(request, HttpMethod.Post, "messages", "file");
 
             string boundary = "--BOUNDARY--" + DateTimeOffset.Now.Ticks.ToString("x");
             using var fileContent = new ByteArrayContent(request.FileBytes ?? Array.Empty<byte>());
             using var httpContent = new MultipartFormDataContent(boundary);
             httpContent.Add(fileContent, "\"file\"", $"\"{HttpUtility.UrlEncode(request.FileName)}\"");
             httpContent.Add(new StringContent(request.TemplateId.ToString()), "template_id");
-            if (request.DateTime != null)
+            if (request.DateTime is not null)
                 httpContent.Add(new StringContent(request.DateTime.Value.ToString("yyyy-MM-dd HH:mm:ss")), "time");
             httpContent.Headers.ContentType = MediaTypeHeaderValue.Parse("multipart/form-data; boundary=" + boundary);
             fileContent.Headers.ContentType = MediaTypeHeaderValue.Parse("text/csv");
             fileContent.Headers.ContentLength = request.FileBytes?.Length;
 
-            return await client.SendRequestAsync<Models.SendMessageWithFileResponse>(flurlReq, httpContent: httpContent, cancellationToken: cancellationToken);
+            return await client.SendFlurlRequestAsync<Models.SendMessageWithFileResponse>(flurlReq, httpContent: httpContent, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
         /// <para>异步调用 [POST] /messages/async 接口。</para>
-        /// <para>REF: https://help.upyun.com/knowledge-base/sms-api </para>
+        /// <para>
+        /// REF: <br/>
+        /// <![CDATA[ https://help.upyun.com/knowledge-base/sms-api ]]>
+        /// </para>
         /// </summary>
         /// <param name="client"></param>
         /// <param name="request"></param>
@@ -76,14 +85,17 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             IFlurlRequest flurlReq = client
-                .CreateRequest(request, HttpMethod.Post, "messages", "async");
+                .CreateFlurlRequest(request, HttpMethod.Post, "messages", "async");
 
-            return await client.SendRequestWithJsonAsync<Models.SendMessageAsynchronouslyResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+            return await client.SendFlurlRequestAsJsonAsync<Models.SendMessageAsynchronouslyResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
         /// <para>异步调用 [POST] /messages/async 接口。</para>
-        /// <para>REF: https://help.upyun.com/knowledge-base/sms-api </para>
+        /// <para>
+        /// REF: <br/>
+        /// <![CDATA[ https://help.upyun.com/knowledge-base/sms-api ]]>
+        /// </para>
         /// </summary>
         /// <param name="client"></param>
         /// <param name="request"></param>
@@ -95,14 +107,17 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             IFlurlRequest flurlReq = client
-                .CreateRequest(request, HttpMethod.Post, "messages", "async");
+                .CreateFlurlRequest(request, HttpMethod.Post, "messages", "async");
 
-            return await client.SendRequestWithJsonAsync<Models.SendMessageAsynchronouslyV2Response>(flurlReq, data: request, cancellationToken: cancellationToken);
+            return await client.SendFlurlRequestAsJsonAsync<Models.SendMessageAsynchronouslyV2Response>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
         /// <para>异步调用 [GET] /messages 接口。</para>
-        /// <para>REF: https://help.upyun.com/knowledge-base/sms-api </para>
+        /// <para>
+        /// REF: <br/>
+        /// <![CDATA[ https://help.upyun.com/knowledge-base/sms-api ]]>
+        /// </para>
         /// </summary>
         /// <param name="client"></param>
         /// <param name="request"></param>
@@ -114,29 +129,32 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             IFlurlRequest flurlReq = client
-                .CreateRequest(request, HttpMethod.Get, "messages");
+                .CreateFlurlRequest(request, HttpMethod.Get, "messages");
 
-            if (request.DateString != null)
+            if (request.DateString is not null)
                 flurlReq.SetQueryParam("date", request.DateString);
 
-            if (request.MobileNumber != null)
+            if (request.MobileNumber is not null)
                 flurlReq.SetQueryParam("mobile", request.MobileNumber);
 
-            if (request.Status != null)
+            if (request.Status is not null)
                 flurlReq.SetQueryParam("status", request.Status);
 
-            if (request.Page != null)
+            if (request.Page is not null)
                 flurlReq.SetQueryParam("page", request.Page);
 
-            if (request.Limit != null)
+            if (request.Limit is not null)
                 flurlReq.SetQueryParam("per_page", request.Limit);
 
-            return await client.SendRequestWithJsonAsync<Models.QueryMessagesResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+            return await client.SendFlurlRequestAsJsonAsync<Models.QueryMessagesResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
         /// <para>异步调用 [GET] /messages/intl 接口。</para>
-        /// <para>REF: https://help.upyun.com/knowledge-base/sms-api </para>
+        /// <para>
+        /// REF: <br/>
+        /// <![CDATA[ https://help.upyun.com/knowledge-base/sms-api ]]>
+        /// </para>
         /// </summary>
         /// <param name="client"></param>
         /// <param name="request"></param>
@@ -148,24 +166,24 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             IFlurlRequest flurlReq = client
-                .CreateRequest(request, HttpMethod.Get, "messages", "intl");
+                .CreateFlurlRequest(request, HttpMethod.Get, "messages", "intl");
 
-            if (request.DateString != null)
+            if (request.DateString is not null)
                 flurlReq.SetQueryParam("date", request.DateString);
 
-            if (request.MobileNumber != null)
+            if (request.MobileNumber is not null)
                 flurlReq.SetQueryParam("mobile", request.MobileNumber);
 
-            if (request.Status != null)
+            if (request.Status is not null)
                 flurlReq.SetQueryParam("status", request.Status);
 
-            if (request.Page != null)
+            if (request.Page is not null)
                 flurlReq.SetQueryParam("page", request.Page);
 
-            if (request.Limit != null)
+            if (request.Limit is not null)
                 flurlReq.SetQueryParam("per_page", request.Limit);
 
-            return await client.SendRequestWithJsonAsync<Models.QueryInternationalMessagesResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+            return await client.SendFlurlRequestAsJsonAsync<Models.QueryInternationalMessagesResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }
 }

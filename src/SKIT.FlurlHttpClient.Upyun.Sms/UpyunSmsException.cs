@@ -1,11 +1,11 @@
-﻿using System;
+using System;
 
 namespace SKIT.FlurlHttpClient.Upyun.Sms
 {
     /// <summary>
     /// 又拍云短信服务 API 出错时引发的异常。
     /// </summary>
-    public class UpyunSmsException : CommonExceptionBase
+    public class UpyunSmsException : CommonException
     {
         /// <inheritdoc/>
         public UpyunSmsException()

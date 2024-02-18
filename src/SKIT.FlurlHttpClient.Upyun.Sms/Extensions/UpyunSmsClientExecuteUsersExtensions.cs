@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -10,7 +10,10 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms
     {
         /// <summary>
         /// <para>异步调用 [GET] /users/remain 接口。</para>
-        /// <para>REF: https://help.upyun.com/knowledge-base/sms-api </para>
+        /// <para>
+        /// REF: <br/>
+        /// <![CDATA[ https://help.upyun.com/knowledge-base/sms-api ]]>
+        /// </para>
         /// </summary>
         /// <param name="client"></param>
         /// <param name="request"></param>
@@ -22,9 +25,9 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             IFlurlRequest flurlReq = client
-                .CreateRequest(request, HttpMethod.Get, "users", "remain");
+                .CreateFlurlRequest(request, HttpMethod.Get, "users", "remain");
 
-            return await client.SendRequestWithJsonAsync<Models.GetUserRemainResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+            return await client.SendFlurlRequestAsJsonAsync<Models.GetUserRemainResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }
 }
