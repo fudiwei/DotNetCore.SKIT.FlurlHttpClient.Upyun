@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -61,18 +61,18 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
                                 /// 获取或设置域名。
                                 /// </summary>
                                 [Newtonsoft.Json.JsonProperty("start")]
-                                [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.UnixMillisecondsDateTimeOffsetConverter))]
+                                [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.Common.UnixMillisecondsDateTimeOffsetConverter))]
                                 [System.Text.Json.Serialization.JsonPropertyName("start")]
-                                [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Converters.UnixMillisecondsDateTimeOffsetConverter))]
+                                [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.UnixMillisecondsDateTimeOffsetConverter))]
                                 public DateTimeOffset StartTime { get; set; }
 
                                 /// <summary>
                                 /// 获取或设置域名类型。
                                 /// </summary>
                                 [Newtonsoft.Json.JsonProperty("end")]
-                                [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.UnixMillisecondsDateTimeOffsetConverter))]
+                                [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.Common.UnixMillisecondsDateTimeOffsetConverter))]
                                 [System.Text.Json.Serialization.JsonPropertyName("end")]
-                                [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Converters.UnixMillisecondsDateTimeOffsetConverter))]
+                                [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.UnixMillisecondsDateTimeOffsetConverter))]
                                 public DateTimeOffset EndTime { get; set; }
                             }
                         }
@@ -116,9 +116,9 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
                         /// 获取或设置创建时间。
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("created_at")]
-                        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.UnixTimestampDateTimeOffsetConverter))]
+                        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.Common.UnixTimestampDateTimeOffsetConverter))]
                         [System.Text.Json.Serialization.JsonPropertyName("created_at")]
-                        [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Converters.UnixTimestampDateTimeOffsetConverter))]
+                        [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.UnixTimestampDateTimeOffsetConverter))]
                         public DateTimeOffset CreateTimestamp { get; set; }
 
                         /// <summary>
@@ -248,7 +248,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
 
                 bool IDictionary<string, Types.Certificate>.TryGetValue(string key, out Types.Certificate value)
                 {
-                    return _innerDictionary.TryGetValue(key, out value);
+                    return _innerDictionary.TryGetValue(key, out value!);
                 }
 
                 void ICollection<KeyValuePair<string, Types.Certificate>>.Add(KeyValuePair<string, Types.Certificate> item)

@@ -1,4 +1,6 @@
-﻿namespace SKIT.FlurlHttpClient.Upyun.Console.Models
+using System.Collections.Generic;
+
+namespace SKIT.FlurlHttpClient.Upyun.Console.Models
 {
     /// <summary>
     /// <para>表示 [POST] /v2/buckets/cdn/source 接口的请求。</para>
@@ -70,7 +72,7 @@
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("servers")]
                         [System.Text.Json.Serialization.JsonPropertyName("servers")]
-                        public Server[]? ServerList { get; set; }
+                        public IList<Server>? ServerList { get; set; }
                     }
                 }
 
@@ -79,7 +81,7 @@
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("servers")]
                 [System.Text.Json.Serialization.JsonPropertyName("servers")]
-                public Types.Server[]? ServerList { get; set; }
+                public IList<Types.Server>? ServerList { get; set; }
 
                 /// <summary>
                 /// 获取或设置电信线路回源配置信息。

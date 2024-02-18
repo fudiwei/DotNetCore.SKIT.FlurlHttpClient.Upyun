@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -10,7 +10,10 @@ namespace SKIT.FlurlHttpClient.Upyun.Console
     {
         /// <summary>
         /// <para>异步调用 [GET] /analysis 接口。</para>
-        /// <para>REF: https://api.upyun.com/doc#/api/operation/log/GET%20%2Fanalysis </para>
+        /// <para>
+        /// REF: <br/>
+        /// <![CDATA[ https://api.upyun.com/doc#/api/operation/log/GET%20%2Fanalysis ]]>
+        /// </para>
         /// </summary>
         /// <param name="client"></param>
         /// <param name="request"></param>
@@ -22,29 +25,32 @@ namespace SKIT.FlurlHttpClient.Upyun.Console
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             IFlurlRequest flurlReq = client
-                .CreateRequest(request, HttpMethod.Get, "analysis");
+                .CreateFlurlRequest(request, HttpMethod.Get, "analysis");
 
-            if (request.BucketName != null)
+            if (request.BucketName is not null)
                 flurlReq.SetQueryParam("bucket_name", request.BucketName);
 
-            if (request.DomainName != null)
+            if (request.DomainName is not null)
                 flurlReq.SetQueryParam("domain", request.DomainName);
 
-            if (request.DateString != null)
+            if (request.DateString is not null)
                 flurlReq.SetQueryParam("date", request.DateString);
 
-            if (request.Type != null)
+            if (request.Type is not null)
                 flurlReq.SetQueryParam("type", request.Type);
 
-            if (request.OrderBy != null)
+            if (request.OrderBy is not null)
                 flurlReq.SetQueryParam("order_by", request.OrderBy);
 
-            return await client.SendRequestWithJsonAsync<Models.QueryAnalysisResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+            return await client.SendFlurlRequestAsJsonAsync<Models.QueryAnalysisResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
         /// <para>异步调用 [GET] /analysis/archives 接口。</para>
-        /// <para>REF: https://api.upyun.com/doc#/api/operation/log/GET%20%2Fanalysis%2Farchives </para>
+        /// <para>
+        /// REF: <br/>
+        /// <![CDATA[ https://api.upyun.com/doc#/api/operation/log/GET%20%2Fanalysis%2Farchives ]]>
+        /// </para>
         /// </summary>
         /// <param name="client"></param>
         /// <param name="request"></param>
@@ -56,33 +62,33 @@ namespace SKIT.FlurlHttpClient.Upyun.Console
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             IFlurlRequest flurlReq = client
-                .CreateRequest(request, HttpMethod.Get, "analysis", "archives");
+                .CreateFlurlRequest(request, HttpMethod.Get, "analysis", "archives");
 
-            if (request.BucketName != null)
+            if (request.BucketName is not null)
                 flurlReq.SetQueryParam("bucket_name", request.BucketName);
 
-            if (request.DomainName != null)
+            if (request.DomainName is not null)
                 flurlReq.SetQueryParam("domain", request.DomainName);
 
-            if (request.DateString != null)
+            if (request.DateString is not null)
                 flurlReq.SetQueryParam("date", request.DateString);
 
-            if (request.StartDateString != null)
+            if (request.StartDateString is not null)
                 flurlReq.SetQueryParam("start_date", request.StartDateString);
 
-            if (request.EndDateString != null)
+            if (request.EndDateString is not null)
                 flurlReq.SetQueryParam("start_date", request.EndDateString);
 
-            if (request.UseHttps != null)
+            if (request.UseHttps is not null)
                 flurlReq.SetQueryParam("useSsl", request.UseHttps.Value);
 
-            if (request.IsPCDN != null)
+            if (request.IsPCDN is not null)
                 flurlReq.SetQueryParam("pcdn", request.IsPCDN.Value);
 
-            if (request.IsAbroad != null)
+            if (request.IsAbroad is not null)
                 flurlReq.SetQueryParam("abroad", request.IsAbroad.Value);
 
-            return await client.SendRequestWithJsonAsync<Models.QueryAnalysisArchivesResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+            return await client.SendFlurlRequestAsJsonAsync<Models.QueryAnalysisArchivesResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }
 }

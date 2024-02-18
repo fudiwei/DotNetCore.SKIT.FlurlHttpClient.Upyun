@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -10,7 +10,10 @@ namespace SKIT.FlurlHttpClient.Upyun.Console
     {
         /// <summary>
         /// <para>异步调用 [GET] /https/certificate/info 接口。</para>
-        /// <para>REF: https://api.upyun.com/doc#/api/operation/https/GET%20%2Fhttps%2Fcertificate%2Finfo </para>
+        /// <para>
+        /// REF: <br/>
+        /// <![CDATA[ https://api.upyun.com/doc#/api/operation/https/GET%20%2Fhttps%2Fcertificate%2Finfo ]]>
+        /// </para>
         /// </summary>
         /// <param name="client"></param>
         /// <param name="request"></param>
@@ -22,15 +25,18 @@ namespace SKIT.FlurlHttpClient.Upyun.Console
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             IFlurlRequest flurlReq = client
-                .CreateRequest(request, HttpMethod.Get, "https", "certificate", "info")
+                .CreateFlurlRequest(request, HttpMethod.Get, "https", "certificate", "info")
                 .SetQueryParam("crt_id", request.CertificateId);
 
-            return await client.SendRequestWithJsonAsync<Models.GetHttpsCertificateInfoResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+            return await client.SendFlurlRequestAsJsonAsync<Models.GetHttpsCertificateInfoResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
         /// <para>异步调用 [GET] /https/certificate/list 接口。</para>
-        /// <para>REF: https://api.upyun.com/doc#/api/operation/https/GET%20%2Fhttps%2Fcertificate%2Flist </para>
+        /// <para>
+        /// REF: <br/>
+        /// <![CDATA[ https://api.upyun.com/doc#/api/operation/https/GET%20%2Fhttps%2Fcertificate%2Flist ]]>
+        /// </para>
         /// </summary>
         /// <param name="client"></param>
         /// <param name="request"></param>
@@ -42,23 +48,26 @@ namespace SKIT.FlurlHttpClient.Upyun.Console
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             IFlurlRequest flurlReq = client
-                .CreateRequest(request, HttpMethod.Get, "https", "certificate", "list");
+                .CreateFlurlRequest(request, HttpMethod.Get, "https", "certificate", "list");
 
-            if (request.Since != null)
+            if (request.Since is not null)
                 flurlReq.SetQueryParam("since", request.Since.Value);
 
-            if (request.Max != null)
+            if (request.Max is not null)
                 flurlReq.SetQueryParam("max", request.Max.Value);
 
-            if (request.Limit != null)
+            if (request.Limit is not null)
                 flurlReq.SetQueryParam("limit", request.Limit.Value);
 
-            return await client.SendRequestWithJsonAsync<Models.QueryHttpsCertificatesResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+            return await client.SendFlurlRequestAsJsonAsync<Models.QueryHttpsCertificatesResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
         /// <para>异步调用 [GET] /https/services/manager 接口。</para>
-        /// <para>REF: https://api.upyun.com/doc#/api/operation/https/GET%20%2Fhttps%2Fservices%2Fmanager </para>
+        /// <para>
+        /// REF: <br/>
+        /// <![CDATA[ https://api.upyun.com/doc#/api/operation/https/GET%20%2Fhttps%2Fservices%2Fmanager ]]>
+        /// </para>
         /// </summary>
         /// <param name="client"></param>
         /// <param name="request"></param>
@@ -70,10 +79,10 @@ namespace SKIT.FlurlHttpClient.Upyun.Console
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             IFlurlRequest flurlReq = client
-                .CreateRequest(request, HttpMethod.Get, "https", "services", "manager")
+                .CreateFlurlRequest(request, HttpMethod.Get, "https", "services", "manager")
                 .SetQueryParam("domain", request.DomainName);
 
-            return await client.SendRequestWithJsonAsync<Models.GetHttpsServicesManagerResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+            return await client.SendFlurlRequestAsJsonAsync<Models.GetHttpsServicesManagerResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }
 }
