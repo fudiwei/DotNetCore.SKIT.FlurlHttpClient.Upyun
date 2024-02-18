@@ -39,8 +39,8 @@ namespace SKIT.FlurlHttpClient.Upyun.Sim
             Credentials = new Settings.Credentials(options);
 
             FlurlClient.BaseUrl = options.Endpoint ?? UpyunSimEndpoints.DEFAULT;
+            FlurlClient.WithTimeout(options.Timeout <= 0 ? Timeout.InfiniteTimeSpan : TimeSpan.FromMilliseconds(options.Timeout));
             FlurlClient.WithBasicAuth(options.AppKey, options.AppSecret);
-            FlurlClient.WithTimeout(TimeSpan.FromMilliseconds(options.Timeout));
         }
 
         /// <summary>

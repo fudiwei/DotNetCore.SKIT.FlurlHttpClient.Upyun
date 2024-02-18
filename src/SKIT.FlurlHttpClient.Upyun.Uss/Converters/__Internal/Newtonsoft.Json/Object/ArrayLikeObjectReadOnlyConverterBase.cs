@@ -1,11 +1,11 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Newtonsoft.Json.Linq;
 
-namespace Newtonsoft.Json.Converters
+namespace Newtonsoft.Json.Converters.Internal
 {
     internal static class ArrayLikeObjectReadOnlyConverterBase
     {
@@ -87,7 +87,7 @@ namespace Newtonsoft.Json.Converters
                     foreach (JProperty jProperty in jObject.Properties())
                     {
                         InnerTypedJsonPropertyInfo? typedJsonPropertyInfo = typedJsonProperties.SingleOrDefault(e => e.PropertyName == jProperty.Name);
-                        if (typedJsonPropertyInfo != null)
+                        if (typedJsonPropertyInfo is not null)
                         {
                             if (typedJsonPropertyInfo.PropertyIsLArray)
                                 continue;
@@ -115,12 +115,12 @@ namespace Newtonsoft.Json.Converters
 
         private static InnerTypedJsonPropertyInfo[] GetTypedJsonProperties(Type type)
         {
-            if (type == null) throw new ArgumentNullException(nameof(type));
+            if (type is null) throw new ArgumentNullException(nameof(type));
 
             string mappedKey = type.AssemblyQualifiedName ?? type.GetHashCode().ToString();
             InnerTypedJsonPropertyInfo[]? mappedValue = (InnerTypedJsonPropertyInfo[]?)_mappedTypeJsonProperties[mappedKey];
 
-            if (mappedValue == null)
+            if (mappedValue is null)
             {
                 mappedValue = type.GetProperties(BindingFlags.Instance | BindingFlags.Public)
                     .Where(p =>
@@ -161,7 +161,7 @@ namespace Newtonsoft.Json.Converters
         {
             JsonSerializer serializerCopy = serializer;
 
-            if (converter != null)
+            if (converter is not null)
             {
                 serializerCopy = JsonSerializer.CreateDefault(serializer.ExtractSerializerSettings());
                 serializerCopy.Converters.Add(converter);

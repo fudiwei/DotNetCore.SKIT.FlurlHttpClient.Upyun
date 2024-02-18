@@ -1,13 +1,12 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Linq;
 using System.Reflection;
-using System.Text.Json.Serialization;
 
-namespace System.Text.Json.Converters
+namespace System.Text.Json.Serialization.Internal
 {
     internal static class ArrayLikeObjectReadOnlyConverterBase
     {
-        public const string PROPERTY_NAME_LARRAY = Newtonsoft.Json.Converters.ArrayLikeObjectReadOnlyConverterBase.PROPERTY_NAME_LARRAY;
+        public const string PROPERTY_NAME_LARRAY = "#array-like";
     }
 
     internal class ArrayLikeObjectReadOnlyConverterBase<T> : JsonConverter<T?>
@@ -72,7 +71,7 @@ namespace System.Text.Json.Converters
                     foreach (JsonProperty jProperty in jElement.EnumerateObject())
                     {
                         InnerTypedJsonPropertyInfo? typedJsonPropertyInfo = typedJsonProperties.SingleOrDefault(e => e.PropertyName == jProperty.Name);
-                        if (typedJsonPropertyInfo != null)
+                        if (typedJsonPropertyInfo is not null)
                         {
                             if (typedJsonPropertyInfo.PropertyIsLArray)
                                 continue;
@@ -96,12 +95,12 @@ namespace System.Text.Json.Converters
 
         private static InnerTypedJsonPropertyInfo[] GetTypedJsonProperties(Type type)
         {
-            if (type == null) throw new ArgumentNullException(nameof(type));
+            if (type is null) throw new ArgumentNullException(nameof(type));
 
             string mappedKey = type.AssemblyQualifiedName ?? type.GetHashCode().ToString();
             InnerTypedJsonPropertyInfo[]? mappedValue = (InnerTypedJsonPropertyInfo[]?)_mappedTypeJsonProperties[mappedKey];
 
-            if (mappedValue == null)
+            if (mappedValue is null)
             {
                 mappedValue = type.GetProperties(BindingFlags.Instance | BindingFlags.Public)
                     .Where(p =>
@@ -134,7 +133,7 @@ namespace System.Text.Json.Converters
 
         private static JsonConverter? GetTypedJsonConverter(MemberInfo? memberInfo)
         {
-            if (memberInfo == null)
+            if (memberInfo is null)
                 return null;
 
             return memberInfo.GetCustomAttributes<JsonConverterAttribute>(inherit: true)
@@ -152,21 +151,21 @@ namespace System.Text.Json.Converters
                         converter = attr.CreateConverter(propertyInfo.PropertyType);
                     }
 
-                    if (converter == null && attr.ConverterType != null)
+                    if (converter is null && attr.ConverterType is not null)
                     {
                         converter = (JsonConverter)Activator.CreateInstance(attr.ConverterType)!;
                     }
 
                     return converter;
                 })
-                .FirstOrDefault(converter => converter != null);
+                .FirstOrDefault(converter => converter is not null);
         }
 
         private static JsonSerializerOptions GetClonedJsonSerializerOptions(JsonSerializerOptions options, JsonConverter? converter)
         {
             JsonSerializerOptions optionsCopy = options;
 
-            if (converter != null)
+            if (converter is not null)
             {
                 optionsCopy = new JsonSerializerOptions(options);
                 optionsCopy.Converters.Add(converter);

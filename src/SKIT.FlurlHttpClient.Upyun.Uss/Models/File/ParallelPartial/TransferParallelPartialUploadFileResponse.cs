@@ -1,6 +1,3 @@
-using System;
-using System.Linq;
-
 namespace SKIT.FlurlHttpClient.Upyun.Uss.Models
 {
     /// <summary>
@@ -15,7 +12,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.Models
         [System.Text.Json.Serialization.JsonIgnore]
         public string PartialUUID
         {
-            get { return RawHeaders.TryGetValue("x-upyun-multi-uuid", out string value) ? value : string.Empty; }
+            get { return GetRawHeaders().TryGetFirstValue("x-upyun-multi-uuid", out string? s) ? s! : string.Empty; }
         }
     }
 }

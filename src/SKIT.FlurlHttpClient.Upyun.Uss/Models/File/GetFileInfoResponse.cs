@@ -1,6 +1,3 @@
-﻿using System;
-using System.Linq;
-
 namespace SKIT.FlurlHttpClient.Upyun.Uss.Models
 {
     /// <summary>
@@ -15,7 +12,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.Models
         [System.Text.Json.Serialization.JsonIgnore]
         public string FileType
         {
-            get { return RawHeaders.SingleOrDefault(h => string.Equals(h.Key, "x-upyun-file-type", StringComparison.OrdinalIgnoreCase)).Value ?? default!; }
+            get { return GetRawHeaders().TryGetFirstValue("x-upyun-file-type", out string? s) ? s! : string.Empty; }
         }
 
         /// <summary>
@@ -25,7 +22,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.Models
         [System.Text.Json.Serialization.JsonIgnore]
         public int FileSize
         {
-            get { return int.TryParse(RawHeaders.SingleOrDefault(h => string.Equals(h.Key, "x-upyun-file-size", StringComparison.OrdinalIgnoreCase)).Value, out int i) ? i : 0; }
+            get { return GetRawHeaders().TryGetFirstValue("x-upyun-file-size", out string? s) && int.TryParse(s, out int n) ? n : 0; }
         }
 
         /// <summary>
@@ -35,7 +32,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.Models
         [System.Text.Json.Serialization.JsonIgnore]
         public string? FileMd5
         {
-            get { return RawHeaders.SingleOrDefault(h => string.Equals(h.Key, "Content-MD5", StringComparison.OrdinalIgnoreCase)).Value; }
+            get { return GetRawHeaders().TryGetFirstValue("Content-MD5", out string? s) ? s! : string.Empty; }
         }
 
         /// <summary>
@@ -45,7 +42,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.Models
         [System.Text.Json.Serialization.JsonIgnore]
         public long CreateTimestamp
         {
-            get { return long.TryParse(RawHeaders.SingleOrDefault(h => string.Equals(h.Key, "x-upyun-file-date", StringComparison.OrdinalIgnoreCase)).Value, out long i) ? i : 0; }
+            get { return GetRawHeaders().TryGetFirstValue("x-upyun-file-date", out string? s) && long.TryParse(s, out long n) ? n : 0; }
         }
     }
 }
