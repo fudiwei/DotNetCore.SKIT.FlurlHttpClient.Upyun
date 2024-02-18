@@ -9,17 +9,35 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.Models
     {
         internal static class Converters
         {
-            internal class ResponseClassNewtonsoftJsonConverter : Newtonsoft.Json.Converters.Internal.ArrayLikeObjectReadOnlyConverterBase<CreatePretreatmentCompressResponse>
+            internal class ResponseClassNewtonsoftJsonConverter : Newtonsoft.Json.Converters.Internal.MaybeStringArrayLikeObjectConverterBase<CreatePretreatmentCompressResponse>
             {
+                protected override string[]? GetStringArrayPropertyValue(CreatePretreatmentCompressResponse model)
+                {
+                    return model.TaskIdList;
+                }
+
+                protected override void SetStringArrayPropertyValue(CreatePretreatmentCompressResponse model, string[]? value)
+                {
+                    model.TaskIdList = value!;
+                }
             }
 
-            internal class ResponseClassSystemTextJsonConverter : System.Text.Json.Serialization.Internal.ArrayLikeObjectReadOnlyConverterBase<CreatePretreatmentCompressResponse>
+            internal class ResponseClassSystemTextJsonConverter : System.Text.Json.Serialization.Internal.MaybeStringArrayLikeObjectConverterBase<CreatePretreatmentCompressResponse>
             {
+                protected override string[]? GetStringArrayPropertyValue(CreatePretreatmentCompressResponse model)
+                {
+                    return model.TaskIdList;
+                }
+
+                protected override void SetStringArrayPropertyValue(CreatePretreatmentCompressResponse model, string[]? value)
+                {
+                    model.TaskIdList = value!;
+                }
             }
         }
 
-        [Newtonsoft.Json.JsonProperty(Newtonsoft.Json.Converters.Internal.ArrayLikeObjectReadOnlyConverterBase.PROPERTY_NAME_LARRAY)]
-        [System.Text.Json.Serialization.JsonPropertyName(System.Text.Json.Serialization.Internal.ArrayLikeObjectReadOnlyConverterBase.PROPERTY_NAME_LARRAY)]
+        [Newtonsoft.Json.JsonProperty(Converters.ResponseClassNewtonsoftJsonConverter.STRARR_PROPERTY_JSON_NAME)]
+        [System.Text.Json.Serialization.JsonPropertyName(Converters.ResponseClassSystemTextJsonConverter.STRARR_PROPERTY_JSON_NAME)]
         public string[] TaskIdList { get; set; } = default!;
     }
 }
