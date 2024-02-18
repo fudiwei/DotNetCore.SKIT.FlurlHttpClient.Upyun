@@ -16,7 +16,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Sim.Settings
 
         internal Credentials(UpyunSimClientOptions options)
         {
-            if (options == null) throw new ArgumentNullException(nameof(options));
+            if (options is null) throw new ArgumentNullException(nameof(options));
 
             AppKey = options.AppKey;
             AppSecret = options.AppSecret;
