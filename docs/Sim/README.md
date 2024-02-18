@@ -35,7 +35,7 @@ var options = new UpyunSimClientOptions()
     AppKey = "又拍云一键登录服务 AppKey",
     AppSecret = "又拍云一键登录服务 AppSecret"
 };
-var client = new UpyunSimClient(options);
+var client = UpyunSimClientBuilder.Create(options).Build();
 ```
 
 ### 请求 & 响应：
@@ -64,7 +64,7 @@ else
 
 ## 高级技巧
 
--   [如何在 ASP.NET Core 中与 `IHttpClientFactory` 集成？](./Advanced_IHttpClientFactory.md)
+-   [如何与 `IHttpClientFactory` 集成？](./Advanced_IHttpClientFactory.md)
 
 -   [如何指定 JSON 序列化器？](./Advanced_JsonSerializer.md)
 

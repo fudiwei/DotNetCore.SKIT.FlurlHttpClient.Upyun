@@ -35,7 +35,7 @@ var options = new UpyunConsoleClientOptions()
     Username = "又拍云登录用户名",
     Password = "又拍云登录密码"
 };
-var client = new UpyunConsoleClient(options);
+var client = UpyunConsoleClientBuilder.Create(options).Build();
 ```
 
 ### 请求 & 响应：
@@ -67,13 +67,13 @@ else
 
 ## 基础用法
 
--   [如何快速找到需要调用的 API 模型类名 / 方法名？](./Basic_ModelDefinition.md)
+-   ⭐ [如何快速找到需要调用的 API 模型类名 / 方法名？](./Basic_ModelDefinition.md)
 
 ---
 
 ## 高级技巧
 
--   [如何在 ASP.NET Core 中与 `IHttpClientFactory` 集成？](./Advanced_IHttpClientFactory.md)
+-   [如何与 `IHttpClientFactory` 集成？](./Advanced_IHttpClientFactory.md)
 
 -   [如何指定 JSON 序列化器？](./Advanced_JsonSerializer.md)
 
