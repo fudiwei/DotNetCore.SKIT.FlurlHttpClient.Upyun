@@ -1,6 +1,3 @@
-using System;
-using System.Linq;
-
 namespace SKIT.FlurlHttpClient.Upyun.Uss.Models
 {
     /// <summary>
@@ -15,7 +12,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.Models
         [System.Text.Json.Serialization.JsonIgnore]
         public string PartialUUID
         {
-            get { return RawHeaders.TryGetValue("x-upyun-multi-uuid", out string value) ? value : string.Empty; }
+            get { return GetRawHeaders().TryGetFirstValue("x-upyun-multi-uuid", out string? s) ? s! : string.Empty; }
         }
 
         /// <summary>
@@ -25,7 +22,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.Models
         [System.Text.Json.Serialization.JsonIgnore]
         public string FileType
         {
-            get { return RawHeaders.TryGetValue("x-upyun-multi-type", out string value) ? value : string.Empty; }
+            get { return GetRawHeaders().TryGetFirstValue("x-upyun-multi-type", out string? s) ? s! : string.Empty; }
         }
 
         /// <summary>
@@ -35,7 +32,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.Models
         [System.Text.Json.Serialization.JsonIgnore]
         public int FileSize
         {
-            get { return int.TryParse(RawHeaders.TryGetValue("x-upyun-multi-length", out string value) ? value : string.Empty, out int i) ? i : 0; }
+            get { return GetRawHeaders().TryGetFirstValue("x-upyun-multi-length", out string? s) && int.TryParse(s, out int i) ? i : 0; }
         }
     }
 }

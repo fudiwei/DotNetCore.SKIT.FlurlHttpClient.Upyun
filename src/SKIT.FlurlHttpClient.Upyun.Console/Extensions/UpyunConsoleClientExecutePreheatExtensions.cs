@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -10,7 +10,10 @@ namespace SKIT.FlurlHttpClient.Upyun.Console
     {
         /// <summary>
         /// <para>异步调用 [GET] /preheat 接口。</para>
-        /// <para>REF: https://api.upyun.com/doc#/api/operation/cache/GET%20%2Fpreheat </para>
+        /// <para>
+        /// REF: <br/>
+        /// <![CDATA[ https://api.upyun.com/doc#/api/operation/cache/GET%20%2Fpreheat ]]>
+        /// </para>
         /// </summary>
         /// <param name="client"></param>
         /// <param name="request"></param>
@@ -22,15 +25,18 @@ namespace SKIT.FlurlHttpClient.Upyun.Console
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             IFlurlRequest flurlReq = client
-                .CreateRequest(request, HttpMethod.Get, "preheat")
+                .CreateFlurlRequest(request, HttpMethod.Get, "preheat")
                 .SetQueryParam("task_ids", string.Join(",", request.TaskIdList));
 
-            return await client.SendRequestWithJsonAsync<Models.GetPreheatResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+            return await client.SendFlurlRequestAsJsonAsync<Models.GetPreheatResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
         /// <para>异步调用 [POST] /preheat 接口。</para>
-        /// <para>REF: https://api.upyun.com/doc#/api/operation/cache/POST%20%2Fpreheat </para>
+        /// <para>
+        /// REF: <br/>
+        /// <![CDATA[ https://api.upyun.com/doc#/api/operation/cache/POST%20%2Fpreheat ]]>
+        /// </para>
         /// </summary>
         /// <param name="client"></param>
         /// <param name="request"></param>
@@ -42,9 +48,9 @@ namespace SKIT.FlurlHttpClient.Upyun.Console
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             IFlurlRequest flurlReq = client
-                .CreateRequest(request, HttpMethod.Post, "preheat");
+                .CreateFlurlRequest(request, HttpMethod.Post, "preheat");
 
-            return await client.SendRequestWithJsonAsync<Models.CreatePreheatResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+            return await client.SendFlurlRequestAsJsonAsync<Models.CreatePreheatResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }
 }

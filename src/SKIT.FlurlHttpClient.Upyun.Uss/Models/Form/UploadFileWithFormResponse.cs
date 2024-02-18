@@ -1,4 +1,4 @@
-﻿namespace SKIT.FlurlHttpClient.Upyun.Uss.Models
+namespace SKIT.FlurlHttpClient.Upyun.Uss.Models
 {
     /// <summary>
     /// <para>表示 [POST] /{bucket} 接口的响应。</para>
@@ -56,7 +56,7 @@
 
         public override bool IsSuccessful()
         {
-            return RawStatus == 200 && (ErrorCode == 0 || ErrorCode == 200);
+            return GetRawStatus() == 200 && (ErrorCode == 0 || ErrorCode == 200);
         }
     }
 }

@@ -93,7 +93,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("external")]
                 [System.Text.Json.Serialization.JsonPropertyName("external")]
-                [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Converters.DynamicObjectConverter))]
+                [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.DynamicObjectConverter))]
                 public dynamic? ExternalConfig { get; set; }
             }
         }

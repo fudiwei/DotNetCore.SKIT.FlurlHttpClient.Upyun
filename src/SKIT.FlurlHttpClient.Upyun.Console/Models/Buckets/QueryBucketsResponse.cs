@@ -145,9 +145,9 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
                 /// 获取或设置创建时间。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("created_at")]
-                [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.RegularDateTimeOffsetConverter))]
+                [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.Common.BasicDateTimeOffsetConverter))]
                 [System.Text.Json.Serialization.JsonPropertyName("created_at")]
-                [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Converters.RegularDateTimeOffsetConverter))]
+                [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.BasicDateTimeOffsetConverter))]
                 public DateTimeOffset CreateTime { get; set; }
 
                 /// <summary>

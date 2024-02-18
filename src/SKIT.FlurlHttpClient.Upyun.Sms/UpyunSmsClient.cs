@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -21,41 +21,38 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms
         /// </summary>
         /// <param name="options">配置项。</param>
         public UpyunSmsClient(UpyunSmsClientOptions options)
-            : base()
+            : this(options, null)
         {
-            if (options == null) throw new ArgumentNullException(nameof(options));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="options"></param>
+        /// <param name="httpClient"></param>
+        /// <param name="disposeClient"></param>
+        internal protected UpyunSmsClient(UpyunSmsClientOptions options, HttpClient? httpClient, bool disposeClient = true)
+            : base(httpClient, disposeClient)
+        {
+            if (options is null) throw new ArgumentNullException(nameof(options));
 
             Credentials = new Settings.Credentials(options);
 
             FlurlClient.BaseUrl = options.Endpoint ?? UpyunSmsEndpoints.DEFAULT;
-            FlurlClient.WithHeader(Constants.HttpHeaders.Authorization, options.Token);
-            FlurlClient.WithTimeout(TimeSpan.FromMilliseconds(options.Timeout));
-        }
-
-        /// <summary>
-        /// 用指定的又拍云短信服务 API Token 初始化 <see cref="UpyunSmsClient"/> 类的新实例。
-        /// </summary>
-        /// <param name="token">又拍云短信服务 API Token。</param>
-        public UpyunSmsClient(string token)
-            : this(new UpyunSmsClientOptions() { Token = token })
-        {
+            FlurlClient.WithHeader(HttpHeaders.Authorization, options.Token);
+            FlurlClient.WithTimeout(options.Timeout <= 0 ? Timeout.InfiniteTimeSpan : TimeSpan.FromMilliseconds(options.Timeout));
         }
 
         /// <summary>
         /// 使用当前客户端生成一个新的 <see cref="IFlurlRequest"/> 对象。
         /// </summary>
         /// <param name="request"></param>
-        /// <param name="method"></param>
+        /// <param name="httpMethod"></param>
         /// <param name="urlSegments"></param>
         /// <returns></returns>
-        public IFlurlRequest CreateRequest(UpyunSmsRequest request, HttpMethod method, params object[] urlSegments)
+        public IFlurlRequest CreateFlurlRequest(UpyunSmsRequest request, HttpMethod httpMethod, params object[] urlSegments)
         {
-            IFlurlRequest flurlRequest = FlurlClient.Request(urlSegments).WithVerb(method);
-
-            if (request.Timeout != null)
-            {
-                flurlRequest.WithTimeout(TimeSpan.FromMilliseconds(request.Timeout.Value));
-            }
+            IFlurlRequest flurlRequest = base.CreateFlurlRequest(request, httpMethod, urlSegments);
 
             return flurlRequest;
         }
@@ -68,20 +65,13 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms
         /// <param name="httpContent"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        public async Task<T> SendRequestAsync<T>(IFlurlRequest flurlRequest, HttpContent? httpContent = null, CancellationToken cancellationToken = default)
+        public async Task<T> SendFlurlRequestAsync<T>(IFlurlRequest flurlRequest, HttpContent? httpContent = null, CancellationToken cancellationToken = default)
             where T : UpyunSmsResponse, new()
         {
-            if (flurlRequest == null) throw new ArgumentNullException(nameof(flurlRequest));
+            if (flurlRequest is null) throw new ArgumentNullException(nameof(flurlRequest));
 
-            try
-            {
-                using IFlurlResponse flurlResponse = await base.SendRequestAsync(flurlRequest, httpContent, cancellationToken);
-                return await WrapResponseWithJsonAsync<T>(flurlResponse, cancellationToken);
-            }
-            catch (FlurlHttpException ex)
-            {
-                throw new UpyunSmsException(ex.Message, ex);
-            }
+            using IFlurlResponse flurlResponse = await base.SendFlurlRequestAsync(flurlRequest, httpContent, cancellationToken).ConfigureAwait(false);
+            return await WrapFlurlResponseAsJsonAsync<T>(flurlResponse, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -92,26 +82,19 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms
         /// <param name="data"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        public async Task<T> SendRequestWithJsonAsync<T>(IFlurlRequest flurlRequest, object? data = null, CancellationToken cancellationToken = default)
+        public async Task<T> SendFlurlRequestAsJsonAsync<T>(IFlurlRequest flurlRequest, object? data = null, CancellationToken cancellationToken = default)
             where T : UpyunSmsResponse, new()
         {
-            if (flurlRequest == null) throw new ArgumentNullException(nameof(flurlRequest));
+            if (flurlRequest is null) throw new ArgumentNullException(nameof(flurlRequest));
 
-            try
-            {
-                bool isSimpleRequest = data == null ||
-                    flurlRequest.Verb == HttpMethod.Get ||
-                    flurlRequest.Verb == HttpMethod.Head ||
-                    flurlRequest.Verb == HttpMethod.Options;
-                using IFlurlResponse flurlResponse = isSimpleRequest ?
-                    await base.SendRequestAsync(flurlRequest, null, cancellationToken) :
-                    await base.SendRequestWithJsonAsync(flurlRequest, data, cancellationToken);
-                return await WrapResponseWithJsonAsync<T>(flurlResponse, cancellationToken);
-            }
-            catch (FlurlHttpException ex)
-            {
-                throw new UpyunSmsException(ex.Message, ex);
-            }
+            bool isSimpleRequest = data is null ||
+                flurlRequest.Verb == HttpMethod.Get ||
+                flurlRequest.Verb == HttpMethod.Head ||
+                flurlRequest.Verb == HttpMethod.Options;
+            using IFlurlResponse flurlResponse = isSimpleRequest ?
+                await base.SendFlurlRequestAsync(flurlRequest, null, cancellationToken).ConfigureAwait(false) :
+                await base.SendFlurlRequestAsJsonAsync(flurlRequest, data, cancellationToken).ConfigureAwait(false);
+            return await WrapFlurlResponseAsJsonAsync<T>(flurlResponse, cancellationToken).ConfigureAwait(false);
         }
     }
 }

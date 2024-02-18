@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -10,7 +10,10 @@ namespace SKIT.FlurlHttpClient.Upyun.Sim
     {
         /// <summary>
         /// <para>异步调用 [POST] /login/token/verify 接口。</para>
-        /// <para>REF: https://help.upyun.com/knowledge-base/sim-api/#rest-api </para>
+        /// <para>
+        /// REF: <br/>
+        /// <![CDATA[ https://help.upyun.com/knowledge-base/sim-api/#rest-api ]]>
+        /// </para>
         /// </summary>
         /// <param name="client"></param>
         /// <param name="request"></param>
@@ -22,9 +25,9 @@ namespace SKIT.FlurlHttpClient.Upyun.Sim
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             IFlurlRequest flurlReq = client
-                .CreateRequest(request, HttpMethod.Post, "login", "token", "verify");
+                .CreateFlurlRequest(request, HttpMethod.Post, "login", "token", "verify");
 
-            return await client.SendRequestWithJsonAsync<Models.LoginTokenVerifyResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+            return await client.SendFlurlRequestAsJsonAsync<Models.LoginTokenVerifyResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }
 }

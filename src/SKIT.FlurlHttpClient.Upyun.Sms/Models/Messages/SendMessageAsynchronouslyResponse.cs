@@ -1,4 +1,4 @@
-﻿namespace SKIT.FlurlHttpClient.Upyun.Sms.Models
+namespace SKIT.FlurlHttpClient.Upyun.Sms.Models
 {
     /// <summary>
     /// <para>表示 [POST] /messages/async 接口的响应。</para>
@@ -24,7 +24,7 @@
         /// </summary>
         [Newtonsoft.Json.JsonProperty("id")]
         [System.Text.Json.Serialization.JsonPropertyName("id")]
-        [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Converters.NumericalStringReadOnlyConverter))]
+        [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.NumericalStringReadOnlyConverter))]
         public string? MessageId { get; set; }
 
         public override bool IsSuccessful()

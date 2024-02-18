@@ -33,6 +33,10 @@
 
 <summary>[展开查看]</summary>
 
+-   Release 3.0.0
+
+    -   **变更**：升级公共组件至 v3.0.0。
+
 -   Release 2.0.0
 
     -   首次发布。
@@ -46,6 +50,10 @@
 <details>
 
 <summary>[展开查看]</summary>
+
+-   Release 3.0.0
+
+    -   **变更**：升级公共组件至 v3.0.0。
 
 -   Release 2.0.0
 
@@ -61,6 +69,10 @@
 
 <summary>[展开查看]</summary>
 
+-   Release 3.0.0
+
+    -   **变更**：升级公共组件至 v3.0.0。
+
 -   Release 2.0.0
 
     -   首次发布。
@@ -74,6 +86,10 @@
 <details>
 
 <summary>[展开查看]</summary>
+
+-   Release 3.0.0
+
+    -   **变更**：升级公共组件至 v3.0.0。
 
 -   Release 2.0.0
 

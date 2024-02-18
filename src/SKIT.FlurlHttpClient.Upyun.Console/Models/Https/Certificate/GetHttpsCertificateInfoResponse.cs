@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace SKIT.FlurlHttpClient.Upyun.Console.Models
 {
@@ -46,9 +46,9 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
         /// 获取或设置有效期结束时间。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("end_date")]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.RegularDateTimeOffsetConverter))]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.Common.BasicDateTimeOffsetConverter))]
         [System.Text.Json.Serialization.JsonPropertyName("end_date")]
-        [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Converters.RegularDateTimeOffsetConverter))]
+        [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.BasicDateTimeOffsetConverter))]
         public DateTimeOffset EndTime { get; set; }
 
         /// <summary>

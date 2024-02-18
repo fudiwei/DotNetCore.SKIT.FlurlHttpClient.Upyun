@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Text.Json;
 
@@ -17,13 +17,10 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.UnitTests
                 using var stream = File.OpenRead("appsettings.local.json");
                 using var jdoc = JsonDocument.Parse(stream);
 
-                var config = jdoc.RootElement.GetProperty("TestConfig");
+                var config = jdoc.RootElement.GetProperty("TestConfigs");
                 UpyunOperatorName = config.GetProperty("OperatorName").GetString()!;
                 UpyunOperatorPassword = config.GetProperty("OperatorPassword").GetString()!;
                 UpyunBucketName = config.GetProperty("BucketName").GetString()!;
-
-                WorkDirectoryForSdk = jdoc.RootElement.GetProperty("WorkDirectoryForSdk").GetString()!;
-                WorkDirectoryForTest = jdoc.RootElement.GetProperty("WorkDirectoryForTest").GetString()!;
             }
             catch (Exception ex)
             {
@@ -34,8 +31,5 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.UnitTests
         public static readonly string UpyunOperatorName;
         public static readonly string UpyunOperatorPassword;
         public static readonly string UpyunBucketName;
-
-        public static readonly string WorkDirectoryForSdk;
-        public static readonly string WorkDirectoryForTest;
     }
 }

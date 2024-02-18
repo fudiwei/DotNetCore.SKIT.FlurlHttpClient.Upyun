@@ -16,7 +16,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Settings
 
         internal Credentials(UpyunConsoleClientOptions options)
         {
-            if (options == null) throw new ArgumentNullException(nameof(options));
+            if (options is null) throw new ArgumentNullException(nameof(options));
 
             Username = options.Username;
             Password = options.Password;

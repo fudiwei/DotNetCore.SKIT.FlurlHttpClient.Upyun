@@ -1,4 +1,4 @@
-﻿namespace SKIT.FlurlHttpClient.Upyun.Uss.Models
+namespace SKIT.FlurlHttpClient.Upyun.Uss.Models
 {
     /// <summary>
     /// <para>表示 [POST] /{service}/liveaudit/cancel 接口的响应。</para>
@@ -14,7 +14,7 @@
 
         public override bool IsSuccessful()
         {
-            return RawStatus == 200 && Status == 200;
+            return GetRawStatus() == 200 && Status == 200;
         }
     }
 }

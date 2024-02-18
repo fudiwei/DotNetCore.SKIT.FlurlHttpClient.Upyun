@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace SKIT.FlurlHttpClient.Upyun.Sms.Models
@@ -60,9 +60,9 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms.Models
         /// 获取或设置指定发送时间。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("time")]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.RegularNullableDateTimeOffsetConverter))]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.Common.BasicDateTimeOffsetConverter))]
         [System.Text.Json.Serialization.JsonPropertyName("time")]
-        [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Converters.RegularNullableDateTimeOffsetConverter))]
+        [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.BasicDateTimeOffsetConverter))]
         public DateTimeOffset? DateTime { get; set; }
 
         /// <summary>

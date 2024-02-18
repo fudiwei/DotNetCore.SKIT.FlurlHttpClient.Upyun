@@ -37,18 +37,18 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
                 /// 获取或设置创建时间。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("created_at")]
-                [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.UnixTimestampDateTimeOffsetConverter))]
+                [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.Common.UnixTimestampDateTimeOffsetConverter))]
                 [System.Text.Json.Serialization.JsonPropertyName("created_at")]
-                [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Converters.UnixTimestampDateTimeOffsetConverter))]
+                [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.UnixTimestampDateTimeOffsetConverter))]
                 public DateTimeOffset CreateTime { get; set; }
 
                 /// <summary>
                 /// 获取或设置授权时间。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("bind_at")]
-                [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.UnixTimestampDateTimeOffsetConverter))]
+                [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.Common.UnixTimestampDateTimeOffsetConverter))]
                 [System.Text.Json.Serialization.JsonPropertyName("bind_at")]
-                [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Converters.UnixTimestampDateTimeOffsetConverter))]
+                [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.UnixTimestampDateTimeOffsetConverter))]
                 public DateTimeOffset BindTime { get; set; }
 
                 /// <summary>

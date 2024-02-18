@@ -1,4 +1,4 @@
-﻿namespace SKIT.FlurlHttpClient.Upyun.Uss.Models
+namespace SKIT.FlurlHttpClient.Upyun.Uss.Models
 {
     /// <summary>
     /// <para>表示 [POST] /{service}/liveaudit/create 接口的响应。</para>
@@ -25,7 +25,7 @@
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("rate")]
                         [System.Text.Json.Serialization.JsonPropertyName("rate")]
-                        public double Rate { get; set; }
+                        public decimal Rate { get; set; }
 
                         /// <summary>
                         /// 获取或设置是否需要人工复审。
@@ -68,7 +68,7 @@
 
         public override bool IsSuccessful()
         {
-            return RawStatus == 200 && Status == 200;
+            return GetRawStatus() == 200 && Status == 200;
         }
     }
 }

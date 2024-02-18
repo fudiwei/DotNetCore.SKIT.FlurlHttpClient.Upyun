@@ -1,4 +1,4 @@
-﻿namespace SKIT.FlurlHttpClient.Upyun.Console.Models
+namespace SKIT.FlurlHttpClient.Upyun.Console.Models
 {
     /// <summary>
     /// <para>表示 [GET] /v2/buckets/cdn/source 接口的响应。</para>

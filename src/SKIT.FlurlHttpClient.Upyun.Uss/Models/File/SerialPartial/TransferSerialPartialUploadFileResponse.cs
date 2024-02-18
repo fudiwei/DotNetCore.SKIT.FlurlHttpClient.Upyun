@@ -1,6 +1,3 @@
-using System;
-using System.Linq;
-
 namespace SKIT.FlurlHttpClient.Upyun.Uss.Models
 {
     /// <summary>
@@ -15,7 +12,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.Models
         [System.Text.Json.Serialization.JsonIgnore]
         public int NextChunkId
         {
-            get { return int.TryParse(RawHeaders.TryGetValue("x-upyun-next-part-id", out string value) ? value : string.Empty, out int i) ? i : 0; }
+            get { return GetRawHeaders().TryGetFirstValue("x-upyun-next-part-id", out string? s) && int.TryParse(s, out int i) ? i : 0; }
         }
     }
 }

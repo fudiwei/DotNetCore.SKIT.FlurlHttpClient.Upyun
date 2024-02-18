@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace SKIT.FlurlHttpClient.Upyun.Sms.Models
 {
@@ -23,7 +23,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("id")]
                 [System.Text.Json.Serialization.JsonPropertyName("id")]
-                [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Converters.NumericalStringReadOnlyConverter))]
+                [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.NumericalStringReadOnlyConverter))]
                 public string? MessageId { get; set; }
 
                 /// <summary>
@@ -86,18 +86,18 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms.Models
                 /// 获取或设置短信创建时间。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("created_at")]
-                [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.RFC3339DateTimeOffsetConverter))]
+                [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.Common.Rfc3339DateTimeOffsetConverter))]
                 [System.Text.Json.Serialization.JsonPropertyName("created_at")]
-                [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Converters.RFC3339DateTimeOffsetConverter))]
+                [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.Rfc3339DateTimeOffsetConverter))]
                 public DateTimeOffset CreateTime { get; set; }
 
                 /// <summary>
                 /// 获取或设置短信发送时间。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("sent_at")]
-                [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.RFC3339NullableDateTimeOffsetConverter))]
+                [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.Common.Rfc3339DateTimeOffsetConverter))]
                 [System.Text.Json.Serialization.JsonPropertyName("sent_at")]
-                [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Converters.RFC3339NullableDateTimeOffsetConverter))]
+                [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.Rfc3339DateTimeOffsetConverter))]
                 public DateTimeOffset? SendTime { get; set; }
 
                 /// <summary>
