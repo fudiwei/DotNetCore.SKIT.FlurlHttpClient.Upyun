@@ -3,7 +3,7 @@ using System;
 namespace SKIT.FlurlHttpClient.Upyun.Sim
 {
     /// <summary>
-    /// 又拍云一键登录服务 API 出错时引发的异常。
+    /// 当调用又拍云一键登录服务 API 出错时引发的异常。
     /// </summary>
     public class UpyunSimException : CommonException
     {

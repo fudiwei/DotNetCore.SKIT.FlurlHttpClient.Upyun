@@ -3,7 +3,7 @@ using System;
 namespace SKIT.FlurlHttpClient.Upyun.Uss
 {
     /// <summary>
-    /// 又拍云云存储服务 API 出错时引发的异常。
+    /// 当调用又拍云云存储服务 API 出错时引发的异常。
     /// </summary>
     public class UpyunUssException : CommonException
     {
