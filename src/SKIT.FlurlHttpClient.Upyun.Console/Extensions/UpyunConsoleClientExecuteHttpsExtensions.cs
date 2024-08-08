@@ -48,16 +48,10 @@ namespace SKIT.FlurlHttpClient.Upyun.Console
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             IFlurlRequest flurlReq = client
-                .CreateFlurlRequest(request, HttpMethod.Get, "https", "certificate", "list");
-
-            if (request.Since is not null)
-                flurlReq.SetQueryParam("since", request.Since.Value);
-
-            if (request.Max is not null)
-                flurlReq.SetQueryParam("max", request.Max.Value);
-
-            if (request.Limit is not null)
-                flurlReq.SetQueryParam("limit", request.Limit.Value);
+                .CreateFlurlRequest(request, HttpMethod.Get, "https", "certificate", "list")
+                .SetQueryParam("since", request.Since)
+                .SetQueryParam("max", request.Max)
+                .SetQueryParam("limit", request.Limit);
 
             return await client.SendFlurlRequestAsJsonAsync<Models.QueryHttpsCertificatesResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }

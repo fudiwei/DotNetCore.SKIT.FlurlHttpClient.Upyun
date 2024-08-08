@@ -91,13 +91,9 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             IFlurlRequest flurlReq = client
-                .CreateFlurlRequest(request, HttpMethod.Get, "templates");
-
-            if (request.Type is not null)
-                flurlReq.SetQueryParam("type", request.Type);
-
-            if (request.ReportType is not null)
-                flurlReq.SetQueryParam("report_type", request.ReportType);
+                .CreateFlurlRequest(request, HttpMethod.Get, "templates")
+                .SetQueryParam("type", request.Type)
+                .SetQueryParam("report_type", request.ReportType);
 
             return await client.SendFlurlRequestAsJsonAsync<Models.QueryTemplatesResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }

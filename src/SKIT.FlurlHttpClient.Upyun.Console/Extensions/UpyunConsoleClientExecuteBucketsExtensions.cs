@@ -25,31 +25,15 @@ namespace SKIT.FlurlHttpClient.Upyun.Console
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             IFlurlRequest flurlReq = client
-                .CreateFlurlRequest(request, HttpMethod.Get, "buckets");
-
-            if (request.Since is not null)
-                flurlReq.SetQueryParam("since", request.Since.Value);
-
-            if (request.Max is not null)
-                flurlReq.SetQueryParam("max", request.Max.Value);
-
-            if (request.Limit is not null)
-                flurlReq.SetQueryParam("limit", request.Limit.Value);
-
-            if (request.Name is not null)
-                flurlReq.SetQueryParam("name", request.Name);
-
-            if (request.BusinessType is not null)
-                flurlReq.SetQueryParam("business_type", request.BusinessType);
-
-            if (request.Type is not null)
-                flurlReq.SetQueryParam("type", request.Type);
-
-            if (request.IsVisible is not null)
-                flurlReq.SetQueryParam("visible", request.IsVisible.Value);
-
-            if (request.BucketName is not null)
-                flurlReq.SetQueryParam("bucket_name", request.BucketName);
+                .CreateFlurlRequest(request, HttpMethod.Get, "buckets")
+                .SetQueryParam("since", request.Since)
+                .SetQueryParam("max", request.Max)
+                .SetQueryParam("limit", request.Limit)
+                .SetQueryParam("name", request.Name)
+                .SetQueryParam("business_type", request.BusinessType)
+                .SetQueryParam("type", request.Type)
+                .SetQueryParam("visible", request.IsVisible.HasValue ? request.IsVisible.Value ? "true" : "false" : null)
+                .SetQueryParam("bucket_name", request.BucketName);
 
             return await client.SendFlurlRequestAsJsonAsync<Models.QueryBucketsResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
@@ -236,13 +220,9 @@ namespace SKIT.FlurlHttpClient.Upyun.Console
 
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Get, "buckets", "domains")
-                .SetQueryParam("bucket_name", request.BucketName);
-
-            if (request.Page is not null)
-                flurlReq.SetQueryParam("page", request.Page.Value);
-
-            if (request.Limit is not null)
-                flurlReq.SetQueryParam("limit", request.Limit.Value);
+                .SetQueryParam("bucket_name", request.BucketName)
+                .SetQueryParam("page", request.Page)
+                .SetQueryParam("limit", request.Limit);
 
             return await client.SendFlurlRequestAsJsonAsync<Models.QueryBucketDomainsResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }

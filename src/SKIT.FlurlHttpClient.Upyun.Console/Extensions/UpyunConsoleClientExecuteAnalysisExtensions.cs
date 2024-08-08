@@ -25,22 +25,12 @@ namespace SKIT.FlurlHttpClient.Upyun.Console
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             IFlurlRequest flurlReq = client
-                .CreateFlurlRequest(request, HttpMethod.Get, "analysis");
-
-            if (request.BucketName is not null)
-                flurlReq.SetQueryParam("bucket_name", request.BucketName);
-
-            if (request.DomainName is not null)
-                flurlReq.SetQueryParam("domain", request.DomainName);
-
-            if (request.DateString is not null)
-                flurlReq.SetQueryParam("date", request.DateString);
-
-            if (request.Type is not null)
-                flurlReq.SetQueryParam("type", request.Type);
-
-            if (request.OrderBy is not null)
-                flurlReq.SetQueryParam("order_by", request.OrderBy);
+                .CreateFlurlRequest(request, HttpMethod.Get, "analysis")
+                .SetQueryParam("bucket_name", request.BucketName)
+                .SetQueryParam("domain", request.DomainName)
+                .SetQueryParam("date", request.DateString)
+                .SetQueryParam("type", request.Type)
+                .SetQueryParam("order_by", request.OrderBy);
 
             return await client.SendFlurlRequestAsJsonAsync<Models.QueryAnalysisResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
@@ -62,31 +52,15 @@ namespace SKIT.FlurlHttpClient.Upyun.Console
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             IFlurlRequest flurlReq = client
-                .CreateFlurlRequest(request, HttpMethod.Get, "analysis", "archives");
-
-            if (request.BucketName is not null)
-                flurlReq.SetQueryParam("bucket_name", request.BucketName);
-
-            if (request.DomainName is not null)
-                flurlReq.SetQueryParam("domain", request.DomainName);
-
-            if (request.DateString is not null)
-                flurlReq.SetQueryParam("date", request.DateString);
-
-            if (request.StartDateString is not null)
-                flurlReq.SetQueryParam("start_date", request.StartDateString);
-
-            if (request.EndDateString is not null)
-                flurlReq.SetQueryParam("start_date", request.EndDateString);
-
-            if (request.UseHttps is not null)
-                flurlReq.SetQueryParam("useSsl", request.UseHttps.Value);
-
-            if (request.IsPCDN is not null)
-                flurlReq.SetQueryParam("pcdn", request.IsPCDN.Value);
-
-            if (request.IsAbroad is not null)
-                flurlReq.SetQueryParam("abroad", request.IsAbroad.Value);
+                .CreateFlurlRequest(request, HttpMethod.Get, "analysis", "archives")
+                .SetQueryParam("bucket_name", request.BucketName)
+                .SetQueryParam("domain", request.DomainName)
+                .SetQueryParam("date", request.DateString)
+                .SetQueryParam("start_date", request.StartDateString)
+                .SetQueryParam("start_date", request.EndDateString)
+                .SetQueryParam("useSsl", request.UseHttps)
+                .SetQueryParam("pcdn", request.IsPCDN)
+                .SetQueryParam("abroad", request.IsAbroad);
 
             return await client.SendFlurlRequestAsJsonAsync<Models.QueryAnalysisArchivesResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }

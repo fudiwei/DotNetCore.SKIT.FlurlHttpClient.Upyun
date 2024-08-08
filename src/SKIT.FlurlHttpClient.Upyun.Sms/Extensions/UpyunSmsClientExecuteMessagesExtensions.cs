@@ -129,22 +129,12 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             IFlurlRequest flurlReq = client
-                .CreateFlurlRequest(request, HttpMethod.Get, "messages");
-
-            if (request.DateString is not null)
-                flurlReq.SetQueryParam("date", request.DateString);
-
-            if (request.MobileNumber is not null)
-                flurlReq.SetQueryParam("mobile", request.MobileNumber);
-
-            if (request.Status is not null)
-                flurlReq.SetQueryParam("status", request.Status);
-
-            if (request.Page is not null)
-                flurlReq.SetQueryParam("page", request.Page);
-
-            if (request.Limit is not null)
-                flurlReq.SetQueryParam("per_page", request.Limit);
+                .CreateFlurlRequest(request, HttpMethod.Get, "messages")
+                .SetQueryParam("date", request.DateString)
+                .SetQueryParam("mobile", request.MobileNumber)
+                .SetQueryParam("status", request.Status)
+                .SetQueryParam("page", request.Page)
+                .SetQueryParam("per_page", request.Limit);
 
             return await client.SendFlurlRequestAsJsonAsync<Models.QueryMessagesResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
@@ -166,22 +156,12 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             IFlurlRequest flurlReq = client
-                .CreateFlurlRequest(request, HttpMethod.Get, "messages", "intl");
-
-            if (request.DateString is not null)
-                flurlReq.SetQueryParam("date", request.DateString);
-
-            if (request.MobileNumber is not null)
-                flurlReq.SetQueryParam("mobile", request.MobileNumber);
-
-            if (request.Status is not null)
-                flurlReq.SetQueryParam("status", request.Status);
-
-            if (request.Page is not null)
-                flurlReq.SetQueryParam("page", request.Page);
-
-            if (request.Limit is not null)
-                flurlReq.SetQueryParam("per_page", request.Limit);
+                .CreateFlurlRequest(request, HttpMethod.Get, "messages", "intl")
+                .SetQueryParam("date", request.DateString)
+                .SetQueryParam("mobile", request.MobileNumber)
+                .SetQueryParam("status", request.Status)
+                .SetQueryParam("page", request.Page)
+                .SetQueryParam("per_page", request.Limit);
 
             return await client.SendFlurlRequestAsJsonAsync<Models.QueryInternationalMessagesResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
