@@ -1,0 +1,14 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/SKIT.FlurlHttpClient.Upyun.Console/SKIT.FlurlHttpClient.Upyun.Console.csproj" />
+    <Project Path="src/SKIT.FlurlHttpClient.Upyun.Sim/SKIT.FlurlHttpClient.Upyun.Sim.csproj" />
+    <Project Path="src/SKIT.FlurlHttpClient.Upyun.Sms/SKIT.FlurlHttpClient.Upyun.Sms.csproj" />
+    <Project Path="src/SKIT.FlurlHttpClient.Upyun.Uss/SKIT.FlurlHttpClient.Upyun.Uss.csproj" />
+  </Folder>
+  <Folder Name="/test/">
+    <Project Path="test/SKIT.FlurlHttpClient.Upyun.Console.UnitTests/SKIT.FlurlHttpClient.Upyun.Console.UnitTests.csproj" />
+    <Project Path="test/SKIT.FlurlHttpClient.Upyun.Sim.UnitTests/SKIT.FlurlHttpClient.Upyun.Sim.UnitTests.csproj" />
+    <Project Path="test/SKIT.FlurlHttpClient.Upyun.Sms.UnitTests/SKIT.FlurlHttpClient.Upyun.Sms.UnitTests.csproj" />
+    <Project Path="test/SKIT.FlurlHttpClient.Upyun.Uss.UnitTests/SKIT.FlurlHttpClient.Upyun.Uss.UnitTests.csproj" />
+  </Folder>
+</Solution>
