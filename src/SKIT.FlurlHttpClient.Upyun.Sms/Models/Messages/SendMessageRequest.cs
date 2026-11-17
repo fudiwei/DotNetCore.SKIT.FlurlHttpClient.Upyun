@@ -12,7 +12,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms.Models
         [Newtonsoft.Json.JsonConverter(typeof(SKIT.JsonConv.NewtonsoftJson.Converters.StringifiedStringListWithCommaSplitConverter))]
         [System.Text.Json.Serialization.JsonPropertyName("mobile")]
         [System.Text.Json.Serialization.JsonConverter(typeof(SKIT.JsonConv.SystemTextJson.Converters.StringifiedStringListWithCommaSplitConverter))]
-        public IList<string> MobileNumberList { get; set; } = new List<string>();
+        public List<string>? MobileNumberList { get; set; }
 
         /// <summary>
         /// 获取或设置模板编号。
@@ -33,7 +33,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("variables")]
         [System.Text.Json.Serialization.JsonPropertyName("variables")]
-        public IList<string>? VariableList { get; set; }
+        public List<string>? VariableList { get; set; }
 
         /// <summary>
         /// 获取或设置拓展码。

@@ -3,9 +3,9 @@ using System.Text.Json.Serialization;
 
 namespace SKIT.FlurlHttpClient.Upyun.Sms.Converters.SystemTextJson
 {
-    internal class NumericStringArrayReadOnlyConverter : JsonConverter<string[]?>
+    internal class NumericStringListReadOnlyConverter : JsonConverter<List<string>?>
     {
-        public override string[]? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        public override List<string>? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
             if (reader.TokenType == JsonTokenType.Null)
             {
@@ -13,7 +13,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms.Converters.SystemTextJson
             }
             else if (reader.TokenType == JsonTokenType.StartArray)
             {
-                IList<string> list = new List<string>();
+                List<string> list = new();
 
                 while (reader.Read())
                 {
@@ -43,7 +43,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms.Converters.SystemTextJson
                             break;
 
                         case JsonTokenType.EndArray:
-                            return list.ToArray();
+                            return list;
 
                         default:
                             throw new JsonException($"Unexpected JSON token type '{reader.TokenType}' when reading.");
@@ -54,7 +54,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms.Converters.SystemTextJson
             throw new JsonException($"Unexpected JSON token type '{reader.TokenType}' when reading.");
         }
 
-        public override void Write(Utf8JsonWriter writer, string[]? value, JsonSerializerOptions options)
+        public override void Write(Utf8JsonWriter writer, List<string>? value, JsonSerializerOptions options)
         {
             if (value is not null)
             {

@@ -22,7 +22,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("error_code")]
                 [System.Text.Json.Serialization.JsonPropertyName("error_code")]
-                public string? ErrorCode { get; set; } = default!;
+                public string? ErrorCode { get; set; }
 
                 /// <summary>
                 /// 获取或设置消息编号。
@@ -37,7 +37,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("mobile")]
                 [System.Text.Json.Serialization.JsonPropertyName("mobile")]
-                public string MobileNumber { get; set; } = default!;
+                public string? MobileNumber { get; set; }
             }
         }
 
@@ -53,7 +53,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("message_ids")]
         [System.Text.Json.Serialization.JsonPropertyName("message_ids")]
-        public Types.Message[] MessageList { get; set; } = default!;
+        public List<Types.Message>? MessageList { get; set; }
 
         public override bool IsSuccessful()
         {

@@ -36,49 +36,49 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("title")]
                 [System.Text.Json.Serialization.JsonPropertyName("title")]
-                public string Title { get; set; } = default!;
+                public string? Title { get; set; }
 
                 /// <summary>
                 /// 获取或设置模板内容。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("content")]
                 [System.Text.Json.Serialization.JsonPropertyName("content")]
-                public string Content { get; set; } = default!;
+                public string? Content { get; set; }
 
                 /// <summary>
                 /// 获取或设置模版签名。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("temp_sign")]
                 [System.Text.Json.Serialization.JsonPropertyName("temp_sign")]
-                public string Signature { get; set; } = default!;
+                public string? Signature { get; set; }
 
                 /// <summary>
                 /// 获取或设置模板类型。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("type")]
                 [System.Text.Json.Serialization.JsonPropertyName("type")]
-                public string Type { get; set; } = default!;
+                public string? Type { get; set; }
 
                 /// <summary>
                 /// 获取或设置审核类型。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("report_type")]
                 [System.Text.Json.Serialization.JsonPropertyName("report_type")]
-                public string ReportType { get; set; } = default!;
+                public string? ReportType { get; set; }
 
                 /// <summary>
                 /// 获取或设置手机号码。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("mobile")]
                 [System.Text.Json.Serialization.JsonPropertyName("mobile")]
-                public string MobileNumber { get; set; } = default!;
+                public string? MobileNumber { get; set; }
 
                 /// <summary>
                 /// 获取或设置发送状态。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("status")]
                 [System.Text.Json.Serialization.JsonPropertyName("status")]
-                public string Status { get; set; } = default!;
+                public string? Status { get; set; }
 
                 /// <summary>
                 /// 获取或设置短信创建时间。
@@ -110,7 +110,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("owner")]
                 [System.Text.Json.Serialization.JsonPropertyName("owner")]
-                public Types.Owner Owner { get; set; } = default!;
+                public Types.Owner? Owner { get; set; }
             }
         }
 
@@ -119,7 +119,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("messages")]
         [System.Text.Json.Serialization.JsonPropertyName("messages")]
-        public Types.Message[] MessageList { get; set; } = default!;
+        public List<Types.Message>? MessageList { get; set; }
 
         /// <summary>
         /// 获取或设置总数量。

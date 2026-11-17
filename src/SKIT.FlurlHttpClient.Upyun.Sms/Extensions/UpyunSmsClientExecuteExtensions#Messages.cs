@@ -49,7 +49,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Post, "messages", "file");
 
-            using var fileContent = new ByteArrayContent(request.FileBytes);
+            using var fileContent = new ByteArrayContent(request.FileBytes ?? Array.Empty<byte>());
             fileContent.Headers.ContentType = MediaTypeHeaderValue.Parse("text/csv");
             fileContent.Headers.ContentLength = request.FileBytes?.Length;
 

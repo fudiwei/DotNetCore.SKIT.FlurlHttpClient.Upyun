@@ -14,7 +14,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("phone")]
                 [System.Text.Json.Serialization.JsonPropertyName("phone")]
-                public string MobileNumber { get; set; } = string.Empty;
+                public string? MobileNumber { get; set; }
 
                 /// <summary>
                 /// 获取或设置自定义签名。
@@ -28,7 +28,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("variables")]
                 [System.Text.Json.Serialization.JsonPropertyName("variables")]
-                public IList<string>? VariableList { get; set; }
+                public List<string>? VariableList { get; set; }
             }
         }
 
@@ -37,7 +37,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("mobile")]
         [System.Text.Json.Serialization.JsonPropertyName("mobile")]
-        public IList<Types.Mobile> MobileNumberList { get; set; } = new List<Types.Mobile>();
+        public List<Types.Mobile>? MobileNumberList { get; set; }
 
         /// <summary>
         /// 获取或设置模板编号。

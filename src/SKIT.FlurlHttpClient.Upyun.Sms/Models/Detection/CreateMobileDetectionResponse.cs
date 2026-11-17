@@ -21,7 +21,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("carrierStr")]
                 [System.Text.Json.Serialization.JsonPropertyName("carrierStr")]
-                public string CarrierDescription { get; set; } = default!;
+                public string? CarrierDescription { get; set; }
 
                 /// <summary>
                 /// 获取或设置手机号码状态标识号。
@@ -35,7 +35,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("phoneStatusStr")]
                 [System.Text.Json.Serialization.JsonPropertyName("phoneStatusStr")]
-                public string StatusDescription { get; set; } = default!;
+                public string? StatusDescription { get; set; }
 
                 /// <summary>
                 /// 获取或设置手机号码。
@@ -43,7 +43,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms.Models
                 [Newtonsoft.Json.JsonProperty("phone")]
                 [System.Text.Json.Serialization.JsonPropertyName("phone")]
                 [System.Text.Json.Serialization.JsonConverter(typeof(SKIT.JsonConv.SystemTextJson.Converters.NumericStringReadOnlyConverter))]
-                public string MobileNumber { get; set; } = default!;
+                public string? MobileNumber { get; set; }
 
                 /// <summary>
                 /// 获取或设置号码归属地省份。
@@ -87,8 +87,8 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("mobiles")]
         [System.Text.Json.Serialization.JsonPropertyName("mobiles")]
-        [System.Text.Json.Serialization.JsonConverter(typeof(Sms.Converters.SystemTextJson.NumericStringArrayReadOnlyConverter))]
-        public string[] MobileNumberList { get; set; } = default!;
+        [System.Text.Json.Serialization.JsonConverter(typeof(Sms.Converters.SystemTextJson.NumericStringListReadOnlyConverter))]
+        public List<string>? MobileNumberList { get; set; }
 
         /// <summary>
         /// 获取或设置手机号码数目。
@@ -111,7 +111,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("data")]
         [System.Text.Json.Serialization.JsonPropertyName("data")]
-        public Types.Result[]? ResultList { get; set; }
+        public List<Types.Result>? ResultList { get; set; }
 
         /// <summary>
         /// 获取或设置已完成的任务数目。

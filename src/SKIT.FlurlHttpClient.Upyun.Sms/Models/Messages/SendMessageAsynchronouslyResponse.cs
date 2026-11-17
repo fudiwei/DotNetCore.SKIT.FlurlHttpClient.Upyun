@@ -17,7 +17,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("message")]
         [System.Text.Json.Serialization.JsonPropertyName("message")]
-        public string? ReturnMessage { get; set; } = default!;
+        public string? ReturnMessage { get; set; }
 
         /// <summary>
         /// 获取或设置消息编号。

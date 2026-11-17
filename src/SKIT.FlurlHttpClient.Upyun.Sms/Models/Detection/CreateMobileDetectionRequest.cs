@@ -12,6 +12,6 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms.Models
         [Newtonsoft.Json.JsonConverter(typeof(SKIT.JsonConv.NewtonsoftJson.Converters.StringifiedStringListWithCommaSplitConverter))]
         [System.Text.Json.Serialization.JsonPropertyName("mobile")]
         [System.Text.Json.Serialization.JsonConverter(typeof(SKIT.JsonConv.SystemTextJson.Converters.StringifiedStringListWithCommaSplitConverter))]
-        public IList<string> MobileNumberList { get; set; } = new List<string>();
+        public List<string>? MobileNumberList { get; set; }
     }
 }
