@@ -7,7 +7,7 @@
 [![Vistors](https://visitor-badge.laobi.icu/badge?page_id=fudiwei.DotNetCore.SKIT.FlurlHttpClient.Upyun&title=Visitors)](https://github.com/fudiwei/DotNetCore.SKIT.FlurlHttpClient.Upyun)
 [![License](https://img.shields.io/github/license/fudiwei/DotNetCore.SKIT.FlurlHttpClient.Upyun?label=License)](https://mit-license.org/)
 
-基于 `Flurl.Http` 的又拍云 HTTP API SDK，目前已包含文件存储、短信服务（SMS）、一键登录服务（SIM）、服务管理后台等模块。
+基于 `Flurl.Http` 的又拍云 API 客户端 SDK，目前已包含文件存储、短信服务、一键登录服务、服务管理后台等模块。
 
 > 更多 SKIT.FlurlHttpClient 系列开发工具包请[点此查看](https://github.com/fudiwei/DotNetCore.SKIT.FlurlHttpClient)。
 
