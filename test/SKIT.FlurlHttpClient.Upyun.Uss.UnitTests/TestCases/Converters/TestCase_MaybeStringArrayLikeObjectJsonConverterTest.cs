@@ -1,6 +1,6 @@
-namespace SKIT.FlurlHttpClient.Upyun.Uss.UnitTests
+namespace SKIT.FlurlHttpClient.Upyun.Uss.UnitTests.TestCases.Converters
 {
-    public class TestCase_JsonConverterOfMaybeStringArrayLikeObjectTest
+    public class TestCase_MaybeStringArrayLikeObjectJsonConverterTest
     {
         private static void TestCustomJsonConverter(IJsonSerializer jsonSerializer)
         {
@@ -64,24 +64,26 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.UnitTests
             });
         }
 
-        [Fact(DisplayName = "测试用例：自定义 Newtosoft.Json.JsonConverter 之 MaybeStringArrayLikeObjectConverter")]
-        public void TestNewtosoftJsonConverter()
+        [Fact(DisplayName = "测试用例：自定义 JSON 转换器 `MaybeStringArrayLikeObjectConverter`")]
+        public void TestMaybeStringArrayLikeObjectJsonConverter()
         {
-            var jsonSettings = NewtonsoftJsonSerializer.GetDefaultSerializerSettings();
-            jsonSettings.Formatting = Newtonsoft.Json.Formatting.None;
-            jsonSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
+            Assert.Multiple(() =>
+            {
+                var jsonSettings = NewtonsoftJsonSerializer.GetDefaultSerializerSettings();
+                jsonSettings.Formatting = Newtonsoft.Json.Formatting.None;
+                jsonSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
 
-            TestCustomJsonConverter(new NewtonsoftJsonSerializer(jsonSettings));
-        }
+                TestCustomJsonConverter(new NewtonsoftJsonSerializer(jsonSettings));
+            });
 
-        [Fact(DisplayName = "测试用例：自定义 System.Text.Json.Serialization.JsonConverter 之 MaybeStringArrayLikeObjectConverter")]
-        public void TestSystemTextJsonConverter()
-        {
-            var jsonOptions = SystemTextJsonSerializer.GetDefaultSerializerOptions();
-            jsonOptions.WriteIndented = false;
-            jsonOptions.DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull;
+            Assert.Multiple(() =>
+            {
+                var jsonOptions = SystemTextJsonSerializer.GetDefaultSerializerOptions();
+                jsonOptions.WriteIndented = false;
+                jsonOptions.DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull;
 
-            TestCustomJsonConverter(new SystemTextJsonSerializer(jsonOptions));
+                TestCustomJsonConverter(new SystemTextJsonSerializer(jsonOptions));
+            });
         }
     }
 }

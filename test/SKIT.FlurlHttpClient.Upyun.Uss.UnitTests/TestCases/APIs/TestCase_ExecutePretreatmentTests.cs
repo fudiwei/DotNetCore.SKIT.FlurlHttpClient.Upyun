@@ -1,13 +1,16 @@
-namespace SKIT.FlurlHttpClient.Upyun.Uss.UnitTests
+namespace SKIT.FlurlHttpClient.Upyun.Uss.UnitTests.TestCases.APIs
 {
-    public class TestCase_ApiExecutePretreatmentTests
+    public class TestCase_ExecutePretreatmentTests
     {
-        [Fact(DisplayName = "测试用例：调用 API [POST] /pretreatment/")]
+        [Fact(DisplayName = "测试用例：调用 API（[POST] /pretreatment/）")]
         public async Task TestExecuteCreatePretreatmentSpiderman()
         {
+            Assert.SkipWhen("" == ITConfigs.Fixtures_BucketName, "【已跳过】未配置 \"Fixtures.BucketName\"。");
+
+            using var client = ITClients.CreateInstance();
             var request = new Models.CreatePretreatmentSpidermanRequest()
             {
-                BucketName = TestConfigs.UpyunBucketName,
+                BucketName = ITConfigs.Fixtures_BucketName,
                 NotifyUrl = "https://example.com/",
                 TaskList = new List<Models.CreatePretreatmentSpidermanRequest.Types.Task>()
                 {
@@ -19,7 +22,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.UnitTests
                     }
                 }
             };
-            var response = await TestClients.Instance.ExecuteCreatePretreatmentSpidermanAsync(request);
+            var response = await client.ExecuteCreatePretreatmentSpidermanAsync(request, TestContext.Current.CancellationToken);
 
             Assert.True(response.IsSuccessful());
         }
