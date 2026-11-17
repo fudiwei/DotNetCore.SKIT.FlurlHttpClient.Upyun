@@ -1,5 +1,3 @@
-using System;
-
 namespace SKIT.FlurlHttpClient.Upyun.Sms.Models
 {
     /// <summary>
@@ -44,7 +42,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("phone")]
                 [System.Text.Json.Serialization.JsonPropertyName("phone")]
-                [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.NumericalStringReadOnlyConverter))]
+                [System.Text.Json.Serialization.JsonConverter(typeof(SKIT.JsonConv.SystemTextJson.Converters.NumericStringReadOnlyConverter))]
                 public string MobileNumber { get; set; } = default!;
 
                 /// <summary>
@@ -89,7 +87,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("mobiles")]
         [System.Text.Json.Serialization.JsonPropertyName("mobiles")]
-        [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Internal.NumericalStringArrayReadOnlyConverter))]
+        [System.Text.Json.Serialization.JsonConverter(typeof(Sms.Converters.SystemTextJson.NumericStringArrayReadOnlyConverter))]
         public string[] MobileNumberList { get; set; } = default!;
 
         /// <summary>
@@ -103,9 +101,9 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms.Models
         /// 获取或设置创建时间。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("created_at")]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.Common.UnixTimestampDateTimeOffsetConverter))]
+        [Newtonsoft.Json.JsonConverter(typeof(SKIT.JsonConv.NewtonsoftJson.Converters.TimestampDateTimeOffsetConverter))]
         [System.Text.Json.Serialization.JsonPropertyName("created_at")]
-        [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.UnixTimestampDateTimeOffsetConverter))]
+        [System.Text.Json.Serialization.JsonConverter(typeof(SKIT.JsonConv.SystemTextJson.Converters.TimestampDateTimeOffsetConverter))]
         public DateTimeOffset CreateTime { get; set; }
 
         /// <summary>
@@ -126,9 +124,9 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms.Models
         /// 获取或设置完成时间。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("done_time")]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.Common.UnixTimestampDateTimeOffsetConverter))]
+        [Newtonsoft.Json.JsonConverter(typeof(SKIT.JsonConv.NewtonsoftJson.Converters.TimestampDateTimeOffsetConverter))]
         [System.Text.Json.Serialization.JsonPropertyName("done_time")]
-        [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.UnixTimestampDateTimeOffsetConverter))]
+        [System.Text.Json.Serialization.JsonConverter(typeof(SKIT.JsonConv.SystemTextJson.Converters.TimestampDateTimeOffsetConverter))]
         public DateTimeOffset? DoneTime { get; set; }
     }
 }

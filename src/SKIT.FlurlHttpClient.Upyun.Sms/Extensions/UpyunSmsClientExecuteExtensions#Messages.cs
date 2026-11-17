@@ -1,14 +1,7 @@
-using System;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Web;
-using Flurl.Http;
-
 namespace SKIT.FlurlHttpClient.Upyun.Sms
 {
-    public static class UpyunSmsClientExecuteMessagesExtensions
+
+    public static partial class UpyunSmsClientExecuteExtensions
     {
         /// <summary>
         /// <para>异步调用 [POST] /messages 接口。</para>
@@ -49,21 +42,24 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             if (request.FileName is null)
+            {
                 request.FileName = Guid.NewGuid().ToString("N").ToLower() + ".csv";
+            }
 
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Post, "messages", "file");
 
+            using var fileContent = new ByteArrayContent(request.FileBytes);
+            fileContent.Headers.ContentType = MediaTypeHeaderValue.Parse("text/csv");
+            fileContent.Headers.ContentLength = request.FileBytes?.Length;
+
             string boundary = "--BOUNDARY--" + DateTimeOffset.Now.Ticks.ToString("x");
-            using var fileContent = new ByteArrayContent(request.FileBytes ?? Array.Empty<byte>());
             using var httpContent = new MultipartFormDataContent(boundary);
+            httpContent.Headers.ContentType = MediaTypeHeaderValue.Parse("multipart/form-data; boundary=" + boundary);
             httpContent.Add(fileContent, "\"file\"", $"\"{HttpUtility.UrlEncode(request.FileName)}\"");
             httpContent.Add(new StringContent(request.TemplateId.ToString()), "template_id");
             if (request.DateTime is not null)
                 httpContent.Add(new StringContent(request.DateTime.Value.ToString("yyyy-MM-dd HH:mm:ss")), "time");
-            httpContent.Headers.ContentType = MediaTypeHeaderValue.Parse("multipart/form-data; boundary=" + boundary);
-            fileContent.Headers.ContentType = MediaTypeHeaderValue.Parse("text/csv");
-            fileContent.Headers.ContentLength = request.FileBytes?.Length;
 
             return await client.SendFlurlRequestAsync<Models.SendMessageWithFileResponse>(flurlReq, httpContent: httpContent, cancellationToken: cancellationToken).ConfigureAwait(false);
         }

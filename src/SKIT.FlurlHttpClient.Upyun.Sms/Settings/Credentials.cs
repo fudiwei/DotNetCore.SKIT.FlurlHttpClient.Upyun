@@ -1,5 +1,3 @@
-﻿using System;
-
 namespace SKIT.FlurlHttpClient.Upyun.Sms.Settings
 {
     public class Credentials

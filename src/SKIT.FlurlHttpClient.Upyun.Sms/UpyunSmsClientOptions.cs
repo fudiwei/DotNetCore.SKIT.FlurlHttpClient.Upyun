@@ -20,6 +20,6 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms
         /// <summary>
         /// 获取或设置又拍云短信服务 API Token。
         /// </summary>
-        public string Token { get; set; } = default!;
+        public string Token { get; set; } = string.Empty;
     }
 }

@@ -1,12 +1,6 @@
-using System;
-using System.Net.Http;
-using System.Threading;
-using System.Threading.Tasks;
-using Flurl.Http;
-
 namespace SKIT.FlurlHttpClient.Upyun.Sms
 {
-    public static class UpyunSmsClientExecuteUsersExtensions
+    public static partial class UpyunSmsClientExecuteExtensions
     {
         /// <summary>
         /// <para>异步调用 [GET] /users/remain 接口。</para>

@@ -1,12 +1,6 @@
-using System;
-using System.Net.Http;
-using System.Threading;
-using System.Threading.Tasks;
-using Flurl.Http;
-
 namespace SKIT.FlurlHttpClient.Upyun.Sms
 {
-    public static class UpyunSmsClientExecuteTemplatesExtensions
+    public static partial class UpyunSmsClientExecuteExtensions
     {
         /// <summary>
         /// <para>异步调用 [POST] /templates 接口。</para>

@@ -1,9 +1,9 @@
-using System.Collections.Generic;
-using System.Linq;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
-namespace System.Text.Json.Serialization.Internal
+namespace SKIT.FlurlHttpClient.Upyun.Sms.Converters.SystemTextJson
 {
-    internal class NumericalStringArrayReadOnlyConverter : JsonConverter<string[]?>
+    internal class NumericStringArrayReadOnlyConverter : JsonConverter<string[]?>
     {
         public override string[]? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {

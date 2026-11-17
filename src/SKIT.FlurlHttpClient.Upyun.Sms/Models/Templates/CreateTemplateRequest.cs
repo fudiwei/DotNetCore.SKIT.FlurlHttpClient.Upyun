@@ -28,7 +28,7 @@
 
         /// <summary>
         /// 获取或设置模版签名位置。
-        /// <para>默认值：top</para>
+        /// <para>默认值："top"</para>
         /// </summary>
         [Newtonsoft.Json.JsonProperty("sign_location")]
         [System.Text.Json.Serialization.JsonPropertyName("sign_location")]
@@ -36,7 +36,7 @@
 
         /// <summary>
         /// 获取或设置模板类型。
-        /// <para>默认值：industry</para>
+        /// <para>默认值："industry"</para>
         /// </summary>
         [Newtonsoft.Json.JsonProperty("type")]
         [System.Text.Json.Serialization.JsonPropertyName("type")]

@@ -6,7 +6,7 @@
 
 	<PropertyGroup>
 		<PackageId>SKIT.FlurlHttpClient.Upyun.Sms</PackageId>
-		<PackageVersion>3.1.0</PackageVersion>
+		<PackageVersion>4.0.0-dev</PackageVersion>
 		<PackageIcon>LOGO.png</PackageIcon>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -19,10 +19,13 @@
 	<ItemGroup>
 		<None Include="../../LOGO.png" Pack="true" PackagePath="/" />
 		<None Include="README.md" Pack="true" PackagePath="/" />
+        <None Include="ModelsFixtures/**/*.json" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="SKIT.FlurlHttpClient.Common" Version="3.1.0" />
+        <PackageReference Include="SKIT.FlurlHttpClient.Common" Version="4.0.1" />
+        <PackageReference Include="SKIT.JsonConv.NewtonsoftJson" Version="0.1.2" />
+        <PackageReference Include="SKIT.JsonConv.SystemTextJson" Version="0.1.2" />
 	</ItemGroup>
 
 </Project>

@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace SKIT.FlurlHttpClient.Upyun.Sms.Models
 {
     /// <summary>
@@ -11,9 +9,9 @@ namespace SKIT.FlurlHttpClient.Upyun.Sms.Models
         /// 获取或设置手机号码列表。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("mobile")]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.Common.StringifiedStringListWithCommaSplitConverter))]
+        [Newtonsoft.Json.JsonConverter(typeof(SKIT.JsonConv.NewtonsoftJson.Converters.StringifiedStringListWithCommaSplitConverter))]
         [System.Text.Json.Serialization.JsonPropertyName("mobile")]
-        [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.StringifiedStringListWithCommaSplitConverter))]
+        [System.Text.Json.Serialization.JsonConverter(typeof(SKIT.JsonConv.SystemTextJson.Converters.StringifiedStringListWithCommaSplitConverter))]
         public IList<string> MobileNumberList { get; set; } = new List<string>();
 
         /// <summary>
