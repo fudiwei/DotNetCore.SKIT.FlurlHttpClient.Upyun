@@ -18,8 +18,11 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss
             if (client is null) throw new ArgumentNullException(nameof(client));
             if (request is null) throw new ArgumentNullException(nameof(request));
 
+            Utilities.HttpRequestGuard.AgainstEmptyPathVariable(request.BucketName, "bucket");
+            Utilities.HttpRequestGuard.AgainstEmptyPathVariable(request.FolderPath, "path_to_folder");
+
             IFlurlRequest flurlReq = client
-                .CreateFlurlRequest(request, HttpMethod.Post, request.BucketName, request.FolderPath)
+                .CreateFlurlRequest(request, HttpMethod.Post, request.BucketName!, request.FolderPath!)
                 .WithHeader("folder", "true");
 
             return await client.SendFlurlRequestAsync<Models.CreateFolderResponse>(flurlReq, cancellationToken: cancellationToken).ConfigureAwait(false);
@@ -41,8 +44,11 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss
             if (client is null) throw new ArgumentNullException(nameof(client));
             if (request is null) throw new ArgumentNullException(nameof(request));
 
+            Utilities.HttpRequestGuard.AgainstEmptyPathVariable(request.BucketName, "bucket");
+            Utilities.HttpRequestGuard.AgainstEmptyPathVariable(request.FolderPath, "path_to_folder");
+
             IFlurlRequest flurlReq = client
-                .CreateFlurlRequest(request, HttpMethod.Delete, request.BucketName, request.FolderPath);
+                .CreateFlurlRequest(request, HttpMethod.Delete, request.BucketName!, request.FolderPath!);
 
             return await client.SendFlurlRequestAsync<Models.DeleteFolderResponse>(flurlReq, cancellationToken: cancellationToken).ConfigureAwait(false);
         }

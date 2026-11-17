@@ -18,13 +18,15 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss
             if (client is null) throw new ArgumentNullException(nameof(client));
             if (request is null) throw new ArgumentNullException(nameof(request));
 
+            Utilities.HttpRequestGuard.AgainstEmptyPathVariable(request.BucketName, "bucket");
+
             if (request.ExpireTimestamp is null)
             {
                 request.ExpireTimestamp = DateTimeOffset.Now.AddMinutes(30).ToUnixTimeSeconds();
             }
 
             IFlurlRequest flurlReq = client
-                .CreateFlurlRequest(request, HttpMethod.Post, request.BucketName);
+                .CreateFlurlRequest(request, HttpMethod.Post, request.BucketName!);
 
             using var formContent = new MultipartFormDataContent();
             using var fileContent = new ByteArrayContent(request.FileBytes ?? Array.Empty<byte>());

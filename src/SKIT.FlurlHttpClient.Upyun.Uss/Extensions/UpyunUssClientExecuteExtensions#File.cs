@@ -18,8 +18,11 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss
             if (client is null) throw new ArgumentNullException(nameof(client));
             if (request is null) throw new ArgumentNullException(nameof(request));
 
+            Utilities.HttpRequestGuard.AgainstEmptyPathVariable(request.BucketName, "bucket");
+            Utilities.HttpRequestGuard.AgainstEmptyPathVariable(request.FileKey, "path_to_file");
+
             IFlurlRequest flurlReq = client
-                .CreateFlurlRequest(request, HttpMethod.Put, request.BucketName, request.FileKey);
+                .CreateFlurlRequest(request, HttpMethod.Put, request.BucketName!, request.FileKey!);
 
             if (request.FileMd5 is not null)
             {
@@ -74,8 +77,11 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss
             if (client is null) throw new ArgumentNullException(nameof(client));
             if (request is null) throw new ArgumentNullException(nameof(request));
 
+            Utilities.HttpRequestGuard.AgainstEmptyPathVariable(request.BucketName, "bucket");
+            Utilities.HttpRequestGuard.AgainstEmptyPathVariable(request.TargetFileKey, "save_as_file");
+
             IFlurlRequest flurlReq = client
-                .CreateFlurlRequest(request, HttpMethod.Put, request.BucketName, request.TargetFileKey)
+                .CreateFlurlRequest(request, HttpMethod.Put, request.BucketName!, request.TargetFileKey!)
                 .WithHeader("x-upyun-copy-source", $"{request.BucketName}/{request.SourceFileKey}");
 
             if (request.FileMd5 is not null)
@@ -102,8 +108,11 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss
             if (client is null) throw new ArgumentNullException(nameof(client));
             if (request is null) throw new ArgumentNullException(nameof(request));
 
+            Utilities.HttpRequestGuard.AgainstEmptyPathVariable(request.BucketName, "bucket");
+            Utilities.HttpRequestGuard.AgainstEmptyPathVariable(request.TargetFileKey, "save_as_file");
+
             IFlurlRequest flurlReq = client
-                .CreateFlurlRequest(request, HttpMethod.Put, request.BucketName, request.TargetFileKey)
+                .CreateFlurlRequest(request, HttpMethod.Put, request.BucketName!, request.TargetFileKey!)
                 .WithHeader("x-upyun-move-source", $"{request.BucketName}/{request.SourceFileKey}");
 
             if (request.FileMd5 is not null)
@@ -130,8 +139,11 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss
             if (client is null) throw new ArgumentNullException(nameof(client));
             if (request is null) throw new ArgumentNullException(nameof(request));
 
+            Utilities.HttpRequestGuard.AgainstEmptyPathVariable(request.BucketName, "bucket");
+            Utilities.HttpRequestGuard.AgainstEmptyPathVariable(request.FileKey, "path_to_file");
+
             IFlurlRequest flurlReq = client
-                .CreateFlurlRequest(request, HttpMethod.Get, request.BucketName, request.FileKey);
+                .CreateFlurlRequest(request, HttpMethod.Get, request.BucketName!, request.FileKey!);
 
             return await client.SendFlurlRequestAsync<Models.DownloadFileResponse>(flurlReq, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
@@ -152,8 +164,11 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss
             if (client is null) throw new ArgumentNullException(nameof(client));
             if (request is null) throw new ArgumentNullException(nameof(request));
 
+            Utilities.HttpRequestGuard.AgainstEmptyPathVariable(request.BucketName, "bucket");
+            Utilities.HttpRequestGuard.AgainstEmptyPathVariable(request.FileKey, "path_to_file");
+
             IFlurlRequest flurlReq = client
-                .CreateFlurlRequest(request, HttpMethod.Head, request.BucketName, request.FileKey);
+                .CreateFlurlRequest(request, HttpMethod.Head, request.BucketName!, request.FileKey!);
 
             return await client.SendFlurlRequestAsync<Models.GetFileInfoResponse>(flurlReq, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
@@ -174,8 +189,10 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss
             if (client is null) throw new ArgumentNullException(nameof(client));
             if (request is null) throw new ArgumentNullException(nameof(request));
 
+            Utilities.HttpRequestGuard.AgainstEmptyPathVariable(request.BucketName, "bucket");
+
             IFlurlRequest flurlReq = client
-                .CreateFlurlRequest(request, HttpMethod.Get, request.BucketName, request.FolderName ?? "")
+                .CreateFlurlRequest(request, HttpMethod.Get, request.BucketName!, request.FolderName ?? "")
                 .WithHeader(HttpHeaders.Accept, MimeTypes.Json);
 
             if (request.Offset is not null)
@@ -212,8 +229,11 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss
             if (client is null) throw new ArgumentNullException(nameof(client));
             if (request is null) throw new ArgumentNullException(nameof(request));
 
+            Utilities.HttpRequestGuard.AgainstEmptyPathVariable(request.BucketName, "bucket");
+            Utilities.HttpRequestGuard.AgainstEmptyPathVariable(request.FileKey, "path_to_file");
+
             IFlurlRequest flurlReq = client
-                .CreateFlurlRequest(request, HttpMethod.Delete, request.BucketName, request.FileKey);
+                .CreateFlurlRequest(request, HttpMethod.Delete, request.BucketName!, request.FileKey!);
 
             return await client.SendFlurlRequestAsync<Models.DeleteFileResponse>(flurlReq, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
@@ -235,8 +255,11 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss
             if (client is null) throw new ArgumentNullException(nameof(client));
             if (request is null) throw new ArgumentNullException(nameof(request));
 
+            Utilities.HttpRequestGuard.AgainstEmptyPathVariable(request.BucketName, "bucket");
+            Utilities.HttpRequestGuard.AgainstEmptyPathVariable(request.FileKey, "path_to_file");
+
             IFlurlRequest flurlReq = client
-                .CreateFlurlRequest(request, new HttpMethod("PATCH"), request.BucketName, request.FileKey)
+                .CreateFlurlRequest(request, new HttpMethod("PATCH"), request.BucketName!, request.FileKey!)
                 .SetQueryParam("metadata", request.Action);
 
             if (request.Metadata is not null)
@@ -271,8 +294,11 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss
             if (client is null) throw new ArgumentNullException(nameof(client));
             if (request is null) throw new ArgumentNullException(nameof(request));
 
+            Utilities.HttpRequestGuard.AgainstEmptyPathVariable(request.BucketName, "bucket");
+            Utilities.HttpRequestGuard.AgainstEmptyPathVariable(request.FileKey, "path_to_file");
+
             IFlurlRequest flurlReq = client
-                .CreateFlurlRequest(request, HttpMethod.Put, request.BucketName, request.FileKey)
+                .CreateFlurlRequest(request, HttpMethod.Put, request.BucketName!, request.FileKey!)
                 .WithHeader("x-upyun-multi-disorder", "true")
                 .WithHeader("x-upyun-multi-stage", "initiate")
                 .WithHeader("x-upyun-multi-length", request.FileSize)
@@ -318,8 +344,11 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss
             if (client is null) throw new ArgumentNullException(nameof(client));
             if (request is null) throw new ArgumentNullException(nameof(request));
 
+            Utilities.HttpRequestGuard.AgainstEmptyPathVariable(request.BucketName, "bucket");
+            Utilities.HttpRequestGuard.AgainstEmptyPathVariable(request.FileKey, "path_to_file");
+
             IFlurlRequest flurlReq = client
-                .CreateFlurlRequest(request, HttpMethod.Put, request.BucketName, request.FileKey)
+                .CreateFlurlRequest(request, HttpMethod.Put, request.BucketName!, request.FileKey!)
                 .WithHeader("x-upyun-multi-stage", "upload")
                 .WithHeader("x-upyun-multi-uuid", request.PartialUUID)
                 .WithHeader("x-upyun-part-id", request.ChunkId);
@@ -351,8 +380,11 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss
             if (client is null) throw new ArgumentNullException(nameof(client));
             if (request is null) throw new ArgumentNullException(nameof(request));
 
+            Utilities.HttpRequestGuard.AgainstEmptyPathVariable(request.BucketName, "bucket");
+            Utilities.HttpRequestGuard.AgainstEmptyPathVariable(request.FileKey, "path_to_file");
+
             IFlurlRequest flurlReq = client
-                .CreateFlurlRequest(request, HttpMethod.Put, request.BucketName, request.FileKey)
+                .CreateFlurlRequest(request, HttpMethod.Put, request.BucketName!, request.FileKey!)
                 .WithHeader("x-upyun-multi-stage", "complete")
                 .WithHeader("x-upyun-multi-uuid", request.PartialUUID);
 
@@ -382,8 +414,11 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss
             if (client is null) throw new ArgumentNullException(nameof(client));
             if (request is null) throw new ArgumentNullException(nameof(request));
 
+            Utilities.HttpRequestGuard.AgainstEmptyPathVariable(request.BucketName, "bucket");
+            Utilities.HttpRequestGuard.AgainstEmptyPathVariable(request.FileKey, "path_to_file");
+
             IFlurlRequest flurlReq = client
-                .CreateFlurlRequest(request, HttpMethod.Put, request.BucketName, request.FileKey)
+                .CreateFlurlRequest(request, HttpMethod.Put, request.BucketName!, request.FileKey!)
                 .WithHeader("x-upyun-multi-stage", "initiate")
                 .WithHeader("x-upyun-multi-length", request.FileSize)
                 .WithHeader("x-upyun-multi-part-size", request.ChunkSize);
@@ -428,8 +463,11 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss
             if (client is null) throw new ArgumentNullException(nameof(client));
             if (request is null) throw new ArgumentNullException(nameof(request));
 
+            Utilities.HttpRequestGuard.AgainstEmptyPathVariable(request.BucketName, "bucket");
+            Utilities.HttpRequestGuard.AgainstEmptyPathVariable(request.FileKey, "path_to_file");
+
             IFlurlRequest flurlReq = client
-                .CreateFlurlRequest(request, HttpMethod.Put, request.BucketName, request.FileKey)
+                .CreateFlurlRequest(request, HttpMethod.Put, request.BucketName!, request.FileKey!)
                 .WithHeader("x-upyun-multi-stage", "upload")
                 .WithHeader("x-upyun-multi-uuid", request.PartialUUID)
                 .WithHeader("x-upyun-part-id", request.ChunkId);
@@ -441,7 +479,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss
 
             using var httpContent = new ByteArrayContent(request.FileBytes ?? Array.Empty<byte>());
             httpContent.Headers.ContentLength = request.FileBytes?.Length;
-            
+
             return await client.SendFlurlRequestAsync<Models.TransferSerialPartialUploadFileResponse>(flurlReq, httpContent: httpContent, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
 
@@ -461,8 +499,11 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss
             if (client is null) throw new ArgumentNullException(nameof(client));
             if (request is null) throw new ArgumentNullException(nameof(request));
 
+            Utilities.HttpRequestGuard.AgainstEmptyPathVariable(request.BucketName, "bucket");
+            Utilities.HttpRequestGuard.AgainstEmptyPathVariable(request.FileKey, "path_to_file");
+
             IFlurlRequest flurlReq = client
-                .CreateFlurlRequest(request, HttpMethod.Put, request.BucketName, request.FileKey)
+                .CreateFlurlRequest(request, HttpMethod.Put, request.BucketName!, request.FileKey!)
                 .WithHeader("x-upyun-multi-stage", "complete")
                 .WithHeader("x-upyun-multi-uuid", request.PartialUUID);
 

@@ -18,8 +18,10 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss
             if (client is null) throw new ArgumentNullException(nameof(client));
             if (request is null) throw new ArgumentNullException(nameof(request));
 
+            Utilities.HttpRequestGuard.AgainstEmptyPathVariable(request.BucketName, "bucket");
+
             IFlurlRequest flurlReq = client
-                .CreateFlurlRequest(request, HttpMethod.Get, request.BucketName, "")
+                .CreateFlurlRequest(request, HttpMethod.Get, request.BucketName!, "")
                 .SetQueryParam("usage", string.Empty, nullValueHandling: NullValueHandling.NameOnly);
 
             return await client.SendFlurlRequestAsync<Models.GetBucketUsageResponse>(flurlReq, cancellationToken: cancellationToken).ConfigureAwait(false);
