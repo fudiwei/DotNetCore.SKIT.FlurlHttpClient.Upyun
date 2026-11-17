@@ -1,4 +1,4 @@
-﻿namespace SKIT.FlurlHttpClient.Upyun.Console
+namespace SKIT.FlurlHttpClient.Upyun.Console
 {
     /// <summary>
     /// 又拍云服务管理后台开放 API 接口域名。

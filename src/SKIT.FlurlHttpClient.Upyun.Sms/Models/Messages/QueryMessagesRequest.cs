@@ -1,4 +1,4 @@
-﻿namespace SKIT.FlurlHttpClient.Upyun.Sms.Models
+namespace SKIT.FlurlHttpClient.Upyun.Sms.Models
 {
     /// <summary>
     /// <para>表示 [GET] /messages 接口的请求。</para>

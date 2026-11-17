@@ -1,4 +1,4 @@
-﻿namespace SKIT.FlurlHttpClient.Upyun.Uss.Constants
+namespace SKIT.FlurlHttpClient.Upyun.Uss.Constants
 {
     internal static class FormDataFields
     {

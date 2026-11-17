@@ -1,4 +1,4 @@
-﻿# SKIT.FlurlHttpClient.Upyun.Sim
+# SKIT.FlurlHttpClient.Upyun.Sim
 
 基于 `Flurl.Http` 的[又拍云一键登录服务](https://www.upyun.com/products/one-click-login/) HTTP API SDK。
 

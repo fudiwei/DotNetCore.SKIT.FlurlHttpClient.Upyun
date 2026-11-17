@@ -1,4 +1,4 @@
-﻿namespace SKIT.FlurlHttpClient.Upyun.Sms
+namespace SKIT.FlurlHttpClient.Upyun.Sms
 {
     /// <summary>
     /// 又拍云短信服务 API 接口域名。

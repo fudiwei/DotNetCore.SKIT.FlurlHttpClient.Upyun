@@ -1,4 +1,4 @@
-﻿namespace SKIT.FlurlHttpClient.Upyun.Uss.Models
+namespace SKIT.FlurlHttpClient.Upyun.Uss.Models
 {
     /// <summary>
     /// <para>表示 [GET] /{bucket}/{path_to_folder} 接口的请求。</para>

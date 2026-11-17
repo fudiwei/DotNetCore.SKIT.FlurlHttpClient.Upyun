@@ -1,4 +1,4 @@
-﻿namespace SKIT.FlurlHttpClient.Upyun.Sim
+namespace SKIT.FlurlHttpClient.Upyun.Sim
 {
     /// <summary>
     /// 又拍云一键登录服务 API 接口域名。

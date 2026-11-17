@@ -1,4 +1,4 @@
-﻿namespace SKIT.FlurlHttpClient.Upyun.Sim.Models
+namespace SKIT.FlurlHttpClient.Upyun.Sim.Models
 {
     /// <summary>
     /// <para>表示 [POST] /login/token/verify 接口的响应。</para>

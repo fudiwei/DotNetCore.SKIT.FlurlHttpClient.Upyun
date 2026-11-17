@@ -1,4 +1,4 @@
-﻿# SKIT.FlurlHttpClient.Upyun.Console
+# SKIT.FlurlHttpClient.Upyun.Console
 
 基于 `Flurl.Http` 的[又拍云服务管理后台](https://api.upyun.com/doc/) HTTP API SDK。
 

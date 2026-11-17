@@ -1,4 +1,4 @@
-﻿namespace SKIT.FlurlHttpClient.Upyun.Console.Models
+namespace SKIT.FlurlHttpClient.Upyun.Console.Models
 {
     /// <summary>
     /// <para>表示 [GET] /security/back_source/auth 接口的请求。</para>

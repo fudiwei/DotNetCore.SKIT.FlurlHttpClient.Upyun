@@ -1,4 +1,4 @@
-﻿namespace SKIT.FlurlHttpClient.Upyun.Uss
+namespace SKIT.FlurlHttpClient.Upyun.Uss
 {
     /// <summary>
     /// 又拍云云存储服务 API 接口域名。

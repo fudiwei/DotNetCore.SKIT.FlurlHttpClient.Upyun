@@ -1,4 +1,4 @@
-﻿{
+{
     "type": "stringValue",
     "error_code": "21402",
     "request": "PUT /operators/",

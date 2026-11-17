@@ -1,4 +1,4 @@
-﻿# SKIT.FlurlHttpClient.Upyun.Uss
+# SKIT.FlurlHttpClient.Upyun.Uss
 
 基于 `Flurl.Http` 的[又拍云云存储服务](https://www.upyun.com/products/sms/) HTTP API SDK。
 

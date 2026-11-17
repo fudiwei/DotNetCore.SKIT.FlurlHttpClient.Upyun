@@ -1,4 +1,4 @@
-﻿namespace SKIT.FlurlHttpClient.Upyun.Console.Models
+namespace SKIT.FlurlHttpClient.Upyun.Console.Models
 {
     /// <summary>
     /// <para>表示 [POST] /preheat 接口的响应。</para>
