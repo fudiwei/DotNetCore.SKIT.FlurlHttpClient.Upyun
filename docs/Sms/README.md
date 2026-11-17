@@ -1,12 +1,12 @@
 # SKIT.FlurlHttpClient.Upyun.Sms
 
-基于 `Flurl.Http` 的[又拍云短信服务](https://www.upyun.com/products/sms/) HTTP API SDK。
+基于 `Flurl.Http` 的[又拍云短信服务](https://www.upyun.com/products/sms/) API 客户端 SDK。
 
 ---
 
 ## 功能
 
--   基于又拍云短信服务 API 封装。
+- 封装又拍云短信服务 API。
 
 ---
 
@@ -65,18 +65,18 @@ else
 
 ## 基础用法
 
--   ⭐ [如何快速找到需要调用的 API 模型类名 / 方法名（附完整 API 对照表）？](./Basic_ModelDefinition.md)
+- ⭐ [如何快速找到需要调用的 API 模型类名 / 方法名（附完整 API 对照表）？](./Basic_ModelDefinition.md)
 
 ---
 
 ## 高级技巧
 
--   [配置 JSON 序列化器](./Advanced_JsonSerializer.md)
+- [配置 JSON 序列化器](./Advanced_JsonSerializer.md)
 
--   [配置 HttpClient](./Advanced_HttpClient.md)
+- [配置 HttpClient](./Advanced_HttpClient.md)
 
--   [使用拦截器](./Advanced_Interceptor.md)
+- [使用拦截器](./Advanced_Interceptor.md)
 
--   [避免内存泄漏](./Advanced_Dispose.md)
+- [避免内存泄漏](./Advanced_Dispose.md)
 
--   [与 `IHttpClientFactory` 集成](./Advanced_HttpClientFactory.md)
+- [与 `IHttpClientFactory` 集成](./Advanced_HttpClientFactory.md)

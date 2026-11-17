@@ -1,4 +1,4 @@
-﻿# SKIT.FlurlHttpClient.Upyun
+# SKIT.FlurlHttpClient.Upyun
 
 [![Gitee Stars](https://gitee.com/fudiwei/DotNetCore.SKIT.FlurlHttpClient.Upyun/badge/star.svg?title=Stars)](https://gitee.com/fudiwei/DotNetCore.SKIT.FlurlHttpClient.Upyun)
 [![Gitee Forks](https://gitee.com/fudiwei/DotNetCore.SKIT.FlurlHttpClient.Upyun/badge/fork.svg?title=Forks)](https://gitee.com/fudiwei/DotNetCore.SKIT.FlurlHttpClient.Upyun)
@@ -15,14 +15,14 @@
 
 ## 特性
 
--   基于 `Flurl.Http`。
--   支持 .NET Framework 4.6.2+、.NET Standard 2.0+、.NET Core 2.0+、.NET 5.0+ 多目标框架。
--   支持 Windows / Linux / macOS 多平台部署。
--   支持 `System.Text.Json`（默认）和 `Newtonsoft.Json` 两种序列化方式。
--   强类型接口模型。
--   全异步式编程。
--   提供 SourceLink 调试符号文件。
--   完整、完善、完全的又拍云 HTTP API 封装。
+- 基于 `Flurl.Http`。
+- 支持 .NET Framework 4.6.2+、.NET Core 3.1+、.NET 5.0+ 多目标框架。
+- 支持 Windows / Linux / macOS 多平台部署。
+- 支持 `System.Text.Json`（默认）和 `Newtonsoft.Json` 两种序列化方式。
+- 强类型接口模型。
+- 全异步式编程。
+- 提供 SourceLink 调试符号文件。
+- 完整、完善、完全的又拍云 HTTP API 封装。
 
 ---
 
@@ -39,8 +39,8 @@
 
 ## 参与贡献
 
--   GitHub Repo：https://github.com/fudiwei/DotNetCore.SKIT.FlurlHttpClient.Upyun.git
--   Gitee Repo：https://gitee.com/fudiwei/DotNetCore.SKIT.FlurlHttpClient.Upyun.git
+- GitHub Repo：https://github.com/fudiwei/DotNetCore.SKIT.FlurlHttpClient.Upyun.git
+- Gitee Repo：https://gitee.com/fudiwei/DotNetCore.SKIT.FlurlHttpClient.Upyun.git
 
 以上仓库地址同步更新，均可接受 Issue 或 Pull Request。
 

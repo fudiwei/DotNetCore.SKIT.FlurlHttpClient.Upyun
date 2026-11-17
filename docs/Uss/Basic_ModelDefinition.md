@@ -18,68 +18,38 @@
 
 <summary>[展开查看]</summary>
 
--   REST API
+- REST API
+    - 上传文件：`UploadFile`
+    - 并行式断点续传：
+        - 初始化：`InitializeParallelPartialUploadFile`
+        - 数据传输：`TransferParallelPartialUploadFile`
+        - 结束：`CompleteParallelPartialUploadFile`
+    - 串行式断点续传：
+        - 初始化：`InitializeSerialPartialUploadFile`
+        - 数据传输：`TransferSerialPartialUploadFile`
+        - 结束：`CompleteSerialPartialUploadFile`
+    - 复制文件：`CopyFile`
+    - 移动文件：`MoveFile`
+    - 下载文件：`DownloadFile`
+    - 删除文件：`DeleteFile`
+    - 创建目录：`CreateFolder`
+    - 删除目录：`DeleteFolder`
+    - 获取文件信息：`GetFileInfo`
+    - 获取目录文件列表：`QueryFiles`
+    - 获取服务使用量：`GetBucketUsage`
+    - Metadata：`SetFileMetadata`
+- FORM API
+    - 上传小文件：`UploadFileWithForm`
+- 云处理
+    - 文件拉取：`CreatePretreatmentSpiderman`
+    - 文件压缩：`CreatePretreatmentCompress`
+    - 文件解压缩：`CreatePretreatmentDepress`
+    - 文档转换：`CreatePretreatmentUConvert`
+    - 图片处理：`CreatePretreatmentThumbnail`
+    - 图片拼接：`CreatePretreatmentJigsaw`
+    - 图片识别：`CreatePretreatmentImageAudit`
+    - 视频识别：`CreatePretreatmentVideoAudit`
+    - 创建直播识别任务：`CreatePretreatmentLiveAudit`
+    - 取消直播识别任务：`CancelPretreatmentLiveAudit`
 
-    -   上传文件：`UploadFile`
-
-    -   并行式断点续传：
-
-        -   初始化：`InitializeParallelPartialUploadFile`
-
-        -   数据传输：`TransferParallelPartialUploadFile`
-
-        -   结束：`CompleteParallelPartialUploadFile`
-
-    -   串行式断点续传：
-
-        -   初始化：`InitializeSerialPartialUploadFile`
-
-        -   数据传输：`TransferSerialPartialUploadFile`
-
-        -   结束：`CompleteSerialPartialUploadFile`
-
-    -   复制文件：`CopyFile`
-
-    -   移动文件：`MoveFile`
-
-    -   下载文件：`DownloadFile`
-
-    -   删除文件：`DeleteFile`
-
-    -   创建目录：`CreateFolder`
-
-    -   删除目录：`DeleteFolder`
-
-    -   获取文件信息：`GetFileInfo`
-
-    -   获取目录文件列表：`QueryFiles`
-
-    -   获取服务使用量：`GetBucketUsage`
-
-    -   Metadata：`SetFileMetadata`
-
--   FORM API
-
-    -   上传小文件：`UploadFileWithForm`
-
--   云处理
-
-    -   文件拉取：`CreatePretreatmentSpiderman`
-
-    -   文件压缩：`CreatePretreatmentCompress`
-
-    -   文件解压缩：`CreatePretreatmentDepress`
-
-    -   文档转换：`CreatePretreatmentUConvert`
-
-    -   图片处理：`CreatePretreatmentThumbnail`
-
-    -   图片拼接：`CreatePretreatmentJigsaw`
-
-    -   图片识别：`CreatePretreatmentImageAudit`
-
-    -   视频识别：`CreatePretreatmentVideoAudit`
-
-    -   创建直播识别任务：`CreatePretreatmentLiveAudit`
-
-    -   取消直播识别任务：`CancelPretreatmentLiveAudit`
+</details>
