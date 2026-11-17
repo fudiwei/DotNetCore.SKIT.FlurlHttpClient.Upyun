@@ -17,7 +17,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("url")]
         [System.Text.Json.Serialization.JsonPropertyName("url")]
-        public string Url { get; set; } = string.Empty;
+        public string? Url { get; set; }
 
         /// <summary>
         /// 获取或设置预热字节范围字符串。

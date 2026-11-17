@@ -10,28 +10,28 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("access_token")]
         [System.Text.Json.Serialization.JsonPropertyName("access_token")]
-        public string AccessToken { get; set; } = default!;
+        public string? AccessToken { get; set; }
 
         /// <summary>
         /// 获取或设置备注名。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("name")]
         [System.Text.Json.Serialization.JsonPropertyName("name")]
-        public string Name { get; set; } = default!;
+        public string? Name { get; set; }
 
         /// <summary>
         /// 获取或设置权限范围。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("scope")]
         [System.Text.Json.Serialization.JsonPropertyName("scope")]
-        public string Scope { get; set; } = default!;
+        public string? Scope { get; set; }
 
         /// <summary>
         /// 获取或设置服务列表。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("services")]
         [System.Text.Json.Serialization.JsonPropertyName("services")]
-        public string[] ServiceList { get; set; } = default!;
+        public List<string>? ServiceList { get; set; }
 
         /// <summary>
         /// 获取或设置创建时间戳。

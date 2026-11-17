@@ -14,7 +14,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("domain")]
                 [System.Text.Json.Serialization.JsonPropertyName("domain")]
-                public string DomainName { get; set; } = default!;
+                public string? DomainName { get; set; }
 
                 /// <summary>
                 /// 获取或设置是否是 HTTPS。
@@ -55,7 +55,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("bucket_name")]
         [System.Text.Json.Serialization.JsonPropertyName("bucket_name")]
-        public string BucketName { get; set; } = default!;
+        public string? BucketName { get; set; }
 
         /// <summary>
         /// 获取或设置存储桶类型。
@@ -69,7 +69,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("status")]
         [System.Text.Json.Serialization.JsonPropertyName("status")]
-        public string Status { get; set; } = default!;
+        public string? Status { get; set; }
 
         /// <summary>
         /// 获取或设置是否开启外链。
@@ -115,28 +115,28 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("approval_domains")]
         [System.Text.Json.Serialization.JsonPropertyName("approval_domains")]
-        public string[] ApprovedDomainNameList { get; set; } = default!;
+        public List<string>? ApprovedDomainNameList { get; set; }
 
         /// <summary>
         /// 获取或设置审核未通过的域名列表。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("disapproval_domains")]
         [System.Text.Json.Serialization.JsonPropertyName("disapproval_domains")]
-        public string[] DisapprovedDomainNameList { get; set; } = default!;
+        public List<string>? DisapprovedDomainNameList { get; set; }
 
         /// <summary>
         /// 获取或设置等待审核的域名列表。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("approvaling_domains")]
         [System.Text.Json.Serialization.JsonPropertyName("approvaling_domains")]
-        public string[]? ApprovingDomainNameList { get; set; }
+        public List<string>? ApprovingDomainNameList { get; set; }
 
         /// <summary>
         /// 获取或设置审核通过的域名 HTTPS 状态字典。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("approval_domains_https")]
         [System.Text.Json.Serialization.JsonPropertyName("approval_domains_https")]
-        public IDictionary<string, bool>? ApprovedDomainHttpsStatusMap { get; set; }
+        public Dictionary<string, bool>? ApprovedDomainHttpsStatusMap { get; set; }
 
         /// <summary>
         /// 获取或设置 Form API 密钥。
@@ -192,6 +192,6 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("operators")]
         [System.Text.Json.Serialization.JsonPropertyName("operators")]
-        public string[] OperatorNameList { get; set; } = default!;
+        public List<string>? OperatorNameList { get; set; }
     }
 }

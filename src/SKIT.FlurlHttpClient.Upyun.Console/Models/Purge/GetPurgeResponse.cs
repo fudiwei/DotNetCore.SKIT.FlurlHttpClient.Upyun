@@ -14,14 +14,14 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("task_id")]
                 [System.Text.Json.Serialization.JsonPropertyName("task_id")]
-                public string TaskId { get; set; } = default!;
+                public string? TaskId { get; set; }
 
                 /// <summary>
                 /// 获取或设置刷新 URL。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("url")]
                 [System.Text.Json.Serialization.JsonPropertyName("url")]
-                public string Url { get; set; } = default!;
+                public string? Url { get; set; }
 
                 /// <summary>
                 /// 获取或设置刷新进度（范围：0～100）。
@@ -37,6 +37,6 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("result")]
         [System.Text.Json.Serialization.JsonPropertyName("result")]
-        public Types.Result[] ResultList { get; set; } = default!;
+        public List<Types.Result>? ResultList { get; set; }
     }
 }

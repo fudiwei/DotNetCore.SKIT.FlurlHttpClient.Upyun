@@ -14,21 +14,21 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("bucket_name")]
                 [System.Text.Json.Serialization.JsonPropertyName("bucket_name")]
-                public string BucketName { get; set; } = default!;
+                public string? BucketName { get; set; }
 
                 /// <summary>
                 /// 获取或设置域名。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("domain")]
                 [System.Text.Json.Serialization.JsonPropertyName("domain")]
-                public string DomainName { get; set; } = default!;
+                public string? DomainName { get; set; }
 
                 /// <summary>
                 /// 获取或设置域名状态。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("domain_status")]
                 [System.Text.Json.Serialization.JsonPropertyName("domain_status")]
-                public string DomainStatus { get; set; } = default!;
+                public string? DomainStatus { get; set; }
             }
         }
 
@@ -44,6 +44,6 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("data")]
         [System.Text.Json.Serialization.JsonPropertyName("data")]
-        public Types.Data Data { get; set; } = default!;
+        public Types.Data? Data { get; set; }
     }
 }

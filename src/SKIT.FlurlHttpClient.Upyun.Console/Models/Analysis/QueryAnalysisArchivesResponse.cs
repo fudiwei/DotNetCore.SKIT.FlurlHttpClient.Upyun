@@ -14,7 +14,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("file")]
                 [System.Text.Json.Serialization.JsonPropertyName("file")]
-                public string FileName { get; set; } = default!;
+                public string? FileName { get; set; }
 
                 /// <summary>
                 /// 获取或设置文件大小（单位：字节）。
@@ -29,7 +29,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("url")]
                 [System.Text.Json.Serialization.JsonPropertyName("url")]
-                public string Url { get; set; } = default!;
+                public string? Url { get; set; }
             }
         }
 
@@ -38,20 +38,20 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("bucket_name")]
         [System.Text.Json.Serialization.JsonPropertyName("bucket_name")]
-        public string BucketName { get; set; } = default!;
+        public string? BucketName { get; set; }
 
         /// <summary>
         /// 获取或设置域名。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("domain")]
         [System.Text.Json.Serialization.JsonPropertyName("domain")]
-        public string DomainName { get; set; } = default!;
+        public string? DomainName { get; set; }
 
         /// <summary>
         /// 获取或设置返回数据。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("data")]
         [System.Text.Json.Serialization.JsonPropertyName("data")]
-        public Types.Data[] Data { get; set; } = default!;
+        public List<Types.Data>? Data { get; set; }
     }
 }

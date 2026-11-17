@@ -10,7 +10,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
         /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
-        public string BucketName { get; set; } = string.Empty;
+        public string? BucketName { get; set; }
 
         /// <summary>
         /// 获取或设置返回的源站地址信息是否以运营商线路分组。

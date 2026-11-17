@@ -7,7 +7,17 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
     {
         public static class Types
         {
-            public class CDN
+            public abstract class __zz__CDN
+            {
+                /// <summary>
+                /// 获取或设置是否支持 Range 请求。
+                /// </summary>
+                [Newtonsoft.Json.JsonProperty("accept_ranges")]
+                [System.Text.Json.Serialization.JsonPropertyName("accept_ranges")]
+                public bool? IsAcceptRanges { get; set; }
+            }
+
+            public class CDN : __zz__CDN
             {
                 public static class Types
                 {
@@ -18,7 +28,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("host")]
                         [System.Text.Json.Serialization.JsonPropertyName("host")]
-                        public string Host { get; set; } = string.Empty;
+                        public string? Host { get; set; }
 
                         /// <summary>
                         /// 获取或设置源站端口号。
@@ -70,7 +80,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("servers")]
                         [System.Text.Json.Serialization.JsonPropertyName("servers")]
-                        public IList<Server>? ServerList { get; set; }
+                        public List<Server>? ServerList { get; set; }
                     }
                 }
 
@@ -79,7 +89,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("servers")]
                 [System.Text.Json.Serialization.JsonPropertyName("servers")]
-                public IList<Types.Server>? ServerList { get; set; }
+                public List<Types.Server>? ServerList { get; set; }
 
                 /// <summary>
                 /// 获取或设置电信线路回源配置信息。
@@ -122,13 +132,6 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
                 [Newtonsoft.Json.JsonProperty("abroad")]
                 [System.Text.Json.Serialization.JsonPropertyName("abroad")]
                 public Types.ISP? Abroad { get; set; }
-
-                /// <summary>
-                /// 获取或设置是否支持 Range 请求。
-                /// </summary>
-                [Newtonsoft.Json.JsonProperty("accept_ranges")]
-                [System.Text.Json.Serialization.JsonPropertyName("accept_ranges")]
-                public bool? IsAcceptRanges { get; set; }
             }
         }
 
@@ -137,7 +140,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("bucket_name")]
         [System.Text.Json.Serialization.JsonPropertyName("bucket_name")]
-        public string BucketName { get; set; } = string.Empty;
+        public string? BucketName { get; set; }
 
         /// <summary>
         /// 获取或设置域名。
@@ -158,7 +161,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("source_type")]
         [System.Text.Json.Serialization.JsonPropertyName("source_type")]
-        public string SourceType { get; set; } = string.Empty;
+        public string? SourceType { get; set; }
 
         /// <summary>
         /// 获取或设置重定向跟随状态。
@@ -193,6 +196,6 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("cdn")]
         [System.Text.Json.Serialization.JsonPropertyName("cdn")]
-        public Types.CDN CDN { get; set; } = new Types.CDN();
+        public Types.CDN? CDN { get; set; }
     }
 }

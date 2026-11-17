@@ -9,9 +9,9 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
     {
         public static class Types
         {
-            public class Result : IDictionary<string, Result.Types.Certificate>
+            public class Result : IDictionary<string, Result.Types.Certificate?>
             {
-                private readonly IDictionary<string, Types.Certificate> _innerDictionary = new Dictionary<string, Types.Certificate>();
+                private readonly IDictionary<string, Types.Certificate?> _innerDict = new Dictionary<string, Types.Certificate?>();
 
                 public static class Types
                 {
@@ -87,28 +87,28 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("organization")]
                         [System.Text.Json.Serialization.JsonPropertyName("organization")]
-                        public string Organization { get; set; } = default!;
+                        public string? Organization { get; set; }
 
                         /// <summary>
                         /// 获取或设置证书颁布组织。
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("organizationUnit")]
                         [System.Text.Json.Serialization.JsonPropertyName("organizationUnit")]
-                        public string OrganizationUnit { get; set; } = default!;
+                        public string? OrganizationUnit { get; set; }
 
                         /// <summary>
                         /// 获取或设置证书类型。
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("crt_type")]
                         [System.Text.Json.Serialization.JsonPropertyName("crt_type")]
-                        public string CertificateType { get; set; } = default!;
+                        public string? CertificateType { get; set; }
 
                         /// <summary>
                         /// 获取或设置有效期信息。
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("validity")]
                         [System.Text.Json.Serialization.JsonPropertyName("validity")]
-                        public Types.ValidityPeriod ValidityPeriod { get; set; } = default!;
+                        public Types.ValidityPeriod? ValidityPeriod { get; set; }
 
                         /// <summary>
                         /// 获取或设置创建时间。
@@ -124,7 +124,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("domain_type")]
                         [System.Text.Json.Serialization.JsonPropertyName("domain_type")]
-                        public string DomainType { get; set; } = default!;
+                        public string? DomainType { get; set; }
 
                         /// <summary>
                         /// 获取或设置付费类型。
@@ -168,46 +168,46 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("pager")]
                 [System.Text.Json.Serialization.JsonPropertyName("pager")]
-                public Types.Pagination Pagination { get; set; } = default!;
+                public Types.Pagination? Pagination { get; set; }
 
                 /// <summary>
                 /// 获取或设置默认域名信息。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("default")]
                 [System.Text.Json.Serialization.JsonPropertyName("default")]
-                public Types.DefaultDomain DefaultDomain { get; set; } = default!;
+                public Types.DefaultDomain? DefaultDomain { get; set; }
 
                 [Newtonsoft.Json.JsonIgnore]
                 [System.Text.Json.Serialization.JsonIgnore]
-                ICollection<string> IDictionary<string, Types.Certificate>.Keys
+                ICollection<string> IDictionary<string, Types.Certificate?>.Keys
                 {
-                    get { return _innerDictionary.Keys; }
+                    get { return _innerDict.Keys; }
                 }
 
                 [Newtonsoft.Json.JsonIgnore]
                 [System.Text.Json.Serialization.JsonIgnore]
-                ICollection<Types.Certificate> IDictionary<string, Types.Certificate>.Values
+                ICollection<Types.Certificate?> IDictionary<string, Types.Certificate?>.Values
                 {
-                    get { return _innerDictionary.Values; }
+                    get { return _innerDict.Values; }
                 }
 
                 [Newtonsoft.Json.JsonIgnore]
                 [System.Text.Json.Serialization.JsonIgnore]
-                int ICollection<KeyValuePair<string, Types.Certificate>>.Count
+                int ICollection<KeyValuePair<string, Types.Certificate?>>.Count
                 {
-                    get { return _innerDictionary.Count; }
+                    get { return _innerDict.Count; }
                 }
 
                 [Newtonsoft.Json.JsonIgnore]
                 [System.Text.Json.Serialization.JsonIgnore]
-                bool ICollection<KeyValuePair<string, Types.Certificate>>.IsReadOnly
+                bool ICollection<KeyValuePair<string, Types.Certificate?>>.IsReadOnly
                 {
-                    get { return _innerDictionary.IsReadOnly; }
+                    get { return _innerDict.IsReadOnly; }
                 }
 
                 [Newtonsoft.Json.JsonExtensionData]
                 [System.Text.Json.Serialization.JsonExtensionData]
-                public Types.Certificate this[string key]
+                public Types.Certificate? this[string key]
                 {
                     get
                     {
@@ -216,7 +216,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
                         if ("pager".Equals(key))
                             return default!;
 
-                        return _innerDictionary[key];
+                        return _innerDict[key];
                     }
                     set
                     {
@@ -225,63 +225,63 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
                         if ("pager".Equals(key))
                             return;
 
-                        _innerDictionary[key] = value;
+                        _innerDict[key] = value;
                     }
                 }
 
-                bool IDictionary<string, Types.Certificate>.ContainsKey(string key)
+                bool IDictionary<string, Types.Certificate?>.ContainsKey(string key)
                 {
-                    return _innerDictionary.ContainsKey(key);
+                    return _innerDict.ContainsKey(key);
                 }
 
-                void IDictionary<string, Types.Certificate>.Add(string key, Types.Certificate value)
+                void IDictionary<string, Types.Certificate?>.Add(string key, Types.Certificate? value)
                 {
-                    _innerDictionary.Add(key, value);
+                    _innerDict.Add(key, value);
                 }
 
-                bool IDictionary<string, Types.Certificate>.Remove(string key)
+                bool IDictionary<string, Types.Certificate?>.Remove(string key)
                 {
-                    return _innerDictionary.Remove(key);
+                    return _innerDict.Remove(key);
                 }
 
-                bool IDictionary<string, Types.Certificate>.TryGetValue(string key, out Types.Certificate value)
+                bool IDictionary<string, Types.Certificate?>.TryGetValue(string key, out Types.Certificate? value)
                 {
-                    return _innerDictionary.TryGetValue(key, out value!);
+                    return _innerDict.TryGetValue(key, out value!);
                 }
 
-                void ICollection<KeyValuePair<string, Types.Certificate>>.Add(KeyValuePair<string, Types.Certificate> item)
+                void ICollection<KeyValuePair<string, Types.Certificate?>>.Add(KeyValuePair<string, Types.Certificate?> item)
                 {
-                    _innerDictionary.Add(item);
+                    _innerDict.Add(item);
                 }
 
-                void ICollection<KeyValuePair<string, Types.Certificate>>.Clear()
+                void ICollection<KeyValuePair<string, Types.Certificate?>>.Clear()
                 {
-                    _innerDictionary.Clear();
+                    _innerDict.Clear();
                 }
 
-                bool ICollection<KeyValuePair<string, Types.Certificate>>.Contains(KeyValuePair<string, Types.Certificate> item)
+                bool ICollection<KeyValuePair<string, Types.Certificate?>>.Contains(KeyValuePair<string, Types.Certificate?> item)
                 {
-                    return _innerDictionary.Contains(item);
+                    return _innerDict.Contains(item);
                 }
 
-                void ICollection<KeyValuePair<string, Types.Certificate>>.CopyTo(KeyValuePair<string, Types.Certificate>[] array, int arrayIndex)
+                void ICollection<KeyValuePair<string, Types.Certificate?>>.CopyTo(KeyValuePair<string, Types.Certificate?>[] array, int arrayIndex)
                 {
-                    _innerDictionary.CopyTo(array, arrayIndex);
+                    _innerDict.CopyTo(array, arrayIndex);
                 }
 
-                bool ICollection<KeyValuePair<string, Types.Certificate>>.Remove(KeyValuePair<string, Types.Certificate> item)
+                bool ICollection<KeyValuePair<string, Types.Certificate?>>.Remove(KeyValuePair<string, Types.Certificate?> item)
                 {
-                    return _innerDictionary.Remove(item);
+                    return _innerDict.Remove(item);
                 }
 
-                IEnumerator<KeyValuePair<string, Types.Certificate>> IEnumerable<KeyValuePair<string, Types.Certificate>>.GetEnumerator()
+                IEnumerator<KeyValuePair<string, Types.Certificate?>> IEnumerable<KeyValuePair<string, Types.Certificate?>>.GetEnumerator()
                 {
-                    return _innerDictionary.GetEnumerator();
+                    return _innerDict.GetEnumerator();
                 }
 
                 IEnumerator IEnumerable.GetEnumerator()
                 {
-                    return ((IEnumerable)_innerDictionary).GetEnumerator();
+                    return ((IEnumerable)_innerDict).GetEnumerator();
                 }
             }
         }
@@ -298,7 +298,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("result")]
         [System.Text.Json.Serialization.JsonPropertyName("result")]
-        public Types.Result Result { get; set; } = default!;
+        public Types.Result? Result { get; set; }
 
         public override bool IsSuccessful()
         {

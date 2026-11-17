@@ -10,14 +10,14 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("bucket_name")]
         [System.Text.Json.Serialization.JsonPropertyName("bucket_name")]
-        public string BucketName { get; set; } = string.Empty;
+        public string? BucketName { get; set; }
 
         /// <summary>
         /// 获取或设置域名。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("domain")]
         [System.Text.Json.Serialization.JsonPropertyName("domain")]
-        public string DomainName { get; set; } = string.Empty;
+        public string? DomainName { get; set; }
 
         /// <summary>
         /// 获取或设置域名类型。

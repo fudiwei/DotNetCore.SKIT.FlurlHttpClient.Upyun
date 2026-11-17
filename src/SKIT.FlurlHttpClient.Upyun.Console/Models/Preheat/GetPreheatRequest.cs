@@ -10,6 +10,6 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
         /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
-        public IList<string> TaskIdList { get; set; } = new List<string>();
+        public List<string>? TaskIdList { get; set; }
     }
 }

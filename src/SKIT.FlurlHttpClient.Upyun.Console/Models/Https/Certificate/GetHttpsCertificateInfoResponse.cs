@@ -17,14 +17,14 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("other_domains")]
         [System.Text.Json.Serialization.JsonPropertyName("other_domains")]
-        public string[]? OtherDomainNameList { get; set; }
+        public List<string>? OtherDomainNameList { get; set; }
 
         /// <summary>
         /// 获取或设置证书类型。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("cert_type")]
         [System.Text.Json.Serialization.JsonPropertyName("cert_type")]
-        public string CertificateType { get; set; } = default!;
+        public string? CertificateType { get; set; }
 
         /// <summary>
         /// 获取或设置域名类型。

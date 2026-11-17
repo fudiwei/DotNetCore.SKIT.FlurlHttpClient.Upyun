@@ -14,21 +14,21 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("operator_name")]
                 [System.Text.Json.Serialization.JsonPropertyName("operator_name")]
-                public string OperatorName { get; set; } = default!;
+                public string? OperatorName { get; set; }
 
                 /// <summary>
                 /// 获取或设置操作员姓名。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("realname")]
                 [System.Text.Json.Serialization.JsonPropertyName("realname")]
-                public string RealName { get; set; } = default!;
+                public string? RealName { get; set; }
 
                 /// <summary>
                 /// 获取或设置操作员状态。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("status")]
                 [System.Text.Json.Serialization.JsonPropertyName("status")]
-                public string Status { get; set; } = default!;
+                public string? Status { get; set; }
 
                 /// <summary>
                 /// 获取或设置创建时间。
@@ -53,7 +53,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("operator_auth")]
                 [System.Text.Json.Serialization.JsonPropertyName("operator_auth")]
-                public IDictionary<string, bool> AuthMap { get; set; } = default!;
+                public Dictionary<string, bool>? AuthMap { get; set; }
             }
         }
 
@@ -62,6 +62,6 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("operators")]
         [System.Text.Json.Serialization.JsonPropertyName("operators")]
-        public Types.Operator[] OperatorList { get; set; } = default!;
+        public List<Types.Operator>? OperatorList { get; set; }
     }
 }

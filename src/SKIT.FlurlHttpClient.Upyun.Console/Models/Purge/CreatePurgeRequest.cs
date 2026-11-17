@@ -17,6 +17,6 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("urls")]
         [System.Text.Json.Serialization.JsonPropertyName("urls")]
-        public string Url { get; set; } = string.Empty;
+        public string? Url { get; set; }
     }
 }

@@ -33,33 +33,6 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
 
             public class Domain
             {
-                public static class Types
-                {
-                    public class Domain
-                    {
-                        /// <summary>
-                        /// 获取或设置域名。
-                        /// </summary>
-                        [Newtonsoft.Json.JsonProperty("domain")]
-                        [System.Text.Json.Serialization.JsonPropertyName("domain")]
-                        public string DomainName { get; set; } = default!;
-
-                        /// <summary>
-                        /// 获取或设置域名类型。
-                        /// </summary>
-                        [Newtonsoft.Json.JsonProperty("type")]
-                        [System.Text.Json.Serialization.JsonPropertyName("type")]
-                        public string? Type { get; set; }
-
-                        /// <summary>
-                        /// 获取或设置域名状态。
-                        /// </summary>
-                        [Newtonsoft.Json.JsonProperty("status")]
-                        [System.Text.Json.Serialization.JsonPropertyName("status")]
-                        public string Status { get; set; } = default!;
-                    }
-                }
-
                 /// <summary>
                 /// 获取或设置域名 ID。
                 /// </summary>
@@ -86,14 +59,14 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("domain")]
                 [System.Text.Json.Serialization.JsonPropertyName("domain")]
-                public string DomainName { get; set; } = default!;
+                public string? DomainName { get; set; }
 
                 /// <summary>
                 /// 获取或设置域名状态。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("status")]
                 [System.Text.Json.Serialization.JsonPropertyName("status")]
-                public string Status { get; set; } = default!;
+                public string? Status { get; set; }
 
                 /// <summary>
                 /// 获取或设置域名类型。
@@ -118,13 +91,13 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("pager")]
         [System.Text.Json.Serialization.JsonPropertyName("pager")]
-        public Types.Pagination Pagination { get; set; } = default!;
+        public Types.Pagination? Pagination { get; set; }
 
         /// <summary>
         /// 获取或设置域名列表。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("domains")]
         [System.Text.Json.Serialization.JsonPropertyName("domains")]
-        public Types.Domain[] DomainList { get; set; } = default!;
+        public List<Types.Domain>? DomainList { get; set; }
     }
 }

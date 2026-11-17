@@ -7,10 +7,14 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
     {
         public static class Types
         {
-            public class Data : GetSecurityBackSourceAuthResponse.Types.Data
+            public class Data
             {
-                public static new class Types
+                public static class Types
                 {
+                    public class Options : SetSecurityBackSourceAuthRequest.Types.Options
+                    {
+                    }
+
                     public class Failure
                     {
                         /// <summary>
@@ -25,16 +29,37 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("err_message")]
                         [System.Text.Json.Serialization.JsonPropertyName("err_message")]
-                        public string ErrorMessage { get; set; } = default!;
+                        public string? ErrorMessage { get; set; }
                     }
                 }
+
+                /// <summary>
+                /// 获取或设置存储桶名。
+                /// </summary>
+                [Newtonsoft.Json.JsonProperty("bucket_name")]
+                [System.Text.Json.Serialization.JsonPropertyName("bucket_name")]
+                public string? BucketName { get; set; }
+
+                /// <summary>
+                /// 获取或设置是否开启回源鉴权。
+                /// </summary>
+                [Newtonsoft.Json.JsonProperty("enable")]
+                [System.Text.Json.Serialization.JsonPropertyName("enable")]
+                public bool? IsEnabled { get; set; }
+
+                /// <summary>
+                /// 获取或设置回源鉴权参数列表。
+                /// </summary>
+                [Newtonsoft.Json.JsonProperty("options")]
+                [System.Text.Json.Serialization.JsonPropertyName("options")]
+                public List<Types.Options>? OptionsList { get; set; }
 
                 /// <summary>
                 /// 获取或设置错误信息列表。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("failed_message")]
                 [System.Text.Json.Serialization.JsonPropertyName("failed_message")]
-                public Types.Failure[]? FailureList { get; set; }
+                public List<Types.Failure>? FailureList { get; set; }
             }
         }
 
@@ -50,6 +75,6 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("data")]
         [System.Text.Json.Serialization.JsonPropertyName("data")]
-        public Types.Data Data { get; set; } = default!;
+        public Types.Data? Data { get; set; }
     }
 }

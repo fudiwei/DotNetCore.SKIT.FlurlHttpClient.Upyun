@@ -42,7 +42,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("domain")]
                         [System.Text.Json.Serialization.JsonPropertyName("domain")]
-                        public string DomainName { get; set; } = default!;
+                        public string? DomainName { get; set; }
 
                         /// <summary>
                         /// 获取或设置域名类型。
@@ -56,7 +56,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("status")]
                         [System.Text.Json.Serialization.JsonPropertyName("status")]
-                        public string Status { get; set; } = default!;
+                        public string? Status { get; set; }
                     }
                 }
 
@@ -79,21 +79,21 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("bucket_name")]
                 [System.Text.Json.Serialization.JsonPropertyName("bucket_name")]
-                public string BucketName { get; set; } = default!;
+                public string? BucketName { get; set; }
 
                 /// <summary>
                 /// 获取或设置存储桶类型。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("type")]
                 [System.Text.Json.Serialization.JsonPropertyName("type")]
-                public string Type { get; set; } = default!;
+                public string? Type { get; set; }
 
                 /// <summary>
                 /// 获取或设置存储桶状态。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("status")]
                 [System.Text.Json.Serialization.JsonPropertyName("status")]
-                public string Status { get; set; } = default!;
+                public string? Status { get; set; }
 
                 /// <summary>
                 /// 获取或设置是否开启外链。
@@ -160,21 +160,21 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("domains")]
                 [System.Text.Json.Serialization.JsonPropertyName("domains")]
-                public Types.Domain[]? DomainList { get; set; }
+                public List<Types.Domain>? DomainList { get; set; }
 
                 /// <summary>
                 /// 获取或设置直播服务的推流域名列表。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("up_domains")]
                 [System.Text.Json.Serialization.JsonPropertyName("up_domains")]
-                public Types.Domain[]? UpstreamDomainList { get; set; }
+                public List<Types.Domain>? UpstreamDomainList { get; set; }
 
                 /// <summary>
                 /// 获取或设置直播服务的拉流域名列表。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("down_domains")]
                 [System.Text.Json.Serialization.JsonPropertyName("down_domains")]
-                public Types.Domain[]? DownstreamDomainList { get; set; }
+                public List<Types.Domain>? DownstreamDomainList { get; set; }
 
                 /// <summary>
                 /// 获取或设置推拉流协议。
@@ -310,13 +310,13 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("pager")]
         [System.Text.Json.Serialization.JsonPropertyName("pager")]
-        public Types.Pagination Pagination { get; set; } = default!;
+        public Types.Pagination? Pagination { get; set; }
 
         /// <summary>
         /// 获取或设置存储桶列表。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("buckets")]
         [System.Text.Json.Serialization.JsonPropertyName("buckets")]
-        public Types.Bucket[] BucketList { get; set; } = default!;
+        public List<Types.Bucket>? BucketList { get; set; }
     }
 }

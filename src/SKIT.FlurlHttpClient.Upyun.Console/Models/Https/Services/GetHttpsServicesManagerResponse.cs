@@ -21,7 +21,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("certificate_id")]
                 [System.Text.Json.Serialization.JsonPropertyName("certificate_id")]
-                public string CertificaiteId { get; set; } = default!;
+                public string? CertificaiteId { get; set; }
 
                 /// <summary>
                 /// 获取或设置证书颁发对象。
@@ -35,28 +35,28 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("organization")]
                 [System.Text.Json.Serialization.JsonPropertyName("organization")]
-                public string Organization { get; set; } = default!;
+                public string? Organization { get; set; }
 
                 /// <summary>
                 /// 获取或设置证书类型。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("crt_type")]
                 [System.Text.Json.Serialization.JsonPropertyName("crt_type")]
-                public string CertificateType { get; set; } = default!;
+                public string? CertificateType { get; set; }
 
                 /// <summary>
                 /// 获取或设置有效期信息。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("validity")]
                 [System.Text.Json.Serialization.JsonPropertyName("validity")]
-                public Types.ValidityPeriod ValidityPeriod { get; set; } = default!;
+                public Types.ValidityPeriod? ValidityPeriod { get; set; }
 
                 /// <summary>
                 /// 获取或设置域名类型。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("domain_type")]
                 [System.Text.Json.Serialization.JsonPropertyName("domain_type")]
-                public string DomainType { get; set; } = default!;
+                public string? DomainType { get; set; }
 
                 /// <summary>
                 /// 获取或设置付费类型。
@@ -121,7 +121,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("result")]
         [System.Text.Json.Serialization.JsonPropertyName("result")]
-        public Types.Certificate[] CertificateList { get; set; } = default!;
+        public List<Types.Certificate>? CertificateList { get; set; }
 
         public override bool IsSuccessful()
         {

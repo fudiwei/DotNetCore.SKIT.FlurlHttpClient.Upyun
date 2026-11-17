@@ -56,14 +56,14 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("status_codes")]
                 [System.Text.Json.Serialization.JsonPropertyName("status_codes")]
-                public IList<int>? StatusCodeList { get; set; }
+                public List<int>? StatusCodeList { get; set; }
 
                 /// <summary>
                 /// 获取或设置需要缓存的响应标头列表。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("resp_headers")]
                 [System.Text.Json.Serialization.JsonPropertyName("resp_headers")]
-                public IList<string>? ResponseHeaderList { get; set; }
+                public List<string>? ResponseHeaderList { get; set; }
             }
         }
 
@@ -72,20 +72,20 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("bucket_name")]
         [System.Text.Json.Serialization.JsonPropertyName("bucket_name")]
-        public string BucketName { get; set; } = string.Empty;
+        public string? BucketName { get; set; }
 
         /// <summary>
         /// 获取或设置缓存规则列表。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("specific_rules")]
         [System.Text.Json.Serialization.JsonPropertyName("specific_rules")]
-        public IList<Types.Rule> SpecificRuleList { get; set; } = new List<Types.Rule>();
+        public List<Types.Rule>? SpecificRuleList { get; set; }
 
         /// <summary>
         /// 获取或设置不缓存规则列表。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("nocache_list")]
         [System.Text.Json.Serialization.JsonPropertyName("nocache_list")]
-        public IList<Types.Rule> NoCahceRuleList { get; set; } = new List<Types.Rule>();
+        public List<Types.Rule>? NoCahceRuleList { get; set; }
     }
 }
