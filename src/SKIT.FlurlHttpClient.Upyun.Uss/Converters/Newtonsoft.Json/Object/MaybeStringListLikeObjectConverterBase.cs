@@ -6,10 +6,10 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.Converters.NewtonsoftJson
 {
     using SKIT.FlurlHttpClient.Upyun.Uss.Utilities;
 
-    internal abstract class MaybeStringArrayLikeObjectConverterBase<TModel> : JsonConverter
+    internal abstract class MaybeStringListLikeObjectConverterBase<TModel> : JsonConverter
         where TModel : class, new()
     {
-        public const string STRARR_PROPERTY_JSON_NAME = "#maybe-string-array-like";
+        public const string STRINGLISTLIKE_PROPERTY_JSON_NAME = "#maybe-string-list-like";
 
         private static JsonObjectContract ResolveJsonType(Type type, JsonSerializer serializer)
         {
@@ -18,18 +18,18 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.Converters.NewtonsoftJson
         }
 
         /// <summary>
-        /// 获取模型中可能为字符串数组的属性值。
+        /// 获取模型中可能为字符串列表的属性值。
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        protected abstract string[]? GetStringArrayPropertyValue(TModel model);
+        protected abstract List<string>? GetStringListLikePropertyValue(TModel model);
 
         /// <summary>
-        /// 设置模型中可能为字符串数组的属性值。
+        /// 设置模型中可能为字符串列表的属性值。
         /// </summary>
         /// <param name="model"></param>
         /// <param name="value"></param>
-        protected abstract void SetStringArrayPropertyValue(TModel model, string[]? value);
+        protected abstract void SetStringListLikePropertyValue(TModel model, List<string>? value);
 
         public override bool CanRead
         {
@@ -92,7 +92,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.Converters.NewtonsoftJson
             {
                 TModel outputObj = existingValue as TModel ?? ReflectionHelper.CreateInstance<TModel>();
 
-                SetStringArrayPropertyValue(outputObj, JArray.Load(reader).ToObject<string[]>()!);
+                SetStringListLikePropertyValue(outputObj, JArray.Load(reader).ToObject<List<string>>()!);
 
                 return outputObj;
             }
@@ -108,8 +108,8 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.Converters.NewtonsoftJson
                 return;
             }
 
-            string[]? arrayLikeValue = GetStringArrayPropertyValue((inputObj as TModel)!);
-            if (arrayLikeValue is null)
+            List<string>? value = GetStringListLikePropertyValue((inputObj as TModel)!);
+            if (value is null)
             {
                 writer.WriteStartObject();
 
@@ -125,7 +125,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.Converters.NewtonsoftJson
                         continue;
 
                     string propertyName = jsonProperty.PropertyName ?? jsonProperty.UnderlyingName!;
-                    if (STRARR_PROPERTY_JSON_NAME.Equals(propertyName))
+                    if (STRINGLISTLIKE_PROPERTY_JSON_NAME.Equals(propertyName))
                     {
                         continue;
                     }
@@ -161,12 +161,12 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.Converters.NewtonsoftJson
             {
                 writer.WriteStartArray();
 
-                foreach (string s in arrayLikeValue)
+                foreach (string str in value)
                 {
-                    if (s is null)
+                    if (str is null)
                         writer.WriteNull();
                     else
-                        writer.WriteValue(s);
+                        writer.WriteValue(str);
                 }
 
                 writer.WriteEndArray();

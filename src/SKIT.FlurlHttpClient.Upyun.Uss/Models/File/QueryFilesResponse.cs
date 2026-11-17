@@ -14,14 +14,14 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("name")]
                 [System.Text.Json.Serialization.JsonPropertyName("name")]
-                public string FileKey { get; set; } = default!;
+                public string? FileKey { get; set; }
 
                 /// <summary>
                 /// 获取或设置文件类型。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("type")]
                 [System.Text.Json.Serialization.JsonPropertyName("type")]
-                public string FileType { get; set; } = default!;
+                public string? FileType { get; set; }
 
                 /// <summary>
                 /// 获取或设置文件大小（单位：字节）。
@@ -44,13 +44,13 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("files")]
         [System.Text.Json.Serialization.JsonPropertyName("files")]
-        public Types.File[] FileList { get; set; } = default!;
+        public List<Types.File>? FileList { get; set; }
 
         /// <summary>
         /// 获取或设置下一页起始位置。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("iter")]
         [System.Text.Json.Serialization.JsonPropertyName("iter")]
-        public string Offset { get; set; } = default!;
+        public string? Offset { get; set; }
     }
 }

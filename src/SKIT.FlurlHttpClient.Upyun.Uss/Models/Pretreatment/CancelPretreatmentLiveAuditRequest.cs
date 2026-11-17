@@ -10,13 +10,13 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("service")]
         [System.Text.Json.Serialization.JsonPropertyName("service")]
-        public string BucketName { get; set; } = string.Empty;
+        public string? BucketName { get; set; }
 
         /// <summary>
         /// 获取或设置任务 ID。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("task_id")]
         [System.Text.Json.Serialization.JsonPropertyName("task_id")]
-        public string TaskId { get; set; } = string.Empty;
+        public string? TaskId { get; set; }
     }
 }

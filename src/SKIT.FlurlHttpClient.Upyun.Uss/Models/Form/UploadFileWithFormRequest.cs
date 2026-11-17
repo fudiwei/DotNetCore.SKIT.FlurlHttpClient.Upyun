@@ -31,7 +31,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("name")]
                 [System.Text.Json.Serialization.JsonPropertyName("name")]
-                public string Name { get; set; } = string.Empty;
+                public string? Name { get; set; }
 
                 /// <summary>
                 /// 获取或设置结果保存路径。
@@ -103,21 +103,21 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.Models
         /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
-        public string BucketName { get; set; } = string.Empty;
+        public string? BucketName { get; set; }
 
         /// <summary>
         /// 获取或设置文件路径。
         /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
-        public string FileKey { get; set; } = string.Empty;
+        public string? FileKey { get; set; }
 
         /// <summary>
         /// 获取或设置文件字节数组。
         /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
-        public byte[] FileBytes { get; set; } = Array.Empty<byte>();
+        public byte[]? FileBytes { get; set; }
 
         /// <summary>
         /// 获取或设置文件 MIME 类型。
@@ -152,7 +152,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.Models
         /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
-        public IList<string>? AllowedFileTypeList { get; set; }
+        public List<string>? AllowedFileTypeList { get; set; }
 
         /// <summary>
         /// 获取或设置允许的文件大小范围。
@@ -180,7 +180,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.Models
         /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
-        public IDictionary<string, string>? Metadata { get; set; }
+        public Dictionary<string, string>? Metadata { get; set; }
 
         /// <summary>
         /// 获取或设置图片预处理参数字符串。
@@ -194,7 +194,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.Models
         /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
-        public IList<Types.AsyncPretreatmentParameter>? AsyncPretreatmentParameters { get; set; }
+        public List<Types.AsyncPretreatmentParameter>? AsyncPretreatmentParameters { get; set; }
 
         /// <summary>
         /// 获取或设置同步通知 URL。

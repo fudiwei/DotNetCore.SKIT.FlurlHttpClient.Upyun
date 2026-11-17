@@ -9,35 +9,35 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.Models
     {
         internal static class Converters
         {
-            internal class ResponseClassNewtonsoftJsonConverter : Uss.Converters.NewtonsoftJson.MaybeStringArrayLikeObjectConverterBase<CreatePretreatmentVideoAuditResponse>
+            internal class ResponseClassNewtonsoftJsonConverter : Uss.Converters.NewtonsoftJson.MaybeStringListLikeObjectConverterBase<CreatePretreatmentVideoAuditResponse>
             {
-                protected override string[]? GetStringArrayPropertyValue(CreatePretreatmentVideoAuditResponse model)
+                protected override List<string>? GetStringListLikePropertyValue(CreatePretreatmentVideoAuditResponse model)
                 {
                     return model.TaskIdList;
                 }
 
-                protected override void SetStringArrayPropertyValue(CreatePretreatmentVideoAuditResponse model, string[]? value)
+                protected override void SetStringListLikePropertyValue(CreatePretreatmentVideoAuditResponse model, List<string>? value)
                 {
                     model.TaskIdList = value!;
                 }
             }
 
-            internal class ResponseClassSystemTextJsonConverter : Uss.Converters.SystemTextJson.MaybeStringArrayLikeObjectConverterBase<CreatePretreatmentVideoAuditResponse>
+            internal class ResponseClassSystemTextJsonConverter : Uss.Converters.SystemTextJson.MaybeStringListLikeObjectConverterBase<CreatePretreatmentVideoAuditResponse>
             {
-                protected override string[]? GetStringArrayPropertyValue(CreatePretreatmentVideoAuditResponse model)
+                protected override List<string>? GetStringListLikePropertyValue(CreatePretreatmentVideoAuditResponse model)
                 {
                     return model.TaskIdList;
                 }
 
-                protected override void SetStringArrayPropertyValue(CreatePretreatmentVideoAuditResponse model, string[]? value)
+                protected override void SetStringListLikePropertyValue(CreatePretreatmentVideoAuditResponse model, List<string>? value)
                 {
                     model.TaskIdList = value!;
                 }
             }
         }
 
-        [Newtonsoft.Json.JsonProperty(Converters.ResponseClassNewtonsoftJsonConverter.STRARR_PROPERTY_JSON_NAME)]
-        [System.Text.Json.Serialization.JsonPropertyName(Converters.ResponseClassSystemTextJsonConverter.STRARR_PROPERTY_JSON_NAME)]
-        public string[] TaskIdList { get; set; } = default!;
+        [Newtonsoft.Json.JsonProperty(Converters.ResponseClassNewtonsoftJsonConverter.STRINGLISTLIKE_PROPERTY_JSON_NAME)]
+        [System.Text.Json.Serialization.JsonPropertyName(Converters.ResponseClassSystemTextJsonConverter.STRINGLISTLIKE_PROPERTY_JSON_NAME)]
+        public List<string>? TaskIdList { get; set; }
     }
 }

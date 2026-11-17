@@ -10,7 +10,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.Models
         /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
-        public string FileType
+        public string? FileType
         {
             get { return GetRawHeaders().TryGetFirstValue("x-upyun-file-type", out string? s) ? s! : string.Empty; }
         }

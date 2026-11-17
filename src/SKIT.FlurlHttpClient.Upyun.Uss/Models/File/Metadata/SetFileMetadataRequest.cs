@@ -10,14 +10,14 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.Models
         /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
-        public string BucketName { get; set; } = string.Empty;
+        public string? BucketName { get; set; }
 
         /// <summary>
         /// 获取或设置文件路径。
         /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
-        public string FileKey { get; set; } = string.Empty;
+        public string? FileKey { get; set; }
 
         /// <summary>
         /// 获取或设置元信息操作行为。
@@ -25,13 +25,13 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.Models
         /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
-        public string Action { get; set; } = "merge";
+        public string? Action { get; set; } = "merge";
 
         /// <summary>
         /// 获取或设置文件元信息。
         /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
-        public IDictionary<string, string>? Metadata { get; set; }
+        public Dictionary<string, string>? Metadata { get; set; }
     }
 }

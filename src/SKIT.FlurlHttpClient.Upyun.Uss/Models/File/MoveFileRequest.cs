@@ -10,21 +10,21 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.Models
         /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
-        public string BucketName { get; set; } = string.Empty;
+        public string? BucketName { get; set; }
 
         /// <summary>
         /// 获取或设置源文件路径。
         /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
-        public string SourceFileKey { get; set; } = string.Empty;
+        public string? SourceFileKey { get; set; }
 
         /// <summary>
         /// 获取或设置目标文件路径。
         /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
-        public string TargetFileKey { get; set; } = string.Empty;
+        public string? TargetFileKey { get; set; }
 
         /// <summary>
         /// 获取或设置文件 MD5 值。

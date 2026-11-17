@@ -8,24 +8,24 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.Converters.SystemTextJson
 {
     using SKIT.FlurlHttpClient.Upyun.Uss.Utilities;
 
-    internal abstract partial class MaybeStringArrayLikeObjectConverterBase<TModel> : JsonConverter<TModel?>
+    internal abstract partial class MaybeStringListLikeObjectConverterBase<TModel> : JsonConverter<TModel?>
         where TModel : class, new()
     {
-        public const string STRARR_PROPERTY_JSON_NAME = "#maybe-string-array-like";
+        public const string STRINGLISTLIKE_PROPERTY_JSON_NAME = "#maybe-string-list-like";
 
         /// <summary>
-        /// 获取模型中可能为字符串数组的属性值。
+        /// 获取模型中可能为字符串列表的属性值。
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        protected abstract string[]? GetStringArrayPropertyValue(TModel model);
+        protected abstract List<string>? GetStringListLikePropertyValue(TModel model);
 
         /// <summary>
-        /// 设置模型中可能为字符串数组的属性值。
+        /// 设置模型中可能为字符串列表的属性值。
         /// </summary>
         /// <param name="model"></param>
         /// <param name="value"></param>
-        protected abstract void SetStringArrayPropertyValue(TModel model, string[]? value);
+        protected abstract void SetStringListLikePropertyValue(TModel model, List<string>? value);
 
         public override bool CanConvert(Type typeToConvert)
         {
@@ -74,7 +74,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.Converters.SystemTextJson
             {
                 TModel outputObj = ReflectionHelper.CreateInstance<TModel>();
 
-                SetStringArrayPropertyValue(outputObj, JsonArray.Parse(ref reader)!.Deserialize<string[]>());
+                SetStringListLikePropertyValue(outputObj, JsonArray.Parse(ref reader)!.Deserialize<List<string>>());
 
                 return outputObj;
             }
@@ -90,8 +90,8 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.Converters.SystemTextJson
                 return;
             }
 
-            string[]? arrayLikeValue = GetStringArrayPropertyValue(inputObj);
-            if (arrayLikeValue is null)
+            List<string>? value = GetStringListLikePropertyValue(inputObj);
+            if (value is null)
             {
                 writer.WriteStartObject();
 
@@ -103,7 +103,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.Converters.SystemTextJson
                         continue;
 
                     string propertyName = jsonPropertyType.JsonPropertyName;
-                    if (STRARR_PROPERTY_JSON_NAME.Equals(propertyName))
+                    if (STRINGLISTLIKE_PROPERTY_JSON_NAME.Equals(propertyName))
                     {
                         continue;
                     }
@@ -130,12 +130,12 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.Converters.SystemTextJson
             {
                 writer.WriteStartArray();
 
-                foreach (string s in arrayLikeValue)
+                foreach (string str in value)
                 {
-                    if (s is null)
+                    if (str is null)
                         writer.WriteNullValue();
                     else
-                        writer.WriteStringValue(s);
+                        writer.WriteStringValue(str);
                 }
 
                 writer.WriteEndArray();
@@ -157,7 +157,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.Converters.SystemTextJson
         }
     }
 
-    partial class MaybeStringArrayLikeObjectConverterBase<TModel>
+    partial class MaybeStringListLikeObjectConverterBase<TModel>
     {
         private class JsonPropertyTypeInfo
         {

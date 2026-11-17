@@ -14,14 +14,14 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("image_matrix")]
                 [System.Text.Json.Serialization.JsonPropertyName("image_matrix")]
-                public IList<string[]> FileKeyList { get; set; } = new List<string[]>();
+                public List<string[]>? FileKeyList { get; set; }
 
                 /// <summary>
                 /// 获取或设置保存路径。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("save_as")]
                 [System.Text.Json.Serialization.JsonPropertyName("save_as")]
-                public string SaveAs { get; set; } = string.Empty;
+                public string? SaveAs { get; set; }
 
                 /// <summary>
                 /// 获取或设置图片预处理参数字符串。
@@ -37,20 +37,20 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.Models
         /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
-        public string BucketName { get; set; } = string.Empty;
+        public string? BucketName { get; set; }
 
         /// <summary>
         /// 获取或设置任务列表。
         /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
-        public IList<Types.Task> TaskList { get; set; } = new List<Types.Task>();
+        public List<Types.Task>? TaskList { get; set; }
 
         /// <summary>
         /// 获取或设置异步通知 URL。
         /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
-        public string NotifyUrl { get; set; } = string.Empty;
+        public string? NotifyUrl { get; set; }
     }
 }

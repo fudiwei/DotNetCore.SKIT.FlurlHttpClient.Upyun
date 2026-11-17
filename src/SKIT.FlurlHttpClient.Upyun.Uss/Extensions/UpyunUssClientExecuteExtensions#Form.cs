@@ -31,9 +31,9 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss
             using var formContent = new MultipartFormDataContent();
             using var fileContent = new ByteArrayContent(request.FileBytes ?? Array.Empty<byte>());
             fileContent.Headers.ContentLength = request.FileBytes?.Length;
-            formContent.Add(fileContent, Constants.FormDataFields.FORMDATA_FILE, Path.GetFileName(request.FileKey));
-            formContent.Add(new StringContent(request.BucketName, Encoding.UTF8), "bucket");
-            formContent.Add(new StringContent(request.FileKey, Encoding.UTF8), "save-key");
+            formContent.Add(fileContent, Constants.FormDataFields.FORMDATA_FILE, Path.GetFileName(request.FileKey!));
+            formContent.Add(new StringContent(request.BucketName!, Encoding.UTF8), "bucket");
+            formContent.Add(new StringContent(request.FileKey!, Encoding.UTF8), "save-key");
             formContent.Add(new StringContent(request.ExpireTimestamp.Value.ToString(), Encoding.UTF8), "expiration");
 
             if (request.FileContentType is not null)

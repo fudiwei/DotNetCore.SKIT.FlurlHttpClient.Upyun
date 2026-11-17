@@ -10,21 +10,21 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("service")]
         [System.Text.Json.Serialization.JsonPropertyName("service")]
-        public string BucketName { get; set; } = string.Empty;
+        public string? BucketName { get; set; }
 
         /// <summary>
         /// 获取或设置 RTMP 流地址。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("source")]
         [System.Text.Json.Serialization.JsonPropertyName("source")]
-        public string Source { get; set; } = string.Empty;
+        public string? Source { get; set; }
 
         /// <summary>
         /// 获取或设置异步通知 URL。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("notify_url")]
         [System.Text.Json.Serialization.JsonPropertyName("notify_url")]
-        public string NotifyUrl { get; set; } = string.Empty;
+        public string? NotifyUrl { get; set; }
 
         /// <summary>
         /// 获取或设置截图保存路径。

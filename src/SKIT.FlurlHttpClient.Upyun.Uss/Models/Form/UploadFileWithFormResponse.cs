@@ -5,9 +5,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.Models
     /// </summary>
     public class UploadFileWithFormResponse : UpyunUssResponse
     {
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         [Newtonsoft.Json.JsonProperty("message")]
         [System.Text.Json.Serialization.JsonPropertyName("message")]
         public override string? ErrorMessage { get; set; }

@@ -1,6 +1,6 @@
 namespace SKIT.FlurlHttpClient.Upyun.Uss.UnitTests.TestCases.Converters
 {
-    public class TestCase_MaybeStringArrayLikeObjectJsonConverterTest
+    public class TestCase_MaybeStringListLikeObjectJsonConverterTest
     {
         private static void TestCustomJsonConverter(IJsonSerializer jsonSerializer)
         {
@@ -30,13 +30,13 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.UnitTests.TestCases.Converters
                 {
                     ErrorCode = 123,
                     ErrorMessage = "ERR_MSG",
-                    TaskIdList = new string[] { "abc", "def", default!, "hij" }
+                    TaskIdList = new List<string> { "abc", "def", default!, "hij" }
                 };
                 string actualJson = jsonSerializer.Serialize(expectedObj);
 
                 Assert.Null(Record.Exception(() => jsonSerializer.Deserialize<dynamic>(actualJson)));
 
-                Assert.DoesNotContain("#maybe-string-array-like", actualJson);
+                Assert.DoesNotContain("#maybe-string-list-like", actualJson);
                 Assert.DoesNotContain(nameof(Models.CreatePretreatmentSpidermanResponse.TaskIdList), actualJson);
 
                 Assert.DoesNotContain("\"code\"", actualJson);
@@ -56,7 +56,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.UnitTests.TestCases.Converters
 
                 Assert.Null(Record.Exception(() => jsonSerializer.Deserialize<dynamic>(actualJson)));
 
-                Assert.DoesNotContain("#maybe-string-array-like", actualJson);
+                Assert.DoesNotContain("#maybe-string-list-like", actualJson);
                 Assert.DoesNotContain(nameof(Models.CreatePretreatmentSpidermanResponse.TaskIdList), actualJson);
 
                 Assert.Contains("\"code\":123", actualJson);
@@ -64,8 +64,8 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.UnitTests.TestCases.Converters
             });
         }
 
-        [Fact(DisplayName = "测试用例：自定义 JSON 转换器 `MaybeStringArrayLikeObjectConverter`")]
-        public void TestMaybeStringArrayLikeObjectJsonConverter()
+        [Fact(DisplayName = "测试用例：自定义 JSON 转换器 `MaybeStringListLikeObjectConverter`")]
+        public void TestMaybeStringListLikeObjectJsonConverter()
         {
             Assert.Multiple(() =>
             {

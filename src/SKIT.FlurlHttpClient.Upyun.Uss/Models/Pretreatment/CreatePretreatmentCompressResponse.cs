@@ -9,35 +9,35 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.Models
     {
         internal static class Converters
         {
-            internal class ResponseClassNewtonsoftJsonConverter : Uss.Converters.NewtonsoftJson.MaybeStringArrayLikeObjectConverterBase<CreatePretreatmentCompressResponse>
+            internal class ResponseClassNewtonsoftJsonConverter : Uss.Converters.NewtonsoftJson.MaybeStringListLikeObjectConverterBase<CreatePretreatmentCompressResponse>
             {
-                protected override string[]? GetStringArrayPropertyValue(CreatePretreatmentCompressResponse model)
+                protected override List<string>? GetStringListLikePropertyValue(CreatePretreatmentCompressResponse model)
                 {
                     return model.TaskIdList;
                 }
 
-                protected override void SetStringArrayPropertyValue(CreatePretreatmentCompressResponse model, string[]? value)
+                protected override void SetStringListLikePropertyValue(CreatePretreatmentCompressResponse model, List<string>? value)
                 {
                     model.TaskIdList = value!;
                 }
             }
 
-            internal class ResponseClassSystemTextJsonConverter : Uss.Converters.SystemTextJson.MaybeStringArrayLikeObjectConverterBase<CreatePretreatmentCompressResponse>
+            internal class ResponseClassSystemTextJsonConverter : Uss.Converters.SystemTextJson.MaybeStringListLikeObjectConverterBase<CreatePretreatmentCompressResponse>
             {
-                protected override string[]? GetStringArrayPropertyValue(CreatePretreatmentCompressResponse model)
+                protected override List<string>? GetStringListLikePropertyValue(CreatePretreatmentCompressResponse model)
                 {
                     return model.TaskIdList;
                 }
 
-                protected override void SetStringArrayPropertyValue(CreatePretreatmentCompressResponse model, string[]? value)
+                protected override void SetStringListLikePropertyValue(CreatePretreatmentCompressResponse model, List<string>? value)
                 {
                     model.TaskIdList = value!;
                 }
             }
         }
 
-        [Newtonsoft.Json.JsonProperty(Converters.ResponseClassNewtonsoftJsonConverter.STRARR_PROPERTY_JSON_NAME)]
-        [System.Text.Json.Serialization.JsonPropertyName(Converters.ResponseClassSystemTextJsonConverter.STRARR_PROPERTY_JSON_NAME)]
-        public string[] TaskIdList { get; set; } = default!;
+        [Newtonsoft.Json.JsonProperty(Converters.ResponseClassNewtonsoftJsonConverter.STRINGLISTLIKE_PROPERTY_JSON_NAME)]
+        [System.Text.Json.Serialization.JsonPropertyName(Converters.ResponseClassSystemTextJsonConverter.STRINGLISTLIKE_PROPERTY_JSON_NAME)]
+        public List<string>? TaskIdList { get; set; }
     }
 }

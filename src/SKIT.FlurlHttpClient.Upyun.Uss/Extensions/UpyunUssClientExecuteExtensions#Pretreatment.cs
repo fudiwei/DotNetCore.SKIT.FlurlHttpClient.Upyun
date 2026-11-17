@@ -24,8 +24,8 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss
 
             var formdata = new Dictionary<string, string>()
             {
-                { "service", request.BucketName },
-                { "notify_url", request.NotifyUrl },
+                { "service", request.BucketName! },
+                { "notify_url", request.NotifyUrl! },
                 { "app_name", "spiderman" },
                 { "tasks", Convert.ToBase64String(Encoding.UTF8.GetBytes(client.JsonSerializer.Serialize(request.TaskList))) }
             };
@@ -54,8 +54,8 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss
 
             var formdata = new Dictionary<string, string>()
             {
-                { "service", request.BucketName },
-                { "notify_url", request.NotifyUrl },
+                { "service", request.BucketName! },
+                { "notify_url", request.NotifyUrl! },
                 { "app_name", "thumb" },
                 { "accept", "json" },
                 { "tasks", Convert.ToBase64String(Encoding.UTF8.GetBytes(client.JsonSerializer.Serialize(request.TaskList))) }
@@ -81,8 +81,8 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss
 
             var formdata = new Dictionary<string, string>()
             {
-                { "service", request.BucketName },
-                { "notify_url", request.NotifyUrl },
+                { "service", request.BucketName! },
+                { "notify_url", request.NotifyUrl! },
                 { "app_name", "jigsaw" },
                 { "tasks", Convert.ToBase64String(Encoding.UTF8.GetBytes(client.JsonSerializer.Serialize(request.TaskList))) }
             };
@@ -107,8 +107,8 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss
 
             var formdata = new Dictionary<string, string>()
             {
-                { "service", request.BucketName },
-                { "notify_url", request.NotifyUrl },
+                { "service", request.BucketName! },
+                { "notify_url", request.NotifyUrl! },
                 { "app_name", "compress" },
                 { "tasks", Convert.ToBase64String(Encoding.UTF8.GetBytes(client.JsonSerializer.Serialize(request.TaskList))) }
             };
@@ -133,8 +133,8 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss
 
             var formdata = new Dictionary<string, string>()
             {
-                { "service", request.BucketName },
-                { "notify_url", request.NotifyUrl },
+                { "service", request.BucketName! },
+                { "notify_url", request.NotifyUrl! },
                 { "app_name", "depress" },
                 { "tasks", Convert.ToBase64String(Encoding.UTF8.GetBytes(client.JsonSerializer.Serialize(request.TaskList))) }
             };
@@ -159,8 +159,8 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss
 
             var formdata = new Dictionary<string, string>()
             {
-                { "service", request.BucketName },
-                { "notify_url", request.NotifyUrl },
+                { "service", request.BucketName! },
+                { "notify_url", request.NotifyUrl! },
                 { "app_name", "uconvert" },
                 { "tasks", Convert.ToBase64String(Encoding.UTF8.GetBytes(client.JsonSerializer.Serialize(request.TaskList))) }
             };
@@ -189,8 +189,8 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss
 
             var formdata = new Dictionary<string, string>()
             {
-                { "service", request.BucketName },
-                { "notify_url", request.NotifyUrl },
+                { "service", request.BucketName! },
+                { "notify_url", request.NotifyUrl! },
                 { "app_name", "imgaudit" },
                 { "accept", "json" },
                 { "tasks", Convert.ToBase64String(Encoding.UTF8.GetBytes(client.JsonSerializer.Serialize(request.TaskList))) }
@@ -220,8 +220,8 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss
 
             var formdata = new Dictionary<string, string>()
             {
-                { "service", request.BucketName },
-                { "notify_url", request.NotifyUrl },
+                { "service", request.BucketName! },
+                { "notify_url", request.NotifyUrl! },
                 { "app_name", "videoaudit" },
                 { "accept", "json" },
                 { "tasks", Convert.ToBase64String(Encoding.UTF8.GetBytes(client.JsonSerializer.Serialize(request.TaskList))) }
@@ -245,9 +245,11 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss
             if (client is null) throw new ArgumentNullException(nameof(client));
             if (request is null) throw new ArgumentNullException(nameof(request));
 
+            Utilities.HttpRequestGuard.AgainstEmptyPathVariable(request.BucketName, "bucket");
+
             IFlurlRequest flurlReq = client
-                .CreateFlurlRequest(request, HttpMethod.Post, request.BucketName, "liveaudit", "create")
-                .WithUrl(new Url($"http://p1.api.upyun.com/").AppendPathSegments(request.BucketName, "liveaudit", "create"));
+                .CreateFlurlRequest(request, HttpMethod.Post, request.BucketName!, "liveaudit", "create")
+                .WithUrl(new Url($"http://p1.api.upyun.com/").AppendPathSegments(request.BucketName!, "liveaudit", "create"));
 
             return await client.SendFlurlRequestAsJsonAsync<Models.CreatePretreatmentLiveAuditResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
@@ -268,9 +270,11 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss
             if (client is null) throw new ArgumentNullException(nameof(client));
             if (request is null) throw new ArgumentNullException(nameof(request));
 
+            Utilities.HttpRequestGuard.AgainstEmptyPathVariable(request.BucketName, "bucket");
+
             IFlurlRequest flurlReq = client
-                .CreateFlurlRequest(request, HttpMethod.Post, request.BucketName, "liveaudit", "cancel")
-                .WithUrl(new Url($"http://p1.api.upyun.com/").AppendPathSegments(request.BucketName, "liveaudit", "cancel"));
+                .CreateFlurlRequest(request, HttpMethod.Post, request.BucketName!, "liveaudit", "cancel")
+                .WithUrl(new Url($"http://p1.api.upyun.com/").AppendPathSegments(request.BucketName!, "liveaudit", "cancel"));
 
             return await client.SendFlurlRequestAsJsonAsync<Models.CancelPretreatmentLiveAuditResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }

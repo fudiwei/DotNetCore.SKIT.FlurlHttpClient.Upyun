@@ -14,7 +14,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("source")]
                 [System.Text.Json.Serialization.JsonPropertyName("source")]
-                public string FileKey { get; set; } = string.Empty;
+                public string? FileKey { get; set; }
             }
         }
 
@@ -23,20 +23,20 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.Models
         /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
-        public string BucketName { get; set; } = string.Empty;
+        public string? BucketName { get; set; }
 
         /// <summary>
         /// 获取或设置任务列表。
         /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
-        public IList<Types.Task> TaskList { get; set; } = new List<Types.Task>();
+        public List<Types.Task>? TaskList { get; set; }
 
         /// <summary>
         /// 获取或设置异步通知 URL。
         /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
-        public string NotifyUrl { get; set; } = string.Empty;
+        public string? NotifyUrl { get; set; }
     }
 }
