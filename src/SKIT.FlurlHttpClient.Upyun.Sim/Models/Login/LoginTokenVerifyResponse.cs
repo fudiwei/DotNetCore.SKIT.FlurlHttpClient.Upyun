@@ -17,7 +17,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Sim.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("phone")]
         [System.Text.Json.Serialization.JsonPropertyName("phone")]
-        public string EncryptedPhoneNumber { get; set; } = default!;
+        public string? EncryptedPhoneNumber { get; set; }
 
         public override bool IsSuccessful()
         {

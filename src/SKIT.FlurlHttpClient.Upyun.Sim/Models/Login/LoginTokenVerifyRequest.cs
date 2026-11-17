@@ -10,7 +10,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Sim.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("loginToken")]
         [System.Text.Json.Serialization.JsonPropertyName("loginToken")]
-        public string LoginToken { get; set; } = string.Empty;
+        public string? LoginToken { get; set; }
 
         /// <summary>
         /// 获取或设置开发者自定义 ID。
