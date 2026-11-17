@@ -1,12 +1,6 @@
-using System;
-using System.Net.Http;
-using System.Threading;
-using System.Threading.Tasks;
-using Flurl.Http;
-
 namespace SKIT.FlurlHttpClient.Upyun.Console
 {
-    public static class UpyunConsoleClientExecutePreheatExtensions
+    public static partial class UpyunConsoleClientExecuteExtensions
     {
         /// <summary>
         /// <para>异步调用 [GET] /preheat 接口。</para>
@@ -26,7 +20,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Console
 
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Get, "preheat")
-                .SetQueryParam("task_ids", string.Join(",", request.TaskIdList));
+                .SetQueryParam("task_ids", request.TaskIdList is not null ? string.Join(",", request.TaskIdList) : null);
 
             return await client.SendFlurlRequestAsJsonAsync<Models.GetPreheatResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }

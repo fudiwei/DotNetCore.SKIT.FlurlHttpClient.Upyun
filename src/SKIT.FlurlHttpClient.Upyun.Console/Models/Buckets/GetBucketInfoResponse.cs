@@ -1,6 +1,3 @@
-﻿using System;
-using System.Collections.Generic;
-
 namespace SKIT.FlurlHttpClient.Upyun.Console.Models
 {
     /// <summary>
@@ -65,9 +62,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("type")]
         [System.Text.Json.Serialization.JsonPropertyName("type")]
-#pragma warning disable CS8765
-        public override string Type { get; set; } = default!;
-#pragma warning restore CS8765
+        public override string? Type { get; set; }
 
         /// <summary>
         /// 获取或设置存储桶状态。
@@ -103,9 +98,9 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
         /// 获取或设置创建时间。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("created_at")]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.Common.BasicDateTimeOffsetConverter))]
+        [Newtonsoft.Json.JsonConverter(typeof(SKIT.JsonConv.NewtonsoftJson.Converters.ISO8601DateTimeOffsetConverter))]
         [System.Text.Json.Serialization.JsonPropertyName("created_at")]
-        [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.BasicDateTimeOffsetConverter))]
+        [System.Text.Json.Serialization.JsonConverter(typeof(SKIT.JsonConv.SystemTextJson.Converters.ISO8601DateTimeOffsetConverter))]
         public DateTimeOffset CreateTime { get; set; }
 
         /// <summary>

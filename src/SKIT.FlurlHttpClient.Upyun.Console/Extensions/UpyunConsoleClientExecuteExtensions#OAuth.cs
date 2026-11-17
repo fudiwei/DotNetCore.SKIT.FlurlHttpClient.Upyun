@@ -1,12 +1,6 @@
-using System;
-using System.Net.Http;
-using System.Threading;
-using System.Threading.Tasks;
-using Flurl.Http;
-
 namespace SKIT.FlurlHttpClient.Upyun.Console
 {
-    public static class UpyunConsoleClientExecuteOAuthExtensions
+    public static partial class UpyunConsoleClientExecuteExtensions
     {
         /// <summary>
         /// <para>异步调用 [POST] /oauth/tokens 接口。</para>
@@ -25,10 +19,14 @@ namespace SKIT.FlurlHttpClient.Upyun.Console
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             if (request.Username is null)
+            {
                 request.Username = client.Credentials.Username;
+            }
 
             if (request.Password is null)
+            {
                 request.Password = client.Credentials.Password;
+            }
 
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Post, "oauth", "tokens");

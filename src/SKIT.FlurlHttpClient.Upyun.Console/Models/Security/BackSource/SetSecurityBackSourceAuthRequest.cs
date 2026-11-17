@@ -1,5 +1,3 @@
-﻿using System.Collections.Generic;
-
 namespace SKIT.FlurlHttpClient.Upyun.Console.Models
 {
     /// <summary>
@@ -93,7 +91,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("external")]
                 [System.Text.Json.Serialization.JsonPropertyName("external")]
-                [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.DynamicObjectConverter))]
+                [System.Text.Json.Serialization.JsonConverter(typeof(SKIT.JsonConv.SystemTextJson.Converters.DynamicObjectConverter))]
                 public dynamic? ExternalConfig { get; set; }
             }
         }

@@ -35,7 +35,7 @@
 
         /// <summary>
         /// 获取或设置权限范围。
-        /// <para>默认值：global</para>
+        /// <para>默认值："global"</para>
         /// </summary>
         [Newtonsoft.Json.JsonProperty("scope")]
         [System.Text.Json.Serialization.JsonPropertyName("scope")]

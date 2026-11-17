@@ -1,5 +1,3 @@
-﻿using System;
-
 namespace SKIT.FlurlHttpClient.Upyun.Console.Models
 {
     /// <summary>
@@ -108,9 +106,9 @@ namespace SKIT.FlurlHttpClient.Upyun.Console.Models
                 /// 获取或设置更新时间。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("updated_at")]
-                [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.Common.UnixTimestampDateTimeOffsetConverter))]
+                [Newtonsoft.Json.JsonConverter(typeof(SKIT.JsonConv.NewtonsoftJson.Converters.TimestampDateTimeOffsetConverter))]
                 [System.Text.Json.Serialization.JsonPropertyName("updated_at")]
-                [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.UnixTimestampDateTimeOffsetConverter))]
+                [System.Text.Json.Serialization.JsonConverter(typeof(SKIT.JsonConv.SystemTextJson.Converters.TimestampDateTimeOffsetConverter))]
                 public DateTimeOffset UpdateTime { get; set; }
             }
         }

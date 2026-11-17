@@ -1,12 +1,6 @@
-using System;
-using System.Net.Http;
-using System.Threading;
-using System.Threading.Tasks;
-using Flurl.Http;
-
 namespace SKIT.FlurlHttpClient.Upyun.Console
 {
-    public static class UpyunConsoleClientExecuteHttpsExtensions
+    public static partial class UpyunConsoleClientExecuteExtensions
     {
         /// <summary>
         /// <para>异步调用 [GET] /https/certificate/info 接口。</para>

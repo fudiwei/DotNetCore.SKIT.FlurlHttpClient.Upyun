@@ -20,11 +20,11 @@ namespace SKIT.FlurlHttpClient.Upyun.Console
         /// <summary>
         /// 获取或设置又拍云服务管理后台用户名。
         /// </summary>
-        public string Username { get; set; } = default!;
+        public string Username { get; set; } = string.Empty;
 
         /// <summary>
         /// 获取或设置又拍云服务管理后台密码。
         /// </summary>
-        public string Password { get; set; } = default!;
+        public string Password { get; set; } = string.Empty;
     }
 }

@@ -1,12 +1,7 @@
-using System;
-using System.Net.Http;
-using System.Threading;
-using System.Threading.Tasks;
-using Flurl.Http;
-
 namespace SKIT.FlurlHttpClient.Upyun.Console
 {
-    public static class UpyunConsoleClientExecuteSecurityExtensions
+
+    public static partial class UpyunConsoleClientExecuteExtensions
     {
         #region BackSource
         /// <summary>
