@@ -20,11 +20,11 @@ namespace SKIT.FlurlHttpClient.Upyun.Sim
         /// <summary>
         /// 获取或设置又拍云 AppKey。
         /// </summary>
-        public string AppKey { get; set; } = default!;
+        public string AppKey { get; set; } = string.Empty;
 
         /// <summary>
         /// 获取或设置又拍云 AppSecret。
         /// </summary>
-        public string AppSecret { get; set; } = default!;
+        public string AppSecret { get; set; } = string.Empty;
     }
 }

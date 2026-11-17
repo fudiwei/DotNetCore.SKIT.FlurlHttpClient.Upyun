@@ -1,12 +1,6 @@
-using System;
-using System.Net.Http;
-using System.Threading;
-using System.Threading.Tasks;
-using Flurl.Http;
-
 namespace SKIT.FlurlHttpClient.Upyun.Sim
 {
-    public static class UpyunSimClientExecuteLoginExtensions
+    public static partial class UpyunSimClientExecuteExtensions
     {
         /// <summary>
         /// <para>异步调用 [POST] /login/token/verify 接口。</para>
