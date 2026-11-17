@@ -1,14 +1,6 @@
-using System;
-using System.Linq;
-using System.Net.Http;
-using System.Text.RegularExpressions;
-using System.Threading;
-using System.Threading.Tasks;
-using Flurl.Http;
-
 namespace SKIT.FlurlHttpClient.Upyun.Uss
 {
-    public static class UpyunUssClientExecuteFileExtensions
+    public static partial class UpyunUssClientExecuteExtensions
     {
         /// <summary>
         /// <para>异步调用 [PUT] /{bucket}/{path_to_file} 接口。</para>
@@ -62,6 +54,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss
 
             using var httpContent = new ByteArrayContent(request.FileBytes ?? Array.Empty<byte>());
             httpContent.Headers.ContentLength = request.FileBytes?.Length;
+
             return await client.SendFlurlRequestAsync<Models.UploadFileResponse>(flurlReq, httpContent: httpContent, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
 
@@ -86,7 +79,9 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss
                 .WithHeader("x-upyun-copy-source", $"{request.BucketName}/{request.SourceFileKey}");
 
             if (request.FileMd5 is not null)
+            {
                 flurlReq.WithHeader("content-md5", request.FileMd5);
+            }
 
             return await client.SendFlurlRequestAsync<Models.CopyFileResponse>(flurlReq, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
@@ -112,7 +107,9 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss
                 .WithHeader("x-upyun-move-source", $"{request.BucketName}/{request.SourceFileKey}");
 
             if (request.FileMd5 is not null)
+            {
                 flurlReq.WithHeader("content-md5", request.FileMd5);
+            }
 
             return await client.SendFlurlRequestAsync<Models.MoveFileResponse>(flurlReq, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
@@ -182,13 +179,19 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss
                 .WithHeader(HttpHeaders.Accept, MimeTypes.Json);
 
             if (request.Offset is not null)
+            {
                 flurlReq.WithHeader("x-list-iter", request.Offset);
+            }
 
             if (request.Limit is not null)
+            {
                 flurlReq.WithHeader("x-list-limit", request.Limit.Value);
+            }
 
             if (request.OrderType is not null)
+            {
                 flurlReq.WithHeader("x-list-order", request.OrderType);
+            }
 
             return await client.SendFlurlRequestAsync<Models.QueryFilesResponse>(flurlReq, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
@@ -328,6 +331,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss
 
             using var httpContent = new ByteArrayContent(request.FileBytes ?? Array.Empty<byte>());
             httpContent.Headers.ContentLength = request.FileBytes?.Length;
+
             return await client.SendFlurlRequestAsync<Models.TransferParallelPartialUploadFileResponse>(flurlReq, httpContent: httpContent, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
 
@@ -437,6 +441,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss
 
             using var httpContent = new ByteArrayContent(request.FileBytes ?? Array.Empty<byte>());
             httpContent.Headers.ContentLength = request.FileBytes?.Length;
+            
             return await client.SendFlurlRequestAsync<Models.TransferSerialPartialUploadFileResponse>(flurlReq, httpContent: httpContent, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
 

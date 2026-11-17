@@ -1,6 +1,3 @@
-﻿using System;
-using System.Collections.Generic;
-
 namespace SKIT.FlurlHttpClient.Upyun.Uss.Models
 {
     /// <summary>

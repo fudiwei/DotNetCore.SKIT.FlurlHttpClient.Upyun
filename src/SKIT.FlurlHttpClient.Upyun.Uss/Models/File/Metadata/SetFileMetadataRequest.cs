@@ -1,5 +1,3 @@
-﻿using System.Collections.Generic;
-
 namespace SKIT.FlurlHttpClient.Upyun.Uss.Models
 {
     /// <summary>
@@ -23,7 +21,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.Models
 
         /// <summary>
         /// 获取或设置元信息操作行为。
-        /// <para>默认值：merge</para>
+        /// <para>默认值："merge"</para>
         /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]

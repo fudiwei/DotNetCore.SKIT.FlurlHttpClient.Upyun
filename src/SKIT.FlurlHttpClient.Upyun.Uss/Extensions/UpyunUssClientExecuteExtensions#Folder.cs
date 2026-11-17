@@ -1,12 +1,6 @@
-using System;
-using System.Net.Http;
-using System.Threading;
-using System.Threading.Tasks;
-using Flurl.Http;
-
 namespace SKIT.FlurlHttpClient.Upyun.Uss
 {
-    public static class UpyunUssClientExecuteFolderExtensions
+    public static partial class UpyunUssClientExecuteExtensions
     {
         /// <summary>
         /// <para>异步调用 [POST] /{bucket}/{path_to_folder} 接口。</para>

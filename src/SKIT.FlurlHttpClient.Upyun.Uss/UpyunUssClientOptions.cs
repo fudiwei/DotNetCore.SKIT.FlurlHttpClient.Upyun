@@ -26,11 +26,11 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss
         /// <summary>
         /// 获取或设置又拍云操作员名称。
         /// </summary>
-        public string OperatorName { get; set; } = default!;
+        public string OperatorName { get; set; } = string.Empty;
 
         /// <summary>
         /// 获取或设置又拍云操作员密码。
         /// </summary>
-        public string OperatorPassword { get; set; } = default!;
+        public string OperatorPassword { get; set; } = string.Empty;
     }
 }

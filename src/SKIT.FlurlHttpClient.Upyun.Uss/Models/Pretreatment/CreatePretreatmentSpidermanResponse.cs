@@ -9,7 +9,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.Models
     {
         internal static class Converters
         {
-            internal class ResponseClassNewtonsoftJsonConverter : Newtonsoft.Json.Converters.Internal.MaybeStringArrayLikeObjectConverterBase<CreatePretreatmentSpidermanResponse>
+            internal class ResponseClassNewtonsoftJsonConverter : Uss.Converters.NewtonsoftJson.MaybeStringArrayLikeObjectConverterBase<CreatePretreatmentSpidermanResponse>
             {
                 protected override string[]? GetStringArrayPropertyValue(CreatePretreatmentSpidermanResponse model)
                 {
@@ -22,7 +22,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.Models
                 }
             }
 
-            internal class ResponseClassSystemTextJsonConverter : System.Text.Json.Serialization.Internal.MaybeStringArrayLikeObjectConverterBase<CreatePretreatmentSpidermanResponse>
+            internal class ResponseClassSystemTextJsonConverter : Uss.Converters.SystemTextJson.MaybeStringArrayLikeObjectConverterBase<CreatePretreatmentSpidermanResponse>
             {
                 protected override string[]? GetStringArrayPropertyValue(CreatePretreatmentSpidermanResponse model)
                 {

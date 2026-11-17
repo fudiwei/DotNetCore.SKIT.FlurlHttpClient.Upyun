@@ -1,13 +1,6 @@
-using System;
-using System.Net.Http;
-using System.Threading;
-using System.Threading.Tasks;
-using Flurl;
-using Flurl.Http;
-
 namespace SKIT.FlurlHttpClient.Upyun.Uss
 {
-    public static class UpyunUssClientExecuteBucketExtensions
+    public static partial class UpyunUssClientExecuteExtensions
     {
         /// <summary>
         /// <para>异步调用 [GET] /{bucket}/?usage 接口。</para>

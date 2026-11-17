@@ -10,7 +10,7 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss
         /// </summary>
         [Newtonsoft.Json.JsonProperty("id")]
         [System.Text.Json.Serialization.JsonPropertyName("id")]
-        [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.NumericalStringReadOnlyConverter))]
+        [System.Text.Json.Serialization.JsonConverter(typeof(SKIT.JsonConv.SystemTextJson.Converters.NumericStringReadOnlyConverter))]
         public virtual string? LogId { get; set; }
 
         /// <summary>

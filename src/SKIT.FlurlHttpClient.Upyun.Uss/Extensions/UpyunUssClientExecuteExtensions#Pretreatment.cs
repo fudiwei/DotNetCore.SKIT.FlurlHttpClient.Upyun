@@ -1,15 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Flurl;
-using Flurl.Http;
-
 namespace SKIT.FlurlHttpClient.Upyun.Uss
 {
-    public static class UpyunUssClientExecutePretreatmentExtensions
+    public static partial class UpyunUssClientExecuteExtensions
     {
         /// <summary>
         /// <para>异步调用 [POST] /pretreatment/ 接口。</para>

@@ -1,12 +1,8 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
 
-namespace Newtonsoft.Json.Converters.Internal
+namespace SKIT.FlurlHttpClient.Upyun.Uss.Converters.NewtonsoftJson
 {
     using SKIT.FlurlHttpClient.Upyun.Uss.Utilities;
 
@@ -100,7 +96,7 @@ namespace Newtonsoft.Json.Converters.Internal
 
                 return outputObj;
             }
-            
+
             throw new JsonException($"Unexpected JSON token type '{reader.TokenType}' when reading.");
         }
 
@@ -137,7 +133,7 @@ namespace Newtonsoft.Json.Converters.Internal
                     object? propertyValue = jsonProperty.ValueProvider?.GetValue(inputObj);
                     if (propertyValue is null)
                     {
-                        if (serializer.NullValueHandling == NullValueHandling.Include)
+                        if (serializer.NullValueHandling == Newtonsoft.Json.NullValueHandling.Include)
                         {
                             writer.WritePropertyName(propertyName);
                             writer.WriteNull();
@@ -179,7 +175,8 @@ namespace Newtonsoft.Json.Converters.Internal
 
         private JsonSerializer CopyJsonSerializer(JsonSerializer serializer, params JsonConverter?[] customConverters)
         {
-            JsonSerializer serializerCopy = JsonSerializer.Create(serializer.ExtractSerializerSettings());
+            JsonSerializerSettings serializerSettings = SKIT.JsonConv.NewtonsoftJson.NewtonsoftJsonSerializerExtensions.ExtractSerializerSettings(serializer);
+            JsonSerializer serializerCopy = JsonSerializer.Create(serializerSettings);
             serializerCopy.Converters.Remove(this);
 
             foreach (JsonConverter? converter in customConverters)

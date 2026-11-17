@@ -1,18 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading;
-using System.Threading.Tasks;
-using Flurl.Http;
-
 namespace SKIT.FlurlHttpClient.Upyun.Uss
 {
-    public static class UpyunUssClientExecuteFormExtensions
+    public static partial class UpyunUssClientExecuteExtensions
     {
         /// <summary>
         /// <para>异步调用 [POST] /{bucket} 接口。</para>
@@ -31,7 +19,9 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             if (request.ExpireTimestamp is null)
+            {
                 request.ExpireTimestamp = DateTimeOffset.Now.AddMinutes(30).ToUnixTimeSeconds();
+            }
 
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Post, request.BucketName);
