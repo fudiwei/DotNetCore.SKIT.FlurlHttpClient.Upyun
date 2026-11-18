@@ -5,6 +5,13 @@ namespace SKIT.FlurlHttpClient.Upyun.Uss.Interceptors
 {
     using SKIT.FlurlHttpClient.Upyun.Uss.Constants;
 
+    /// <summary>
+    /// 
+    /// <para>
+    /// REF: <br/>
+    /// <![CDATA[ https://help.upyun.com/knowledge-base/object_storage_authorization/#sign_auth ]]>
+    /// </para>
+    /// </summary>
     internal class UpyunUssRequestSigningInterceptor : HttpInterceptor
     {
         private readonly string _authType;
