@@ -1,7 +1,5 @@
 namespace SKIT.FlurlHttpClient.Upyun.Console.Models
 {
-    using SKIT.FlurlHttpClient.Internal.CodeAnalysis;
-
     /// <summary>
     /// <para>表示 [POST] /v2/buckets/cdn/cache 接口的响应。</para>
     /// </summary>
